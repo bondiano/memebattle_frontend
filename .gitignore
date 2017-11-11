@@ -1,0 +1,8 @@
+.DS_Store
+public
+distr
+node_modules
+.idea
+*.log
+.env
+.cache-loader
