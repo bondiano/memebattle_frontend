@@ -12,8 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 const initialState = {};
 
 const middleware = [
-    sagaMiddleware,
-    thunk
+    sagaMiddleware
 ];
 
 const store = createStore(
