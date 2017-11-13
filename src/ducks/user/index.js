@@ -1,8 +1,8 @@
-import appReducer from './reducer';
-import appSagas from './sagas';
+import userReducer from './reducer';
+import userSagas from './sagas';
 
 
 export {
-    appReducer,
-    appSagas,
+    userReducer,
+    userSagas,
 };
