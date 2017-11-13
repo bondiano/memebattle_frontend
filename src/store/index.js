@@ -5,13 +5,15 @@ import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
+import thunk from 'redux-thunk';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {};
 
 const middleware = [
-    sagaMiddleware
+    sagaMiddleware,
+    thunk
 ];
 
 const store = createStore(
