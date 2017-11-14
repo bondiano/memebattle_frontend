@@ -1,8 +1,8 @@
 import userReducer from './reducer';
-import registerSaga from './sagas';
+import userRootSaga from './sagas';
 
 
 export {
     userReducer,
-    registerSaga,
+    userRootSaga,
 };
