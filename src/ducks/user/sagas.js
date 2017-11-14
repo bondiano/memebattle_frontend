@@ -5,7 +5,6 @@ import types from './types';
 
 function* registerSaga(action) {
     try{
-        console.log('Reg saga');
         const data = yield call(services.registerUser, action.userData);
         yield put(actions.registerSuccess(data));
     } catch (error){

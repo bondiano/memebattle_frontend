@@ -1,7 +1,7 @@
 import React from 'react';
 
 const defaultState = {
-    login: "",
+    username: "",
     password: "",
     confirm: false,
     email: "",
@@ -43,7 +43,7 @@ class RegisterForm extends React.Component {
         return (
             <form>
                 <p>Логин:</p>
-                <input value={this.state.login} onChange={this.changeHandler.bind(this, 'login')} type="text" label="Name" />
+                <input value={this.state.username} onChange={this.changeHandler.bind(this, 'username')} type="text" label="Name" />
                 <p>E-mail:</p>
                 <input value={this.state.email} onChange={this.changeHandler.bind(this, 'email')} type="email" label="Email"></input>
                 <p>Пароль:</p>
