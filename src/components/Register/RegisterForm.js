@@ -1,5 +1,4 @@
 import React from 'react';
-import request from '../../helpers'
 
 const defaultState = {
     login: "",
@@ -13,10 +12,9 @@ class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            form: defaultState,
+            form: defaultState
         };
         this.submitForm = this.submitForm.bind(this);
-        console.log(props);
     }
 
     submitForm(e) {
@@ -25,34 +23,31 @@ class RegisterForm extends React.Component {
     };
 
     changeHandler(name, event) {
-        console.log(name, event.target.value);
         this.changeFilter({
             [name]: event.target.value,
-        })
+        });
     };
 
-    changeFilter(newFilters){
-        this.setState((props, prevState) => {
-            const oldForm = prevState.form;
-            return {
+    changeFilter(data) {
+        if(!data) return;
+        this.setState((prevState) => ({
                 ...prevState,
                 form: {
-                    ...oldForm,
-                    ...newFilters,
+                    ...prevState.form,
+                    ...data,
                 }
-            }
-        })
-    }
+        }));
+    };
 
     render() {
         return (
             <form>
                 <p>Логин:</p>
-                <input value={this.state.form.login} onChange={this.changeHandler.bind(this, 'login')} type="text" label="Name" />
+                <input value={this.state.login} onChange={this.changeHandler.bind(this, 'login')} type="text" label="Name" />
                 <p>E-mail:</p>
-                <input value={this.state.form.email} onChange={this.changeHandler.bind(this, 'email')} type="email" label="Email"></input>
+                <input value={this.state.email} onChange={this.changeHandler.bind(this, 'email')} type="email" label="Email"></input>
                 <p>Пароль:</p>
-                <input value={this.state.form.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password"></input>
+                <input value={this.state.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password"></input>
                 <p>Подтвердите Пароль:</p>
                 <input type="password" label="Password"></input>
                 <p><input type="checkbox" label="Confirm"/> С правилами соглсен(а)</p>

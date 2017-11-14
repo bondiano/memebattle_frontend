@@ -1,9 +1,10 @@
 import request from '../../helpers/request';
 
-const service = {
+const services = {
     registerUser(userData) {
+        console.log(userData);
         return request.post('/auth/singup', userData);
     }
 }
 
-export default service;
+export default services;
