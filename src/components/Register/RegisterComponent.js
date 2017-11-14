@@ -1,10 +1,12 @@
 import React from 'react';
-
+import RegisterForm from './RegisterForm';
 
 class RegisterComponent extends React.Component {
     render() {
         return (
-            <p>Hello</p>
+            <div>
+                <RegisterForm {...this.props}/>
+            </div>
         );
     }
 }

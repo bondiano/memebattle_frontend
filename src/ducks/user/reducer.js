@@ -1,3 +1,5 @@
+import types from './types';
+
 const initialState = {
     uid: '',
     username: '',
@@ -10,6 +12,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case types.REGISTER_REQUEST:
+        case types.REGISTER_SUCCESS:
+            return { 
+                ...state,
+                accesToken: action.token, 
+            }
         default:
             return state;
     }
