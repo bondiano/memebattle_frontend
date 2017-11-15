@@ -43,8 +43,8 @@ class RegisterForm extends React.Component {
         return (
             <form>
                 <input value={this.state.username} onChange={this.changeHandler.bind(this, 'username')} type="text" label="Name" placeholder="Логин"/>
-                <input value={this.state.email} onChange={this.changeHandler.bind(this, 'email')} type="email" label="Email" placeholder="E-mail"></input>
-                <input value={this.state.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password" placeholder="Пароль"></input>
+                <input value={this.state.email} onChange={this.changeHandler.bind(this, 'email')} type="email" label="Email" placeholder="E-mail"/>
+                <input value={this.state.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password" placeholder="Пароль"/>
                 <input type="password" label="Password" placeholder="Подтвердите Пароль"></input>
                 <p><input type="checkbox" label="Confirm"/> С правилами соглсен(а)</p>
                 <button onClick={this.submitForm}>Отправить</button>

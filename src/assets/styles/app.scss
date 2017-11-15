@@ -1,0 +1,40 @@
+@import url('./assets/fonts/NautilusPompilius/NautilusPompilius.scss');
+@import url('./assets/fonts/OpenGostTypeATT-Regular/OpenGostTypeATT-Regular.scss');
+
+$color-blue: #0c7177;
+$color-yellow: #fce063;
+
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100vh;
+    height: 100%;
+    background-color: white;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+p{
+    font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;
+    font-size: 2rem;
+    color: $color-blue;
+}
+
+h1{
+    font-family: "NautilusPompilius", Courier, sans-serif;
+    font-size: 3.5rem;
+    color: $color-blue;
+}
+
+#app{
+    height: 100vh;
+}
+
+.Logo{
+    display: inline-block;
+    max-width: 90%;
+    height: auto;
+}
