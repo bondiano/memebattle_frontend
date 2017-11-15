@@ -37,6 +37,16 @@ class AuthForm extends React.Component {
         }));
     };
 
+    handleCheckChange(){       
+        this.setState((prevState) => ({
+            ...prevState,
+            form: {
+                ...prevState.form,
+                confirm: !this.state.form.confirm,
+            }
+        }));
+    };
+
     render() {
         return (
                 
@@ -61,14 +71,14 @@ class AuthForm extends React.Component {
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <p className="accept-rules">
-                                <input className="auth-input" type="checkbox" label="Confirm" id="checkbox-rules"/> 
+                                <input className="auth-input" onChange={this.handleCheckChange.bind(this)} type="checkbox" label="Confirm" id="checkbox-rules"/> 
                                 <label htmlFor="checkbox-rules"><span className="checkbox-custom"></span>С правилами ознакомился</label>
                             </p>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" onClick={this.submitForm}>ВХОД</button>
+                            <button className="btn auth-btn" onClick={this.submitForm} disabled={!this.state.form.confirm}>ВХОД</button>
                         </div>
                     </div>
                     <div className="row justify-content-center">
