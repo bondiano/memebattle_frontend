@@ -1,15 +1,16 @@
 import React from 'react';
 import AuthForm from './AuthForm';
 
-class RegisterComponent extends React.Component {
+class AuthComponent extends React.Component {
     render() {
         return (
             <div>
-                <AuthForm/>
+                <AuthForm {...this.props}/>
+                <a href="/register"><button onClick={() => false}>Регистрация</button></a>
             </div>
         );
     }
 }
 
 
-export default RegisterComponent;
+export default AuthComponent;

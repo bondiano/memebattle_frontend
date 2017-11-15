@@ -19,6 +19,24 @@ const actions = {
             error,
         };
     },
+    loginRequest(userData) {
+        return {
+            type: types.LOGIN_REQUEST,
+            userData,
+        };
+    },
+    loginSuccess(token) {
+        return {
+            type: types.LOGIN_SUCCESS,
+            token,
+        };
+    },
+    loginError(error) {
+        return {
+            type: types.LOGIN_ERROR,
+            error,
+        };
+    },
 };
 
 export default actions;

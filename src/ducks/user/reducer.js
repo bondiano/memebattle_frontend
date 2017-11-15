@@ -18,6 +18,12 @@ export default (state = initialState, action) => {
                 ...state,
                 accesToken: action.token, 
             }
+        case types.LOGIN_REQUEST:
+        case types.LOGIN_SUCCESS:
+            return { 
+                ...state,
+                accesToken: action.token, 
+            }
         default:
             return state;
     }
