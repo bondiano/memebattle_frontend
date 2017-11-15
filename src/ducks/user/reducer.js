@@ -16,13 +16,19 @@ export default (state = initialState, action) => {
         case types.REGISTER_SUCCESS:
             return { 
                 ...state,
-                accesToken: action.token, 
             }
         case types.LOGIN_REQUEST:
+        console.log(action)
+        return { 
+            ...state,
+            username: action.userData.username,
+        }
         case types.LOGIN_SUCCESS:
+        console.log(action)
             return { 
                 ...state,
-                accesToken: action.token, 
+                accesToken: action.token.token_access,
+                refreshToken: action.token.token_refresh
             }
         default:
             return state;
