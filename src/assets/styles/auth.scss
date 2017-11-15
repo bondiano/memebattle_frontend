@@ -19,7 +19,10 @@
 }
 
 p.accept-rules {
+    padding-top: 3px;
+    padding-left: 10px; 
     color:white;
+    letter-spacing: 0.2rem;
 }
 
  input[type="password"].auth-input, input[type="email"].auth-input, input[type="text"].auth-input{
@@ -34,6 +37,7 @@ p.accept-rules {
     color: white;
     font-size: 2rem; 
     font-family: "OpenGostTypeATT-Regular", Tahoma;
+    letter-spacing: 0.2rem;
  }
 
  input[type="text"].auth-input::-webkit-input-placeholder {color:white;}
@@ -64,7 +68,7 @@ input[type="checkbox"] + label::before {
     display:inline-block;
     width:1.6rem;
     height:1.6rem;
-    margin:-1px 5px 0 0;
+    margin: 0 10px 5px -0.1rem;
     vertical-align:middle;
     //background:url('./assets/images/draw-check-mark.png') left top no-repeat;
     cursor:pointer;
@@ -86,11 +90,12 @@ button.auth-btn{
     text-decoration: none;
     user-select: none;
     background: none;
-    padding: 0 4rem 0 4rem;
+    //padding: 0 4rem 0 4rem;
     outline: none;
     font-family: "OpenGostTypeATT-Regular", Tahoma;
     font-size: 2rem; 
     margin-bottom: 10px;
+    width: 16rem;
 }
 
 button.auth-btn:hover{
@@ -108,10 +113,11 @@ a.auth-btn{
     text-decoration: none;
     user-select: none;
     background: $color-blue;
-    padding: 0 4rem 0 4rem;
+    //padding: 0 4rem 0 4rem;
     outline: none;
     font-family: "OpenGostTypeATT-Regular", Tahoma;
     font-size: 2rem; 
+    width: 16rem;
 }
 
 a.auth-btn:hover{

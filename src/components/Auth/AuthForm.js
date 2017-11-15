@@ -39,7 +39,15 @@ class AuthForm extends React.Component {
 
     render() {
         return (
+                
                 <form>
+                    <div className="row justify-content-center">
+                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
+                            <h1 className="enterText">
+                                Вход
+                            </h1>
+                        </div>
+                    </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <input className="form-control auth-input" value={this.state.username} onChange={this.changeHandler.bind(this, 'username')} type="text" label="Name" placeholder="Логин"/>
@@ -60,12 +68,12 @@ class AuthForm extends React.Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" onClick={this.submitForm}>Вход</button>
+                            <button className="btn auth-btn" onClick={this.submitForm}>ВХОД</button>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <a className="btn auth-btn" href="/register">Регистрация</a>
+                            <a className="btn auth-btn" href="/register">РЕГИСТРАЦИЯ</a>
                         </div>
                     </div>
                 </form>
