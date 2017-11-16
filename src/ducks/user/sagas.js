@@ -16,6 +16,12 @@ function* loginSaga(action) {
     try{
         const data = yield call(services.loginUser, action.userData);
         yield put(actions.loginSuccess(data));
+        
+        yield window.localStorage.setItem('token_access', data.token_access);
+        yield window.localStorage.setItem('token_refresh', data.token_refresh);
+        yield window.localStorage.setItem('username', data.username);
+        yield window.localStorage.setItem('permissions', data.permissions);
+        yield window.localStorage.setItem('id', data._id);
     } catch (error){
         yield put(actions.loginError(error));
     }

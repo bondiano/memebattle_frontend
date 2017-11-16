@@ -1,7 +1,7 @@
 import types from './types';
 
 const initialState = {
-    uid: '',
+    _id: '',
     username: '',
     avatar: '',
     memcoin: '',
@@ -18,13 +18,11 @@ export default (state = initialState, action) => {
                 ...state,
             }
         case types.LOGIN_REQUEST:
-        console.log(action)
         return { 
             ...state,
             username: action.userData.username,
         }
         case types.LOGIN_SUCCESS:
-        console.log(action)
             return { 
                 ...state,
                 accesToken: action.token.token_access,

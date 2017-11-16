@@ -74,11 +74,11 @@ class RegisterForm extends React.Component {
                             <input className="form-control auth-input" value={this.state.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password" placeholder="Пароль"/>
                         </div>
                 </div>
-                <div className="row justify-content-center">
+                {/* <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <input className="form-control auth-input" type="password" label="Password" placeholder="Подтвердите Пароль"/>
                         </div>
-                </div>
+                </div> */}
                 <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <p className="accept-rules">
