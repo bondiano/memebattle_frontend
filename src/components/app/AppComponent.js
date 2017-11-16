@@ -10,11 +10,7 @@ class AppComponent extends React.Component {
         return (
             <Router>
                 <Switch>
-                    {
-                        
-                        <MainLayoutComponent exact path={routes.ROOT} component={AuthContainer} />
-
-                    }
+                    <MainLayoutComponent exact path={routes.ROOT} component={AuthContainer} />
                     <MainLayoutComponent path={routes.REGISTER} component={RegisterContainer}/>
                 </Switch>
             </Router>
