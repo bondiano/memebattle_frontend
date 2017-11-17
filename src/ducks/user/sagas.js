@@ -3,6 +3,14 @@ import services from './services';
 import actions from './actions';
 import types from './types';
 
+const setupStorage = (data) => {
+    window.localStorage.setItem('token_access', data.token_access);
+    window.localStorage.setItem('token_refresh', data.token_refresh);
+    window.localStorage.setItem('username', data.username);
+    window.localStorage.setItem('permissions', data.permissions);
+    window.localStorage.setItem('id', data._id);
+}
+
 function* registerSaga(action) {
     try{
         const data = yield call(services.registerUser, action.userData);
@@ -16,12 +24,7 @@ function* loginSaga(action) {
     try{
         const data = yield call(services.loginUser, action.userData);
         yield put(actions.loginSuccess(data));
-        
-        yield window.localStorage.setItem('token_access', data.token_access);
-        yield window.localStorage.setItem('token_refresh', data.token_refresh);
-        yield window.localStorage.setItem('username', data.username);
-        yield window.localStorage.setItem('permissions', data.permissions);
-        yield window.localStorage.setItem('id', data._id);
+        yield setupStorage(data);
     } catch (error){
         yield put(actions.loginError(error));
     }
