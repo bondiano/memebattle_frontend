@@ -5,7 +5,7 @@ import Menu from './Menu';
 class Navbar extends React.Component {
     render() {
         return (
-            <nav className="navbar-meme">
+            <nav className="navbar navbar-meme">
                 <div className="row justify-content-between">
                     <div className="col-auto">
                         <input type="checkbox" id="menuToggler" className="input-toggler"/>

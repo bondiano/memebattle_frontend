@@ -1,5 +1,5 @@
 import React from 'react';
-import memcoinIcon from '../../assets/images/coin.png';
+import memcoinIcon from '../../assets/images/coin_shadow_menu.png';
 import Logo from './Logo';
 
 class Menu extends React.Component {
@@ -7,8 +7,10 @@ class Menu extends React.Component {
         return (
             <aside className="sidebar">
                 <div className="menu-content">
-                    <div className="col col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
-                        <Logo />
+                    <div className="row justify-content-center">
+                        <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 text-center">
+                            <Logo />
+                        </div>
                     </div>
                     <p>username</p>
                     <span><img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>

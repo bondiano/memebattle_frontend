@@ -1,0 +1,20 @@
+.Modes h1{
+    margin: 0.5rem 0rem 0.5rem 0.2rem;
+}
+
+.game-card{
+    margin-bottom: 2rem;
+}
+
+.card-link{
+    font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    color: $color-blue; 
+}
+
+.card-link:hover, .card-link:focus, .card-link:active { 
+    color: $color-blue; 
+    outline: none;
+    text-decoration: none;
+}

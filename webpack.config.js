@@ -39,6 +39,7 @@ const config = {
         historyApiFallback: true,
         hot: true,
         disableHostCheck: true,
+        host: '0.0.0.0',
     },
 
     module: {
