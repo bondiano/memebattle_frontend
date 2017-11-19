@@ -1,6 +1,7 @@
 import types from './types';
 
 const actions = {
+
     registerRequest(userData) {
         return {
             type: types.REGISTER_REQUEST,

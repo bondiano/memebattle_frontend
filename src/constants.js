@@ -1,10 +1,11 @@
 const API_URL = process.env.API_URL;
 
 const routes = {
-    ROOT: '/',
+    HOME: '/',
+    LOGIN: '/login',
+    REGISTER: '/register',
     RULES: '/rules',
     ABOUT: '/about',
-    REGISTER: '/register',
     MODES: '/modes',
     LIDERBOARD: '/lidersboard',
     GAME_RUSH: '/mode/game-rush',

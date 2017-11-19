@@ -1,13 +1,16 @@
 import types from './types';
 
 const initialState = {
-    _id: '',
-    username: '',
-    avatar: '',
-    memcoin: '',
-    placeInRating: '',
-    accesToken: '',
-    refreshToken:''
+    user: {
+        _id: '',
+        username: '',
+        avatar: '',
+        memcoin: 0,
+        placeInRating: 0,
+    },
+    accessToken: '',
+    refreshToken:'',
+    errors: '',
 };
 
 export default (state = initialState, action) => {
@@ -16,18 +19,32 @@ export default (state = initialState, action) => {
         case types.REGISTER_SUCCESS:
             return { 
                 ...state,
-            }
+            };
+        case types.REGISTER_ERROR:
+            return {
+                ...state,
+                errors: action.errors,
+            };
         case types.LOGIN_REQUEST:
-        return { 
-            ...state,
-            username: action.userData.username,
-        }
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    ...action.userData,
+                }
+            };
         case types.LOGIN_SUCCESS:
             return { 
                 ...state,
-                accesToken: action.token.token_access,
+                accessToken: action.token.token_access,
                 refreshToken: action.token.token_refresh
-            }
+            };
+
+        case types.LOGIN_ERROR:
+            return {
+                ...state,
+                errors: action.errors,
+            };
         default:
             return state;
     }

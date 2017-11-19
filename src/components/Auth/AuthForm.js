@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { routes } from '@/constants';
 
 const defaultState = {
     username: "",
     password: "",
     confirm: false,
-}
+};
 
 class AuthForm extends React.Component {
     constructor(props){
@@ -72,7 +74,7 @@ class AuthForm extends React.Component {
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <p className="accept-rules">
                                 <input className="auth-input" onChange={this.handleCheckChange.bind(this)} type="checkbox" label="Confirm" id="checkbox-rules"/> 
-                                <label htmlFor="checkbox-rules"><span className="checkbox-custom"></span>С правилами ознакомился</label>
+                                <label htmlFor="checkbox-rules"><span className="checkbox-custom" />С правилами ознакомился</label>
                             </p>
                         </div>
                     </div>
@@ -83,7 +85,11 @@ class AuthForm extends React.Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <a className="btn auth-btn" href="/register">РЕГИСТРАЦИЯ</a>
+                            <Link to={routes.REGISTER}>
+                                <button className="btn auth-btn" href="/register">
+                                    РЕГИСТРАЦИЯ
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </form>

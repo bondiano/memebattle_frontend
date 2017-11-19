@@ -52,7 +52,7 @@ const isValidToken = (token) => {
         }); 
         return true
     }
-}
+};
 
 function send(config) {
     const url = `${API_URL}${config.url}`;
@@ -73,12 +73,21 @@ function send(config) {
         (response) => {
             return response.data;
         },
-        (responseWithError) =>{
-            console.log(responseWithError);
-            return responseWithError;
-        }); 
+        (responseWithError) => {
+            const error = new Error();
+            error.errors = [];
+            // console.log(responseWithError.response);
 
-
+            try {
+                const responseErr = responseWithError.response.data.error;
+                error.errors.push({ key: 'common', message: responseErr });
+            } catch (err) {
+                // console.error(err);
+                error.errors.push({ key: 'common', message: 'Error' });
+            }
+            // console.log(error.errors);
+            throw error;
+        });
 }
 
 const request = {
