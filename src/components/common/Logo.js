@@ -4,7 +4,7 @@ class Logo extends React.Component {
     render() {
         return (
             <a href="#">
-                <img src={ logo } className="Logo" alt="Logo" id="logo"/>
+                <img src={ logo } className="Logo img-responsive" alt="Logo" id="logo"/>
             </a>
         );
     }

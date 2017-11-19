@@ -20,19 +20,35 @@ const isValidToken = (token) => {
 
     if(exp - 3600 < Math.floor(Date.now() / 1000)){
         /* TODO: REWORK IT!!! */
+        const tokenRefresh = window.localStorage.getItem('token_refresh');
+
+        if(!tokenRefresh){
+            return false;
+        }
+
+        if(!tokenRefresh.match(re)){
+            return false;
+        }
+
         const config = {
-            token_refresh: token,
+            token_refresh: tokenRefresh,
             method: 'POST',
         };
+
         const url = `${API_URL}/auth/refresh-token`;    
         const headers = {
             'Content-Type': 'application/json',
         };
-        axios(Object.assign({}, config, { url, headers })).then(
-            (response) => response.data,
-            (responseWithError) =>{
-                console.log(responseWithError);
-                return responseWithError;
+        
+        axios.post(url,{token_refresh: tokenRefresh,})
+        .then(response => {
+            window.localStorage.setItem('token_refresh', response.data.token_refresh);
+            window.localStorage.setItem('token_access', response.data.token_access);
+            return response.data
+        })
+        .catch((responseWithError) =>{
+            console.log(responseWithError);
+            return responseWithError;
         }); 
         return true
     }

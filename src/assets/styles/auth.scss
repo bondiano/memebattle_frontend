@@ -55,11 +55,11 @@ p.accept-rules {
  input[type="email"].auth-input:-moz-placeholder           {color:white;}/* Firefox 18- */
  input[type="email"].auth-input:-ms-input-placeholder      {color:white;}
 
- input[type="checkbox"]{
+ input[type="checkbox"].auth-input{
     display: none;
  }
 
-input[type="checkbox"] + label::before {
+input[type="checkbox"].auth-input + label::before {
     border: 0.1rem solid;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -75,7 +75,7 @@ input[type="checkbox"] + label::before {
     content:"";
 }
 
-input[type="checkbox"]:checked + label::before {
+input[type="checkbox"].auth-input:checked + label::before {
     background:url('./assets/images/draw-check-mark.png');
     background-size: contain;
 }
