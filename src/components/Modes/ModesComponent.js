@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from '../common/Navbar';
-import Card from '../common/Card'
-import cardImg1 from '../../assets/images/bb.jpg'
-import cardImg2 from '../../assets/images/dp.jpg'
+import Card from '../common/Card';
+import cardImg1 from '../../assets/images/bb.jpg';
+import cardImg2 from '../../assets/images/dp.jpg';
 
 class ModesComponent extends React.Component {
 

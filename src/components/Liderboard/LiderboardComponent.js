@@ -1,15 +1,19 @@
 import React from 'react';
+import Navbar from '../common/Navbar';
 
 class LiderboardComponent extends React.Component {
     render() {
         return (
-            <section className="Auth container-fluid">
-                <div className="row justify-content-center">
-                    <div className="col col-xs-12 col-sm-8 col-md-6 col-lg-3 text-center">
-                        MEOW
+            <section className="Liderboard">
+            <Navbar/>
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <h1>Лидеры</h1>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
         );
     }
 }
