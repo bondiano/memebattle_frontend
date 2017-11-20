@@ -50,6 +50,7 @@
         "cleave.js": "^1.0.7",
         "domkit": "0.0.1",
         "history": "^4.7.2",
+        "jsrsasign": "^8.0.4",
         "prop-types": "^15.5.10",
         "react": "16.1.1",
         "react-create-class": "^1.0.0",
@@ -61,7 +62,6 @@
         "react-select": "^1.0.0-rc.10",
         "redux": "^3.7.2",
         "redux-devtools": "^3.4.1",
-        "redux-saga": "^0.15.6",
-        "webcrypto-jwt": "^0.2.1"
+        "redux-saga": "^0.15.6"
     }
 }

@@ -2,7 +2,27 @@ import React from 'react';
 import Navbar from '../common/Navbar';
 import memcoinIcon from '../../assets/images/coin.png';
 
+const defaultLiderlist= {
+    "1" : {
+        username: "meow",
+        coins: "100",
+    },
+}
+
 class LiderboardComponent extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            liderlist: defaultLiderlist,
+        };
+    }
+
+    componentDidMount(){
+        this.props.getLidersBoard({id:window.localStorage.getItem('id')});
+        console.log(this.store);
+    }
+
     render() {
         return (
             <section className="Liderboard">
@@ -13,48 +33,23 @@ class LiderboardComponent extends React.Component {
                         <h1 className="page-title">Лидеры</h1>
                     </div>
                 </div>
-                <div className="row align-items-center liders-item">
+            {Object.keys(this.state.liderlist).map((keys, index) =>
+                <div key={keys.toString()}  className="row align-items-center liders-item">
                     <div className="col-auto">
-                        <p>1.</p>
+                        <p>{ keys }</p>
                     </div>
                     <div className="col-auto">
-                        <p>username</p>
-                    </div>
-                    <div className="col-auto">
-                    <img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>
-                    </div>
-                    <div className="col-auto">
-                        <p>coins</p>
-                    </div>
-                </div>
-                <div className="row align-items-center liders-item">
-                    <div className="col-auto">
-                        <p>2.</p>
-                    </div>
-                    <div className="col-auto">
-                        <p>username</p>
+                        <p>{ this.state.liderlist[keys].username }</p>
                     </div>
                     <div className="col-auto">
                     <img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>
                     </div>
                     <div className="col-auto">
-                        <p>coins</p>
+                        <p>{ this.state.liderlist[keys].coins }</p>
                     </div>
                 </div>
-                <div className="row align-items-center liders-item">
-                    <div className="col-auto">
-                        <p>3.</p>
-                    </div>
-                    <div className="col-auto">
-                        <p>username</p>
-                    </div>
-                    <div className="col-auto">
-                    <img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>
-                    </div>
-                    <div className="col-auto">
-                        <p>coins</p>
-                    </div>
-                </div>
+                )
+            }
                 <div className="row align-items-center">
                     <div className="col-auto">
                       <p>...</p>

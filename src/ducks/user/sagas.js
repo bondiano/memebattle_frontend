@@ -25,7 +25,7 @@ function* registerSaga(action) {
     try {
         const data = yield call(services.registerUser, action.userData);
         yield put(actions.registerSuccess(data));
-        yield put(push(routes.LOGIN))
+        yield put(push(routes.LOGIN));
     } catch (error) {
         yield put(actions.registerError(error));
     }
@@ -36,7 +36,7 @@ function* loginSaga(action) {
         const data = yield call(services.loginUser, action.userData);
         yield put(actions.loginSuccess(data));
         yield setupStorage(data);
-        yield put(push(routes.HOME))
+        yield put(push(routes.HOME));
     } catch (error) {
         yield put(actions.loginError(error));
     }
