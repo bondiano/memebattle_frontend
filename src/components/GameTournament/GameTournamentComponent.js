@@ -37,7 +37,7 @@ class GameTournamentComponent extends React.Component {
             <section className="GameRush">
             <Navbar/>
             <div className="container">
-                <Timer text="Осталось..."/>
+                <Timer end='10'/>
                 {this.state.game.stage ? 
                 <MemePair memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>:
                 <WinnerTable winners= { this.state.winners }/>
