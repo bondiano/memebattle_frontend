@@ -1,7 +1,7 @@
 import React from 'react';
 import Meme from './Meme'
 
-class Menu extends React.Component {
+class MemePair extends React.Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ class Menu extends React.Component {
 }
 
 
-export default Menu;
+export default MemePair;

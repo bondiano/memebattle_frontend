@@ -22,8 +22,8 @@ class GameRushComponent extends React.Component {
             <section className="GameRush">
             <Navbar/>
             <div className="container">
-                <Timer/>
-                <MemePair memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>
+                <Timer text="Осталось..."/>
+                <MemePair result="left" memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>
             </div>
             </section>
         );

@@ -7,7 +7,7 @@ class Menu extends React.Component {
         return (
             <div className="row justify-content-center">
                 <div className="col text-center">
-                    <img src={ Hourglass } className="Timer"/><p className="Timer-text">Осталось...</p>
+                    <img src={ Hourglass } className="Timer"/><p className="Timer-text">{ this.props.text }</p>
                 </div>
             </div>
         );
