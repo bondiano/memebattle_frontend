@@ -8,6 +8,9 @@ import LiderBoardContainer from '../../containers/LiderBoardContainer';
 import ModesContainer from '../../containers/ModesContainer';
 import GameRushContainer from '../../containers/GameRushContainer';
 import GameTournamentContainer from '../../containers/GameTournamentContainer';
+import AboutComponent from '../common/AboutComponent';
+import RulesComponent from '../common/RulesComponent';
+
 
 class AppComponent extends React.Component {
     render() {
@@ -20,6 +23,8 @@ class AppComponent extends React.Component {
                 <MainLayoutComponent path={routes.LIDERBOARD} component={LiderBoardContainer}/>
                 <MainLayoutComponent path={routes.GAME_RUSH} component={GameRushContainer}/>
                 <MainLayoutComponent path={routes.GAME_TOURNAMENT} component={GameTournamentContainer}/>
+                <MainLayoutComponent path={routes.ABOUT} component={AboutComponent}/>
+                <MainLayoutComponent path={routes.RULES} component={RulesComponent}/>
             </Switch>
         );
     }

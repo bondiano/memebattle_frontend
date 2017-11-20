@@ -10,7 +10,7 @@ class LiderboardComponent extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <h1>Лидеры</h1>
+                        <h1 className="page-title">Лидеры</h1>
                     </div>
                 </div>
                 <div className="row align-items-center liders-item">

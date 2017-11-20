@@ -1,4 +1,5 @@
 import React from 'react';
+import { routes } from '@/constants';
 import Navbar from '../common/Navbar';
 import Card from '../common/Card';
 import cardImg1 from '../../assets/images/bb.jpg';
@@ -13,10 +14,10 @@ class ModesComponent extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <h1>Режимы</h1>
+                            <h1 className="page-title">Режимы</h1>
                         </div>
-                        <Card img={cardImg2} name="День первокурсника"/>
-                        <Card img={cardImg1} name="Бесперерывный баттл"/>
+                        <Card img={cardImg2} name="День первокурсника" playRoute={routes.GAME_TOURNAMENT} rulesRoute={routes.RULES}/>
+                        <Card img={cardImg1} name="Бесперерывный баттл" playRoute={routes.GAME_RUSH} rulesRoute={routes.RULES}/>
                     </div>
                 </div>
             </section>

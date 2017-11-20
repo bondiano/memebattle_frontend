@@ -50,6 +50,10 @@ img.Memcoins {
     padding-bottom: 0.5rem;
 }
 
+h1.page-title{
+    margin: 1rem 0rem 0.5rem 0.2rem;
+}
+
 .navbar{
     padding: 0;
 }
@@ -222,4 +226,18 @@ img.Memcoins {
       color: $color-blue; 
       outline: none;
       text-decoration: none;
+}
+
+.meme-block{
+    margin: 0rem 0.3rem 2rem 0.3rem;
+}
+
+.Timer{
+    height: 2rem;
+    display: inline-block;
+    padding-bottom: 0.6rem;
+}
+
+.Timer-text{
+    display: inline;
 }

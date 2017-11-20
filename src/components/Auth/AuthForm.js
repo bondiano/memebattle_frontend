@@ -86,7 +86,7 @@ class AuthForm extends React.Component {
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
                             <Link to={routes.REGISTER}>
-                                <button className="btn auth-btn" href="/register">
+                                <button className="btn register-btn" href={routes.REGISTER}>
                                     РЕГИСТРАЦИЯ
                                 </button>
                             </Link>

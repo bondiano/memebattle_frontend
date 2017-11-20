@@ -1,6 +1,8 @@
 import React from 'react';
 import memcoinIcon from '../../assets/images/coin_shadow_menu.png';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
+import { routes } from '@/constants';
 
 class Menu extends React.Component {
     render() {
@@ -17,9 +19,15 @@ class Menu extends React.Component {
                     <p>coin</p>
                     </span>
                     <h1>Меню</h1>
-                    <a className="menu-link" href="#">Лидеры</a>
-                    <a className="menu-link" href="#">Правила</a>
-                    <a className="menu-link" href="#">О нас</a>
+                    <Link className="menu-link" to={routes.LIDERBOARD}>
+                        Лидеры
+                    </Link>
+                    <Link className="menu-link" to={routes.RULES}>
+                        Правила
+                    </Link>
+                    <Link className="menu-link" to={routes.ABOUT}>
+                        О нас
+                    </Link>
                 </div>
             </aside>
         );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CardComponent extends React.Component {
 
@@ -8,8 +9,12 @@ class CardComponent extends React.Component {
                 <img className="card-img-top" src={ this.props.img } alt="Card image cap"/>
                 <div className="card-body">
                 <div className="row justify-content-center">
-                    <a className="card-link" href="#">ИГРАТЬ</a>
-                    <a className="card-link" href="#">ПРАВИЛА</a>
+                    <Link className="card-link" to={this.props.playRoute}>
+                        ИГРАТЬ
+                    </Link>
+                    <Link className="card-link" to={this.props.rulesRoute}>
+                        ПРАВИЛА
+                    </Link>
                 </div>
             </div>
             </div>

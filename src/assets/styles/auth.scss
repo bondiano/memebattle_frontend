@@ -103,7 +103,7 @@ button.auth-btn:hover{
     background: $color-blue;
 }
 
-a.auth-btn{
+button.register-btn{
     border: 0.1rem solid $color-blue;
     border-radius: 10rem;
     -webkit-border-radius: 10rem;
@@ -113,14 +113,13 @@ a.auth-btn{
     text-decoration: none;
     user-select: none;
     background: $color-blue;
-    //padding: 0 4rem 0 4rem;
     outline: none;
     font-family: "OpenGostTypeATT-Regular", Tahoma;
     font-size: 2rem; 
     width: 16rem;
 }
 
-a.auth-btn:hover{
+button.register-btn:hover{
     color: $color-blue;
     background: none;
 }

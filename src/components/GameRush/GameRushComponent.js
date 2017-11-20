@@ -1,14 +1,30 @@
 import React from 'react';
+import Navbar from '../common/Navbar';
+import MemePair from '../common/MemPair';
+import Timer from '../common/Timer';
+
+const defaultState = {
+    coinsCount: 0,
+    memeLeftImage: "https://pp.userapi.com/c639921/v639921013/54348/P1XfD7ciP5k.jpg",
+    memeRightImage: "https://pp.userapi.com/c834101/v834101399/2dd2e/mMnqAp_dDmU.jpg",
+}
 
 class GameRushComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            game: defaultState
+        };
+    }
+
     render() {
         return (
-            <section className="Auth container-fluid">
-                <div className="row justify-content-center">
-                    <div className="col col-xs-12 col-sm-8 col-md-6 col-lg-3 text-center">
-                        MEOW
-                    </div>
-                </div>
+            <section className="GameRush">
+            <Navbar/>
+            <div className="container">
+                <Timer/>
+                <MemePair memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>
+            </div>
             </section>
         );
     }
