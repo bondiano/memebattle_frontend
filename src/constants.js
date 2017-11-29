@@ -1,4 +1,5 @@
 const API_URL = process.env.API_URL;
+const JWT_KEY = process.env.JWT_KEY;
 
 const routes = {
     HOME: '/',
@@ -14,5 +15,6 @@ const routes = {
 
 export {
     API_URL,
+    JWT_KEY,
     routes,
 };

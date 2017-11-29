@@ -115,6 +115,7 @@ const config = {
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
                 API_URL: JSON.stringify(process.env.API_URL),
+                JWT_KEY: JSON.stringify(process.env.JWT_KEY),
                 GOOGLE_API_WEB_LOCATOR_KEY: JSON.stringify(process.env.GOOGLE_API_WEB_LOCATOR_KEY),
                 GOOGLE_API_MAP_KEY: JSON.stringify(process.env.GOOGLE_API_MAP_KEY),
             }

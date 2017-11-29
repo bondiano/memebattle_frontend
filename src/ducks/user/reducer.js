@@ -1,15 +1,16 @@
 import types from './types';
+import localstorage from '../../helpers/localstorage';
 
 const initialState = {
     user: {
-        _id: '',
-        username: '',
-        avatar: '',
-        memcoin: 0,
-        placeInRating: 0,
+        _id: localstorage('get', 'id')(''),
+        username: localstorage('get', 'username')(''),
+        avatar: localstorage('get', 'avatar')(''),
+        memcoin: localstorage('get', 'avatar')(0),
+        permissions: localstorage('get', 'permissions')(''),
     },
-    accessToken: '',
-    refreshToken:'',
+    accessToken: localstorage('get', 'token_access')(''),
+    refreshToken: localstorage('get', 'token_refresh')(''),
     errors: '',
 };
 

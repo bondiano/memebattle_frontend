@@ -4,6 +4,7 @@ import services from './services';
 import actions from './actions';
 import types from './types';
 import { routes } from '@/constants';
+import localStorage from '../../helpers/localstorage'
 
 /**
  * @param {Object} data
@@ -14,11 +15,11 @@ import { routes } from '@/constants';
  * @param {String} data._id
  */
 const setupStorage = (data) => {
-    window.localStorage.setItem('token_access', data.token_access);
-    window.localStorage.setItem('token_refresh', data.token_refresh);
-    window.localStorage.setItem('username', data.username);
-    window.localStorage.setItem('permissions', data.permissions);
-    window.localStorage.setItem('id', data._id);
+    localStorage('set', 'id')(data._id);
+    localStorage('set', 'username')(data.username);
+    localStorage('set', 'permissions')(data.permissions);
+    localStorage('set', 'token_access')(data.token_access);
+    localStorage('set', 'token_refresh')(data.token_refresh);
 };
 
 function* registerSaga(action) {
