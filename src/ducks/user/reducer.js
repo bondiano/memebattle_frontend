@@ -22,7 +22,10 @@ export default (state = initialState, action) => {
         case types.REGISTER_ERROR:
             return {
                 ...state,
-                errors: action.errors,
+                errors: {
+                    ...state.errors,
+                    ...action.errors,
+                },
             };
         case types.LOGIN_REQUEST:
             return {
@@ -40,7 +43,10 @@ export default (state = initialState, action) => {
         case types.LOGIN_ERROR:
             return {
                 ...state,
-                errors: action.errors,
+                errors: {
+                    ...state.errors,
+                    ...action.errors,
+                },
             };
         default:
             return state;
