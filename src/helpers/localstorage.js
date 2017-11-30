@@ -1,5 +1,5 @@
 /** 
- * @param {String} method - 'get' for GET, 'set' for SET  
+ * @param {String} method - 'get' for GET, 'set' for SET, 'clear' for CLEAR
  * @param {String} key
  * 
  * @returns {functions} - GET calls with default argument, SET with value argument
@@ -12,6 +12,8 @@ const localstorage = (method, key) => {
             return getValue;
         case 'set':
             return setValue;
+        case 'clear':
+            return clearStorage;
         default: 
             console.error("Unknown method for localstorage");
             return;
@@ -23,5 +25,8 @@ const getValue = (def) =>
 
 const setValue = (value) => 
     window.localStorage.setItem(this.key, value);
+
+const clearStorage = () => 
+    window.localStorage.clear();
 
 export default localstorage;

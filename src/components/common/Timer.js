@@ -1,6 +1,6 @@
 import React from 'react';
-import Meme from './Meme'
-import Hourglass from '../../assets/images/hourglass.svg'   
+import Meme from './Meme';
+import Hourglass from '../../assets/images/hourglass.svg';
 
 class Menu extends React.Component {
 
@@ -9,23 +9,23 @@ class Menu extends React.Component {
         this.state = {
             time: this.props.end,
         };
-    }
+    };
+
+    tick(){
+        this.setState((prevState) => ({
+            ...prevState,
+            time: --this.state.time,
+        }));
+        if(this.state.time <= 0){
+            clearInterval(this.intervalID);
+        }
+    };
 
     componentDidMount(){
         if (this.state.time > 0) {
-            const intervalID = setInterval(this.tick.bind(this), 1000);
+            this.intervalID = setInterval(this.tick.bind(this), 1000);
         }
-    }
-
-    tick(){
-        if(this.state.time <= 0){
-            clearInterval(intervalID);
-        }
-        this.setState((prevState) => ({
-            ...prevState,
-            time: this.state.time-1,
-        }));
-    }
+    };
 
     render() {
         return (
@@ -35,7 +35,7 @@ class Menu extends React.Component {
                 </div>
             </div>
         );
-    }
+    };
 }
 
 

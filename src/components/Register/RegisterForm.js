@@ -19,6 +19,7 @@ class RegisterForm extends React.Component {
 
     submitForm(e) {
         e.preventDefault();
+        localstorage('clear')();        
         this.props.register(this.state.form);
     };
 

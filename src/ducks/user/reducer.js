@@ -9,8 +9,6 @@ const initialState = {
         memcoin: localstorage('get', 'avatar')(0),
         permissions: localstorage('get', 'permissions')(''),
     },
-    accessToken: localstorage('get', 'token_access')(''),
-    refreshToken: localstorage('get', 'token_refresh')(''),
     errors: '',
 };
 

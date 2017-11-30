@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '@/constants';
+import localstorage from '../../helpers/localstorage';
 
 const defaultState = {
     username: "",
@@ -19,6 +20,7 @@ class AuthForm extends React.Component {
 
     submitForm(e) {
         e.preventDefault();
+        localstorage('clear')();
         this.props.login(this.state.form);
     };
 
