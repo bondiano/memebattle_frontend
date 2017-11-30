@@ -27,18 +27,16 @@ export default (state = initialState, action) => {
         case types.LOGIN_REQUEST:
             return {
                 ...state,
-                user: {
-                    ...state.user,
-                    ...action.userData,
-                }
             };
         case types.LOGIN_SUCCESS:
             return { 
                 ...state,
-                accessToken: action.token.token_access,
-                refreshToken: action.token.token_refresh
+                user: {
+                    ...state.user,
+                    _id: action.token._id,
+                    permissions: action.token.permissions,
+                },
             };
-
         case types.LOGIN_ERROR:
             return {
                 ...state,

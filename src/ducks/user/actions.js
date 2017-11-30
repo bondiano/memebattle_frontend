@@ -14,10 +14,10 @@ const actions = {
             token,
         };
     },
-    registerError(error) {
+    registerError(errors) {
         return {
             type: types.REGISTER_ERROR,
-            error,
+            errors,
         };
     },
     loginRequest(userData) {
@@ -32,10 +32,10 @@ const actions = {
             token,
         };
     },
-    loginError(error) {
+    loginError(errors) {
         return {
             type: types.LOGIN_ERROR,
-            error,
+            errors,
         };
     },
 };

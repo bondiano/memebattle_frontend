@@ -74,7 +74,7 @@ function send(config) {
             } catch (err) {
                 error.errors.push({ key: 'common', message: 'Error' });
             }
-            throw error;
+            throw error.errors;
         });
 }
 
