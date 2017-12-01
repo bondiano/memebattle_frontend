@@ -6,7 +6,7 @@ const initialState = {
         _id: localstorage('get', 'id')(''),
         username: localstorage('get', 'username')(''),
         avatar: localstorage('get', 'avatar')(''),
-        memcoin: localstorage('get', 'avatar')(0),
+        memcoin: localstorage('get', 'memcoin')(0),
         permissions: localstorage('get', 'permissions')(''),
     },
     errors: '',
@@ -37,6 +37,8 @@ export default (state = initialState, action) => {
                 user: {
                     ...state.user,
                     _id: action.token._id,
+                    username: action.token.username,
+                    memcoin: action.token.coins,
                     permissions: action.token.permissions,
                 },
             };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo_circlel.png';
 
-class Logo extends React.Component {
+class Logo extends React.PureComponent {
     render() {
         return (
             <Link className="menu-link" to="/">

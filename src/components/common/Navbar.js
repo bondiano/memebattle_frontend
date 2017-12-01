@@ -14,12 +14,12 @@ class Navbar extends React.Component {
                             <span className="menu-toggler__line"></span>
                             <span className="menu-toggler__line"></span> 
                         </label>
-                        <Menu/>
+                        <Menu username={ this.props.username } coins={ this.props.coins }/>
                     </div>
                     <div className="col-auto">
-                        <p>username</p>
+                        <p>{this.props.username ? this.props.username : 'username'}</p>
                         <img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>
-                        <p>coins</p>
+                        <p>{this.props.coins ? this.props.coins : 'coins'}</p>
                     </div>
                 </div>
             </nav>

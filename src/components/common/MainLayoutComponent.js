@@ -9,12 +9,12 @@ class MainLayoutComponent extends React.Component {
             <div className="app">
                 <Favicon url='https://psv4.userapi.com/c834701/u144940172/docs/d8/e7505d9126b2/favicon_2.ico'/>
                 <div className="content">
-                    <InnerComponent {...matchProps} />
+                    <InnerComponent {...matchProps} {...props} />
                 </div>
             </div>
         );
         
-        return (<Route render={innerView} {...props} />);
+        return (<Route render={innerView}/>);
     }
 }
 

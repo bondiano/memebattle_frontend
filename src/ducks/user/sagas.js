@@ -18,6 +18,7 @@ const setupStorage = (data) => {
     localStorage('set', 'id')(data._id);
     localStorage('set', 'username')(data.username);
     localStorage('set', 'permissions')(data.permissions);
+    localStorage('set', 'memcoin')(data.coins);
     localStorage('set', 'token_access')(data.token_access);
     localStorage('set', 'token_refresh')(data.token_refresh);
 };

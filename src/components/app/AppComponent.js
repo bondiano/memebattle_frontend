@@ -16,15 +16,15 @@ class AppComponent extends React.Component {
     render() {
         return (
             <Switch>
-                <MainLayoutComponent exact path={routes.HOME} component={ModesContainer} />
                 <MainLayoutComponent exact path={routes.LOGIN} component={AuthContainer} />
                 <MainLayoutComponent path={routes.REGISTER} component={RegisterContainer}/>
-                <MainLayoutComponent path={routes.MODES} component={ModesContainer}/>
-                <MainLayoutComponent path={routes.LIDERBOARD} component={LiderBoardContainer}/>
-                <MainLayoutComponent path={routes.GAME_RUSH} component={GameRushContainer}/>
-                <MainLayoutComponent path={routes.GAME_TOURNAMENT} component={GameTournamentContainer}/>
-                <MainLayoutComponent path={routes.ABOUT} component={AboutComponent}/>
-                <MainLayoutComponent path={routes.RULES} component={RulesComponent}/>
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } exact path={routes.HOME} component={ModesContainer} />
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.MODES} component={ModesContainer}/>
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.LIDERBOARD} component={LiderBoardContainer}/>
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.GAME_RUSH} component={GameRushContainer}/>
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.GAME_TOURNAMENT} component={GameTournamentContainer}/>
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.ABOUT} component={AboutComponent}/>
+                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.RULES} component={RulesComponent}/>
             </Switch>
         );
     }
