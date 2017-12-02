@@ -35,7 +35,7 @@ class GameTournamentComponent extends React.Component {
     render() {
         return (
             <section className="GameRush">
-            <Navbar username={ this.props.username } coins={ this.props.coins }/>
+            <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
             <div className="container">
                 <Timer end='10'/>
                 {this.state.game.stage ? 

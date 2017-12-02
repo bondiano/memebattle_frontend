@@ -1,12 +1,8 @@
 import types from './types';
 
 const initialState = {
-    liderlist:{
-        "1" : {
-            username: "meow",
-            coins: "100",
-        },
-    },
+    liderlist:'',
+    user: '',
     errors: '',
 };
 
@@ -17,15 +13,15 @@ export default (state = initialState, action) => {
                 ...state,
             };
         case types.LIDERLIST_SUCCESS:
-            console.log(action.data);
             return { 
                 ...state,
                 liderlist: {
-                    ...action.data.dataTop,
+                    ...state.liderlist,
+                    ...action.data.globalRating,
                 },
                  user: {
                      ...state.user,
-                     ...action.data.dataUser,
+                     ...action.data.userRating,
                  }
             };
         case types.LIDERLIST_ERROR:

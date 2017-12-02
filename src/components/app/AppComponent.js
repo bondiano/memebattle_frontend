@@ -11,20 +11,30 @@ import GameTournamentContainer from '../../containers/GameTournamentContainer';
 import AboutComponent from '../common/AboutComponent';
 import RulesComponent from '../common/RulesComponent';
 
+const checkAuth = () => {
+
+};
+
+const wasLogin = () => {
+    return true;
+};
 
 class AppComponent extends React.Component {
     render() {
         return (
             <Switch>
-                <MainLayoutComponent exact path={routes.LOGIN} component={AuthContainer} />
+                {wasLogin() ? 
+                    <MainLayoutComponent user={ this.props.user } exact path={routes.HOME} component={ModesContainer} /> :
+                    <MainLayoutComponent exact path={ routes.HOME } component={AuthContainer}/>
+                }
+                <MainLayoutComponent exact path={routes.LOGIN} component={AuthContainer}/>
                 <MainLayoutComponent path={routes.REGISTER} component={RegisterContainer}/>
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } exact path={routes.HOME} component={ModesContainer} />
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.MODES} component={ModesContainer}/>
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.LIDERBOARD} component={LiderBoardContainer}/>
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.GAME_RUSH} component={GameRushContainer}/>
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.GAME_TOURNAMENT} component={GameTournamentContainer}/>
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.ABOUT} component={AboutComponent}/>
-                <MainLayoutComponent coins={ this.props.user.memcoin } username={ this.props.user.username } path={routes.RULES} component={RulesComponent}/>
+                <MainLayoutComponent user={ this.props.user } path={routes.MODES} component={ModesContainer}/>
+                <MainLayoutComponent user={ this.props.user } path={routes.LIDERBOARD} component={LiderBoardContainer}/>
+                <MainLayoutComponent user={ this.props.user } path={routes.GAME_RUSH} component={GameRushContainer}/>
+                <MainLayoutComponent user={ this.props.user } path={routes.GAME_TOURNAMENT} component={GameTournamentContainer}/>
+                <MainLayoutComponent user={ this.props.user } path={routes.ABOUT} component={AboutComponent}/>
+                <MainLayoutComponent user={ this.props.user } path={routes.RULES} component={RulesComponent}/>
             </Switch>
         );
     }

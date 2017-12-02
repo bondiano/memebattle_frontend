@@ -6,7 +6,7 @@ class Logo extends React.PureComponent {
     render() {
         return (
             <Link className="menu-link" to="/">
-                <img src={ logo } className="Logo img-responsive" alt="Logo" id="logo"/>
+                <img src={ logo } className="Logo img-responsive" title="На главную" alt="Logo" id="logo"/>
             </Link>
         );
     }

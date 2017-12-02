@@ -20,7 +20,7 @@ class GameRushComponent extends React.Component {
     render() {
         return (
             <section className="GameRush">
-            <Navbar username={ this.props.username } coins={ this.props.coins }/>
+            <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
             <div className="container">
                 <Timer end='10'/>
                 <MemePair result="left" memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>

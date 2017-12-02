@@ -5,7 +5,6 @@ import actions from './actions';
 import types from './types';
 import { routes } from '@/constants';
 
-
 function* getLidersSaga(action) {
     try {
         const data = yield call(services.getLiders, action.userData);

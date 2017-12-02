@@ -5,7 +5,7 @@ class RulesComponent extends React.Component {
     render() {
         return (
             <section className="Rules">
-            <Navbar username={ this.props.username } coins={ this.props.coins }/>
+            <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
             <div className="container">
                 <div className="row">
                     <div className="col">
