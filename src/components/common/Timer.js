@@ -33,6 +33,7 @@ class Menu extends React.Component {
             ...prevState,
             time: --this.state.time,
         }));
+        
         if(this.state.time <= 0){
             clearInterval(this.intervalID);
         }

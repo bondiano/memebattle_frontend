@@ -17,8 +17,9 @@ function send(config) {
         jwt.verify(tokenAccess, secret, function(err, decoded) {
             if (err) {
                 if(err.name !== 'TokenExpiredError'){
+                    console.error('Faild to use token');
                     const error = new Error();
-                    error.errors = [err];
+                    error.errors = err;
                     throw error;
                 }
                 
@@ -48,7 +49,7 @@ function send(config) {
                 })
                 .catch(er => {
                     const error = new Error();
-                    error.errors = [err, er];
+                    error.errors = er;
                     throw error;
                 });
             }
@@ -70,9 +71,10 @@ function send(config) {
             try {
                 const responseErr = responseWithError.response.data.error;
                 const responseMes = responseWithError.response.data.message;
+                const responseName = responseWithError.response.data.name;
                 error.errors.push({ key: 'common', message: responseMes, error: responseErr });
             } catch (err) {
-                error.errors.push({ key: 'common', message: 'Error' });
+                error.errors.push({ key: 'common', name: '', message: 'Error' });
             }
             throw error.errors;
         });

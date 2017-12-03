@@ -6,10 +6,10 @@ class MemePair extends React.Component {
         return (
             <div>
                 <div className="row justify-content-center meme-block">
-                    <Meme image={this.props.memeLeftImage}/>
+                    <Meme image={ this.props.memeLeftImage }/>
                 </div>
                 <div className="row justify-content-center meme-block">
-                    <Meme image={this.props.memeRightImage}/>
+                    <Meme image={ this.props.memeRightImage }/>
                 </div>
             </div>
         );

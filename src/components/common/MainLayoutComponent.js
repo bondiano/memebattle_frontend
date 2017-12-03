@@ -14,7 +14,7 @@ class MainLayoutComponent extends React.Component {
             </div>
         );
         
-        return (<Route render={innerView}/>);
+        return (<Route render={ innerView }/>);
     }
 }
 

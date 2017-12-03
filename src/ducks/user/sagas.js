@@ -44,7 +44,17 @@ function* loginSaga(action) {
     }
 }
 
+function* checkLoginSaga(action) {
+    try {
+        const data = yield call(services.checkLogin, action.userData);
+        yield put(actions.checkLoginSuccess(data));
+    } catch (error) {
+        yield put(actions.checkLoginError(error));
+    }
+}
+
 export default function* userRootSaga() {
     yield takeEvery(types.REGISTER_REQUEST, registerSaga);
     yield takeEvery(types.LOGIN_REQUEST, loginSaga);
+    yield takeEvery(types.LOGIN_CHECK_REQUEST, checkLoginSaga);
 };

@@ -16,7 +16,8 @@ class AuthForm extends React.Component {
             form: defaultState
         };
         this.submitForm = this.submitForm.bind(this);
-    }
+        this.handleCheckChange = this.handleCheckChange.bind(this);
+    };
 
     submitForm(e) {
         e.preventDefault();
@@ -64,31 +65,31 @@ class AuthForm extends React.Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={this.state.username} onChange={this.changeHandler.bind(this, 'username')} type="text" label="Name" placeholder="Логин"/>
+                            <input className="form-control auth-input" value={ this.state.username } onChange={ this.changeHandler.bind(this, 'username') } type="text" label="Name" placeholder="Логин"/>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={this.state.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password" placeholder="Пароль"/>
+                            <input className="form-control auth-input" value={ this.state.password } onChange={ this.changeHandler.bind(this, 'password') } type="password" label="Password" placeholder="Пароль"/>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <p className="accept-rules">
-                                <input className="auth-input" onChange={this.handleCheckChange.bind(this)} type="checkbox" label="Confirm" id="checkbox-rules"/> 
+                                <input className="auth-input" onChange={ this.handleCheckChange } type="checkbox" label="Confirm" id="checkbox-rules"/> 
                                 <label htmlFor="checkbox-rules"><span className="checkbox-custom" />С правилами ознакомился</label>
                             </p>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" onClick={this.submitForm} disabled={!this.state.form.confirm}>ВХОД</button>
+                            <button className="btn auth-btn" onClick={ this.submitForm } disabled={ !this.state.form.confirm }>ВХОД</button>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <Link to={routes.REGISTER}>
-                                <button className="btn register-btn" href={routes.REGISTER}>
+                            <Link to={ routes.REGISTER }>
+                                <button className="btn register-btn" href={ routes.REGISTER }>
                                     РЕГИСТРАЦИЯ
                                 </button>
                             </Link>

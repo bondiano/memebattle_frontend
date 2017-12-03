@@ -2,6 +2,7 @@ import types from './types';
 import localstorage from '../../helpers/localstorage';
 
 const initialState = {
+    login: null,
     user: {
         _id: localstorage('get', 'id')(''),
         username: localstorage('get', 'username')(''),
@@ -34,17 +35,36 @@ export default (state = initialState, action) => {
         case types.LOGIN_SUCCESS:
             return { 
                 ...state,
+                login: action.data.success,
                 user: {
                     ...state.user,
-                    _id: action.token._id,
-                    username: action.token.username,
-                    memcoin: action.token.coins,
-                    permissions: action.token.permissions,
+                    _id: action.data._id,
+                    username: action.data.username,
+                    memcoin: action.data.coins,
+                    permissions: action.data.permissions,
                 },
             };
         case types.LOGIN_ERROR:
             return {
                 ...state,
+                errors: {
+                    ...state.errors,
+                    ...action.errors,
+                },
+            };
+        case types.LOGIN_CHECK_REQUEST:
+            return {
+                ...state,
+            };
+        case types.LOGIN_CHECK_SUCCESS:
+            return { 
+                ...state,
+                login: action.data.success,
+            };
+        case types.LOGIN_CHECK_ERROR:
+            return {
+                ...state,
+                login: false,
                 errors: {
                     ...state.errors,
                     ...action.errors,

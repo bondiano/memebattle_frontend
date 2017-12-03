@@ -1,5 +1,7 @@
-import { put, call, take, fork, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
+import services from './services';
+import actions from './actions';
+import types from './types';
 
-export default function* appRootSaga() {
-
+export default function* gameRootSaga() {
 };

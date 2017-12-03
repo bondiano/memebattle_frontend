@@ -1,9 +1,7 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
 import services from './services';
 import actions from './actions';
 import types from './types';
-import { routes } from '@/constants';
 
 function* getLidersSaga(action) {
     try {

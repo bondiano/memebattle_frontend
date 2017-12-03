@@ -14,9 +14,9 @@ class Menu extends React.Component {
                             <Logo />
                         </div>
                     </div>
-                    <p>{this.props.username ? this.props.username : 'username'}</p>
+                    <p>{ this.props.username ? this.props.username : 'username' }</p>
                     <span><img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>
-                    <p>{this.props.coins ? this.props.coins : 'coins'}</p>
+                    <p>{ this.props.coins ? this.props.coins : 'coins' }</p>
                     </span>
                     <h1>Меню</h1>
                     <Link className="menu-link" to={routes.LIDERBOARD}>

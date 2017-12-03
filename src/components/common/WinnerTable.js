@@ -11,10 +11,10 @@ class WinnerTable extends React.Component {
                         <h1>Прошли дальше:</h1>
                     </div>
                 </div>
-                {Object.keys(this.props.winners).map((keys, index) =>
+                { Object.keys(this.props.winners).map((keys, index) =>
                 <div key={keys.toString()} className="row justify-content-center meme-block">
-                    <Meme className="" image={this.props.winners[keys]}/>
-                </div>)}
+                    <Meme className="" image={ this.props.winners[keys] }/>
+                </div>) }
             </div>
         );
     }

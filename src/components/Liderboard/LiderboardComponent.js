@@ -13,7 +13,6 @@ class LiderboardComponent extends React.Component {
     }
     
     render() {
-        console.log(this.props);
         return (
             <section className="Liderboard">
             <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
@@ -39,12 +38,13 @@ class LiderboardComponent extends React.Component {
                     </div>
                 </div>
                 )}
-                <div className="row align-items-center">
-                    <div className="col-auto">
-                    <p>...</p>
-                    </div>
-                </div>
                 { this.props.userRating > 10 ? 
+                <div>
+                    <div className="row align-items-center">
+                        <div className="col-auto">
+                        <p>...</p>
+                        </div>
+                    </div>
                     <div className="row align-items-center">
                         <div className="col-auto">
                             <p>{ this.props.userRating }.</p>
@@ -58,7 +58,8 @@ class LiderboardComponent extends React.Component {
                         <div className="col-auto">
                             <p>{this.props.user.memcoin ? this.props.user.memcoin : 'coins'}</p>
                         </div>
-                    </div> : ''
+                    </div> 
+                </div> : null
                 }
             </div>
         </section>

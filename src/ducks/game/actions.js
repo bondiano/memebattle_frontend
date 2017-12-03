@@ -1,7 +1,6 @@
 import types from './types';
 
 const actions = {
-
     getLidersRequest(userData) {
         return {
             type: types.LIDERLIST_REQUEST,

@@ -8,6 +8,10 @@ const services = {
     loginUser(userData) {
         return request.post('/auth/login', userData);
     },
+
+    checkLogin() {
+        return request.get('/auth/secret');
+    },
 };
 
 export default services;

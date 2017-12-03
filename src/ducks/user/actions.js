@@ -1,17 +1,16 @@
 import types from './types';
 
 const actions = {
-
     registerRequest(userData) {
         return {
             type: types.REGISTER_REQUEST,
             userData,
         };
     },
-    registerSuccess(token) {
+    registerSuccess(data) {
         return {
             type: types.REGISTER_SUCCESS,
-            token,
+            data,
         };
     },
     registerError(errors) {
@@ -26,16 +25,34 @@ const actions = {
             userData,
         };
     },
-    loginSuccess(token) {
+    loginSuccess(data) {
         return {
             type: types.LOGIN_SUCCESS,
-            token,
+            data,
         };
     },
     loginError(errors) {
         return {
             type: types.LOGIN_ERROR,
             errors,
+        };
+    },
+    checkLoginRequest(userData) {
+        return {
+            type: types.LOGIN_CHECK_REQUEST,
+            userData,
+        };
+    },
+    checkLoginSuccess(data) {
+        return {
+            type: types.LOGIN_CHECK_SUCCESS,
+            data,
+        };
+    },
+    checkLoginError(error) {
+        return {
+            type: types.LOGIN_CHECK_ERROR,
+            error,
         };
     },
 };

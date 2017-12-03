@@ -9,10 +9,10 @@ class CardComponent extends React.Component {
                 <img className="card-img-top" src={ this.props.img } alt="Card image cap"/>
                 <div className="card-body">
                 <div className="row justify-content-center">
-                    <Link className="card-link" to={this.props.playRoute}>
+                    <Link className="card-link" to={ this.props.playRoute }>
                         ИГРАТЬ
                     </Link>
-                    <Link className="card-link" to={this.props.rulesRoute}>
+                    <Link className="card-link" to={ this.props.rulesRoute }>
                         ПРАВИЛА
                     </Link>
                 </div>
