@@ -63,7 +63,7 @@ const config = {
                 loader: 'file-loader?name=fonts/[name].[ext]'
             },
             {
-                test: /\.(png|jpeg|jpg|svg)$/,
+                test: /\.(png|jpeg|jpg|svg|ico)$/,
                 loader: 'file-loader?name=images/[name].[ext]'
             },
             {

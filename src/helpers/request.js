@@ -18,9 +18,8 @@ function send(config) {
             if (err) {
                 if(err.name !== 'TokenExpiredError'){
                     console.error('Faild to use token');
-                    const error = new Error();
-                    error.errors = err;
-                    throw error;
+                    const error = new Error(err);
+                    throw error.errors;
                 }
                 
                 const tokenRefresh = localStorage('get', 'token_refresh')();
@@ -28,7 +27,7 @@ function send(config) {
                 if(!tokenRefresh){
                     const error = new Error();
                     error.errors = 'None refresh-token';
-                    throw error;
+                    throw error.errors;
                 }
 
                 axios({
@@ -50,7 +49,7 @@ function send(config) {
                 .catch(er => {
                     const error = new Error();
                     error.errors = er;
-                    throw error;
+                    throw error.errors;
                 });
             }
         });  

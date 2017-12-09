@@ -67,7 +67,7 @@ export default (state = initialState, action) => {
                 login: false,
                 errors: {
                     ...state.errors,
-                    ...action.errors,
+                    ...action.error,
                 },
             };
         default:
