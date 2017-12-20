@@ -14,16 +14,16 @@ import localstorage from '../../helpers/localstorage';
 import LoaderComponent from '../common/Loader';
 
 class AppComponent extends React.Component {    
-    constructor(props){
+    constructor(props) {
         super(props);
     };
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.checkLogin();
     };
     
     render() {
-        if(this.props.wasLogin) {
+        if (this.props.wasLogin) {
             return (
                 <Switch>
                     <MainLayoutComponent user={ this.props.user } exact path={ routes.HOME } component={ ModesContainer } />
@@ -38,7 +38,7 @@ class AppComponent extends React.Component {
                     <MainLayoutComponent user={ this.props.user } component={ ModesContainer }/>
                 </Switch>
             );
-        } else if(this.props.wasLogin === false) {
+        } else if (this.props.wasLogin === false) {
             return (
                 <Switch>
                     <MainLayoutComponent exact path={ routes.HOME } component={ AuthContainer }/>
