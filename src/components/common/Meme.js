@@ -4,7 +4,15 @@ class Meme extends React.Component {
     render() {
         return (
             <div>
-                <img src={ this.props.image } className="meme-image img-fluid" alt="Meme" id="meme"/>
+                { this.props.winner >= 0 ? 
+                (<div>
+                    <img src={ this.props.image } className="meme-image img-fluid" alt="Meme" id="meme"/> 
+                    { this.props.isWin ? <p>Победитель!</p> : '' }
+                    <p>Проголосовало: { this.props.likes }</p>
+                </div>) :
+                (<div>
+                        <img src={ this.props.image } className="meme-image img-fluid" alt="Meme" id="meme"/>
+                </div>) }
             </div>
         );
     }

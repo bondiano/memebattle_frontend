@@ -3,18 +3,9 @@ import Navbar from '../common/Navbar';
 import MemePair from '../common/MemPair';
 import Timer from '../common/Timer';
 
-const defaultState = {
-    coinsCount: 0,
-    memeLeftImage: "https://pp.userapi.com/c639921/v639921013/54348/P1XfD7ciP5k.jpg",
-    memeRightImage: "https://pp.userapi.com/c834101/v834101399/2dd2e/mMnqAp_dDmU.jpg",
-};
-
 class GameRushComponent extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {
-            game: defaultState
-        };
     }
     
     componentDidMount() {
@@ -28,8 +19,15 @@ class GameRushComponent extends React.Component {
             <section className="GameRush">
                 <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
                 <div className="container">
-                    <Timer end='15'/>
-                    <MemePair result="left" memeLeftImage={ this.props.leftMeme.leftMemeImg } memeRightImage={ this.props.rightMeme.rightMemeImg }/>
+                    { this.props.winner === -2 ? <p style={{ textAlign: 'center' }}>Ожидание нового раунда</p> : 
+                        (this.props.winner >= 0 ? <Timer end={5} /> : <Timer end={15}/>) }
+
+                    <MemePair winner={ this.props.winner } 
+                    leftMemeLikes={ + this.props.leftMeme.leftLikes }
+                    rightMemeLikes={ + this.props.rightMeme.rightLikes }
+                    chooseMeme={ this.props.chooseMeme }
+                    memeLeftImage={ this.props.leftMeme.leftMemeImg } 
+                    memeRightImage={ this.props.rightMeme.rightMemeImg }/>
                 </div>
             </section>
         );

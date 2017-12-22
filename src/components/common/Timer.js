@@ -10,23 +10,36 @@ class Menu extends React.Component {
             time: this.props.end,
         };
         this.mounted = false;
+        this.startTimer = this.startTimer.bind(this);
     };
 
     componentWillMount() {
 		this.mounted = true;
     };
-    
+
     componentDidMount(){
-        if (this.state.time > 0) {
-            this.intervalID = setInterval(this.tick.bind(this), 1000);
-        }
+        this.startTimer();
     };
     
     componentWillUnmount() {
         this.mounted = false;
-	}
+    };
+
+    componentWillUpdate(nextProps, nextState) {
+        if (this.props.end !== nextProps.end) {
+            this.state.time = nextProps.end;
+            this.startTimer();
+        }
+    };
     
-    tick(){
+    startTimer() {
+        clearInterval(this.intervalID);        
+        if (this.state.time > 0) {
+            this.intervalID = setInterval(this.tick.bind(this), 1000);
+        }
+    };
+
+    tick() {
         if(!this.mounted) return;
         
         this.setState((prevState) => ({

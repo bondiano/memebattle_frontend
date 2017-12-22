@@ -14,7 +14,7 @@ const initialState = {
         rightMemeImg:'',
         rightLikes:'',
     },
-    winner:'',
+    winner:-2,
 };
 
 export default (state = initialState, action) => {
@@ -54,6 +54,22 @@ export default (state = initialState, action) => {
                 winner: action.data.winner,
             }
         case types.NEW_PAIR:
+            return {
+                ...state,
+                leftMeme: {
+                    ...state.leftMeme,
+                    leftMemeId: action.data.leftMemeId,
+                    leftMemeImg: action.data.leftMemeImg,
+                    leftLikes: action.data.leftLikes,
+                }, 
+                rightMeme: {
+                    ...state.rightMeme,
+                    rightMemeId: action.data.rightMemeId,
+                    rightMemeImg: action.data.rightMemeImg,
+                    rightLikes: action.data.rightLikes,
+                },
+                winner: -1,
+            }
         case types.GET_MEM_PAIR_SUCCESS:
             return {
                 ...state,

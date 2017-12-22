@@ -6,7 +6,7 @@ import selectors from '../ducks/game/selectors';
 export default connect(state => ({
     leftMeme: selectors.selectLeftMeme(state),
     rightMeme: selectors.selectRightMeme(state),
-    getWinner: selectors.selectWinner(state),
+    winner: selectors.selectWinner(state),
 }), {
     connect: actions.connectToGame,
     getMemesPair: actions.getMemesPair,
