@@ -8,3 +8,4 @@ node_modules
 .cache-loader
 package-lock.json
 *.code-workspace
+socket.io-redux

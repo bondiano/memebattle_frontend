@@ -5,4 +5,13 @@ export default {
     selectLiderlist(state) {              
         return state.game.liderlist;
     },
+    selectRightMeme(state) {
+        return state.game.rightMeme;
+    },
+    selectLeftMeme(state) {
+        return state.game.leftMeme;
+    },
+    selectWinner(state) {
+        return state.game.winner;
+    },
 };
