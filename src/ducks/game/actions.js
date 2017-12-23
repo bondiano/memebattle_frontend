@@ -42,7 +42,13 @@ const actions = {
             type: types.CHOOSE_MEM_REQUEST,
             ...data,
         }
-    }
+    },
+    leaveFromGame(data) {
+        return {
+            type: types.LEAVE_FROM_GAME_REQUEST,
+            ...data,
+        }
+    },
 };
 
 export default actions;

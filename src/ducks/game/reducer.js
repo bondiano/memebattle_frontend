@@ -14,7 +14,9 @@ const initialState = {
         rightMemeImg:'',
         rightLikes:'',
     },
+    lastGame: 0,
     winner:-2,
+    inGame: false,
 };
 
 export default (state = initialState, action) => {
@@ -86,8 +88,18 @@ export default (state = initialState, action) => {
                     rightLikes: action.data.rightLikes,
                 },
             }
+        case types.CONNECT_TO_GAME_SUCCESS:      
+            return {
+                ...state,
+                inGame: true,
+            }
+        case types.LEAVE_FROM_GAME_SUCCESS:
+            return {
+                ...state,
+                inGame: false,
+            }
         case types.CONNECT_TO_GAME_REQUEST:
-        case types.CONNECT_TO_GAME_SUCCESS:        
+        case types.LEAVE_FROM_GAME_REQUEST:
         default:
             return state;
     }

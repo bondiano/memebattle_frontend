@@ -14,4 +14,7 @@ export default {
     selectWinner(state) {
         return state.game.winner;
     },
+    selectInGame(state) {
+        return state.game.inGame;
+    }
 };
