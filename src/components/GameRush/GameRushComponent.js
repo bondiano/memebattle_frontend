@@ -4,8 +4,8 @@ import MemePair from '../common/MemPair';
 import Timer from '../common/Timer';
 
 class GameRushComponent extends React.Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
     }
     
     componentDidMount() {
@@ -27,7 +27,8 @@ class GameRushComponent extends React.Component {
                     rightMemeLikes={ + this.props.rightMeme.rightLikes }
                     chooseMeme={ this.props.chooseMeme }
                     memeLeftImage={ this.props.leftMeme.leftMemeImg } 
-                    memeRightImage={ this.props.rightMeme.rightMemeImg }/>
+                    memeRightImage={ this.props.rightMeme.rightMemeImg }
+                    userId = { this.props.user._id }/>
                 </div>
             </section>
         );

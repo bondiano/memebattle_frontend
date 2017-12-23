@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Meme extends React.Component {
+class Meme extends React.PureComponent {
     render() {
         return (
             <div>
