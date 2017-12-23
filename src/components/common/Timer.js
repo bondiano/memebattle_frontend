@@ -11,33 +11,33 @@ class Menu extends React.Component {
         };
         this.mounted = false;
         this.startTimer = this.startTimer.bind(this);
-    };
+    }
 
     componentWillMount() {
 		this.mounted = true;
-    };
+    }
 
     componentDidMount(){
         this.startTimer();
-    };
+    }
     
     componentWillUnmount() {
         this.mounted = false;
-    };
+    }
 
     componentWillUpdate(nextProps, nextState) {
         if (this.props.end !== nextProps.end) {
             this.state.time = nextProps.end;
             this.startTimer();
         }
-    };
+    }
     
     startTimer() {
         clearInterval(this.intervalID);        
         if (this.state.time > 0) {
             this.intervalID = setInterval(this.tick.bind(this), 1000);
         }
-    };
+    }
 
     tick() {
         if(!this.mounted) return;
@@ -50,7 +50,7 @@ class Menu extends React.Component {
         if(this.state.time <= 0){
             clearInterval(this.intervalID);
         }
-    };
+    }
 
     render() {
         return (
@@ -60,7 +60,7 @@ class Menu extends React.Component {
                 </div>
             </div>
         );
-    };
+    }
 }
 
 

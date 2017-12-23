@@ -207,7 +207,7 @@ h1.page-title{
     font-family: "NautilusPompilius", Courier, sans-serif;
     font-size: 2rem;
     color: $color-blue;
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 0rem 0.2rem 0rem 0.2rem;
     display: inline;
     letter-spacing: 0rem;
 }
@@ -239,7 +239,7 @@ h1.page-title{
     letter-spacing: 0.2rem;
   }
 
-  ul.menu{
+ul.menu{
     -webkit-padding-start: 0;
 }
 
@@ -251,6 +251,7 @@ h1.page-title{
 
 .meme-block{
     margin: 0rem 0.3rem 2rem 0.3rem;
+    position: relative;
 }
 
 .Timer{
@@ -265,6 +266,7 @@ h1.page-title{
 
 .meme-image{
     max-height: 40vh;
+    object-fit: cover;
 }
 
 .Loader {
@@ -278,4 +280,49 @@ h1.page-title{
         right: 0;
         margin: auto;
     }
+}
+
+a.chooseMeme {
+    cursor: pointer;
+}
+
+.Meme {
+    display:inline-block;   
+    position:relative;
+}
+
+span.meme-likes {
+    display:inline-block;
+    position:absolute;
+    z-index: 5;
+    left:0px;
+    background-color:rgba(0,0,0,.4);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.meme-likes p {
+    margin: 0;
+    top: 50%;
+    font-weight: bold;
+    position:absolute;    
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    color: white;
+}
+
+.like-image {
+    display:inline-block;
+    position: absolute;
+    margin: 0;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    text-align: center;
 }

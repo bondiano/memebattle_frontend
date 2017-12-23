@@ -70,6 +70,14 @@ export default (state = initialState, action) => {
                     ...action.error,
                 },
             };
+        case types.LIDERLIST_SUCCESS:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    memcoin: action.data.userRating.coins,
+                }
+            }
         default:
             return state;
     }

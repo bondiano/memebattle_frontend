@@ -49,6 +49,7 @@
         "classnames": "^2.2.5",
         "cleave.js": "^1.0.7",
         "domkit": "0.0.1",
+        "formsy-react": "^1.1.2",
         "history": "^4.7.2",
         "jsonwebtoken": "^8.1.0",
         "prop-types": "^15.5.10",
