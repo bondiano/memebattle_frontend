@@ -6,7 +6,6 @@ import localstorage from '../../helpers/localstorage';
 const defaultState = {
     username: "",
     password: "",
-    confirm: false,
 };
 
 class AuthForm extends React.Component {
@@ -64,7 +63,7 @@ class AuthForm extends React.Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" onClick={ this.submitForm } disabled={ !this.state.form.confirm }>ВХОД</button>
+                            <button className="btn auth-btn" onClick={ this.submitForm }>ВХОД</button>
                         </div>
                     </div>
                     <div className="row justify-content-center">
