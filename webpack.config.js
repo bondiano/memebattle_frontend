@@ -22,7 +22,7 @@ const config = {
         path.resolve(srcFolder, 'index.js')
     ],
     output: {
-        publicPath: './',
+        publicPath: '/',
         path: publicFolder,
         filename: isProduction ? '[hash].bundle.min.js' : '[hash].bundle.js'
     },
