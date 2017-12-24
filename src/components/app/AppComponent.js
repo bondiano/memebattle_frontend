@@ -22,10 +22,6 @@ class AppComponent extends React.Component {
     componentDidMount() {
         this.props.checkLogin();
     };
-    
-    componentWillUpdate(nextProps, nextState) {
-        console.log(nextProps.wasLogin);
-    }
 
     render() {
         if (this.props.wasLogin) {
