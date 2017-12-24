@@ -126,7 +126,6 @@ const config = {
             allChunks: true,
             disable: !isProduction
         }),
-
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(fr|en)$/),
@@ -138,22 +137,24 @@ if (isProduction) {
      * UglifyJSPlugin: minify and optimize code
      * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
      */
-    config.plugins.concat(
+    config.plugins =[
+        ...config.plugins,
         new UglifyJSPlugin({
             beautify: false,
             comments: false,
             compress: {
-                sequences     : true,
-                booleans      : true,
-                loops         : true,
-                unused      : true,
-                warnings    : false,
+                sequences: true,
+                booleans: true,
+                loops: true,
+                unused: true,
+                warnings: false,
                 drop_console: true,
-                unsafe      : true
+                unsafe: true,
+                dead_code: true
             }
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
-    );
+    ];
 
     /**
      * Remove hot loader from production
