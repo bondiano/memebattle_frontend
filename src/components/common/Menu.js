@@ -19,14 +19,14 @@ class Menu extends React.Component {
                     <p>{ this.props.coins ? this.props.coins : 'coins' }</p>
                     </span>
                     <h1>Меню</h1>
+                    <Link className="menu-link" to={routes.HOME}>
+                        На главную
+                    </Link>
                     <Link className="menu-link" to={routes.LIDERBOARD}>
                         Лидеры
                     </Link>
-                    <Link className="menu-link" to={routes.RULES}>
-                        Правила
-                    </Link>
-                    <Link className="menu-link" to={routes.ABOUT}>
-                        О нас
+                    <Link className="menu-link" to={routes.LOGOUT}>
+                        Выход
                     </Link>
                 </div>
             </aside>

@@ -78,6 +78,11 @@ export default (state = initialState, action) => {
                     memcoin: action.data.userRating.coins,
                 }
             }
+        case types.LOGOUT :
+            return {
+                ...state,
+                login: false,
+            }
         default:
             return state;
     }

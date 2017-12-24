@@ -6,7 +6,7 @@ import { routes } from '../../constants';
 
 class MainLayoutComponent extends React.Component {
     componentWillUpdate(nextProps, nextState) {
-        if (nextProps.path !== routes.GAME_RUSH && nextProps.path !== this.props.path) {
+        if (this.props.user && nextProps.path !== routes.GAME_RUSH && nextProps.path !== this.props.path) {
             this.props.leaveFromGame({user_id: this.props.user._id, game_id: 0});
         }
     }

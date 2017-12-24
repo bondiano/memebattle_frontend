@@ -9,6 +9,7 @@ const types =  {
     LOGIN_SUCCESS: '@@user/LOGIN_SUCCESS',
     LOGIN_ERROR: '@@user/LOGIN_ERROR',    
     LIDERLIST_SUCCESS: '@@game/LIDERLIST_SUCCESS',
+    LOGOUT: '@@app/LOGOUT',
 };
 
 export default types;

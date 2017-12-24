@@ -1,7 +1,7 @@
 import appReducer from './reducer';
-import appSagas from './sagas';
+import appRootSaga from './sagas';
 
 export {
     appReducer,
-    appSagas,
+    appRootSaga,
 };

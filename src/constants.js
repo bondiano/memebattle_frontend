@@ -11,6 +11,7 @@ const routes = {
     LIDERBOARD: '/lidersboard',
     GAME_RUSH: '/mode/game-rush',
     GAME_TOURNAMENT: '/mode/game-tournament',
+    LOGOUT: '/logout',
 };
 
 export {
