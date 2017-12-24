@@ -22,7 +22,7 @@ const config = {
         path.resolve(srcFolder, 'index.js')
     ],
     output: {
-        publicPath: '/',
+        publicPath: './',
         path: publicFolder,
         filename: isProduction ? '[hash].bundle.min.js' : '[hash].bundle.js'
     },
@@ -138,20 +138,22 @@ if (isProduction) {
      * UglifyJSPlugin: minify and optimize code
      * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
      */
-    config.plugins.concat([
+    config.plugins.concat(
         new UglifyJSPlugin({
+            beautify: false,
+            comments: false,
             compress: {
-                warnings: false,
+                sequences     : true,
+                booleans      : true,
+                loops         : true,
+                unused      : true,
+                warnings    : false,
                 drop_console: true,
-                unused: true,
-                dead_code: true
-            },
-            output: {
-                comments: false
+                unsafe      : true
             }
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
-    ]);
+    );
 
     /**
      * Remove hot loader from production
