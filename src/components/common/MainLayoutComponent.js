@@ -19,7 +19,8 @@ class MainLayoutComponent extends React.Component {
                 <Favicon url={ favicon }/>
                 <YMInitializer accounts={[47133483]} options={{clickmap:true,
                     trackLinks:true,
-                    accurateTrackBounce:true
+                    accurateTrackBounce:true,
+                    userParams: this.props.user ? ( this.props.user._id ? this.props.user._id : null ) : null
                 }} />
                 <div className="content">
                     <InnerComponent { ...matchProps } { ...props } />

@@ -19,6 +19,18 @@ function* getLidersSaga(action) {
     }
 }
 
+function* connectToGameSaga() {
+    try {
+        yield ym('hit', {
+            title: 'Подключение к игре',
+            referer: 'https://mems.fun/mode/game-rush'
+         });
+    } catch (error) {
+        yield console.log(error);
+    }
+}
+
 export default function* gameRootSaga() {
     yield takeEvery(types.LIDERLIST_REQUEST, getLidersSaga);
+    yield takeEvery(types.CONNECT_TO_GAME_SUCCESS, connectToGameSaga);    
 };
