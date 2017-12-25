@@ -59,9 +59,13 @@ function* loginSaga(action) {
 
 function* checkLoginSaga(action) {
     try {
+        if(localStorage('get', 'token_refresh')(false) === false){
+            throw Error('No token_refresh in localstorage');
+        }
         const data = yield call(services.checkLogin, action.userData);
         yield put(actions.checkLoginSuccess(data));
     } catch (error) {
+        console.log(error);
         yield put(actions.checkLoginError(error));
     }
 }

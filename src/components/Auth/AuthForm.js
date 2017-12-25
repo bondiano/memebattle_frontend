@@ -1,48 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '@/constants';
-import localstorage from '../../helpers/localstorage';
-
-const defaultState = {
-    username: "",
-    password: "",
-};
+import Formsy from 'formsy-react';
+import localstorage from '@/helpers/localstorage';
+import Input from '../common/Input';
 
 class AuthForm extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            form: defaultState
-        };
-        this.submitForm = this.submitForm.bind(this);
+        this.disableButton = this.disableButton.bind(this);
+        this.enableButton = this.enableButton.bind(this);
+        this.state = { canSubmit: false, };
+        this.submit = this.submit.bind(this);
     };
 
-    submitForm(e) {
-        e.preventDefault();
-        this.props.login(this.state.form);
-    };
-
-    changeHandler(name, event) {
-        this.changeFilter({
-            [name]: event.target.value,
-        });
-    };
-
-    changeFilter(data) {
-        if(!data) return;
-        this.setState((prevState) => ({
-                ...prevState,
-                form: {
-                    ...prevState.form,
-                    ...data,
-                }
-        }));
-    };
+    submit(model) {
+        this.props.login(model);
+    }
+    
+    disableButton() {
+        this.setState({ canSubmit: false });
+    }
+    
+    enableButton() {
+       this.setState({ canSubmit: true });
+    }
 
     render() {
         return (
-                
-                <form>
+                <Formsy onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton }>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
                             <h1 className="enterText">
@@ -50,21 +36,23 @@ class AuthForm extends React.Component {
                             </h1>
                         </div>
                     </div>
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={ this.state.username } onChange={ this.changeHandler.bind(this, 'username') } type="text" label="Name" placeholder="Логин"/>
-                        </div>
-                    </div>
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={ this.state.password } onChange={ this.changeHandler.bind(this, 'password') } type="password" label="Password" placeholder="Пароль"/>
-                        </div>
-                    </div>
+
+                    <Input className="form-control auth-input" name="username"
+                        type="text" label="Name" 
+                        placeholder="Логин" validations="isExisty" 
+                        validationError="Введите верный логин" required/>
+
+                    <Input className="form-control auth-input" name="password" 
+                        type="password" label="Password" 
+                        placeholder="Пароль" validations="isExisty"
+                        validationError="Введите верный пароль" required/>
+
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" onClick={ this.submitForm }>ВХОД</button>
+                            <button type="submit" className="btn auth-btn" disabled={!this.state.canSubmit}>ВХОД</button>
                         </div>
                     </div>
+
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
                             <Link to={ routes.REGISTER }>
@@ -74,7 +62,7 @@ class AuthForm extends React.Component {
                             </Link>
                         </div>
                     </div>
-                </form>
+                </Formsy>
         );
     }
 }

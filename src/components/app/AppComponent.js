@@ -10,7 +10,7 @@ import GameRushContainer from '@/containers/GameRushContainer';
 import GameTournamentContainer from '@/containers/GameTournamentContainer';
 import AboutComponent from '../common/AboutComponent';
 import RulesComponent from '../common/RulesComponent';
-import localstorage from '@/helpers/localstorage';
+import localStorage from '@/helpers/localstorage';
 import LoaderComponent from '../common/Loader';
 import LogoutContainer from '@/containers/LogoutContainer';
 

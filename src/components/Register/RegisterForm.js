@@ -1,11 +1,9 @@
 import React from 'react';
-import localstorage from '../../helpers/localstorage';
+import Formsy from 'formsy-react';
+import Input from '../common/Input';
 
 const defaultState = {
-    username: "",
-    password: "",
     confirm: false,
-    email: "",
 }
 
 class RegisterForm extends React.Component {
@@ -13,46 +11,37 @@ class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            form: defaultState
+            ...defaultState,
+            canSubmit: false,
         };
-        this.submitForm = this.submitForm.bind(this);
+        this.submit = this.submit.bind(this);
+        this.handleCheckChange = this.handleCheckChange.bind(this);
+        this.disableButton = this.disableButton.bind(this);
+        this.enableButton = this.enableButton.bind(this);
     }
 
-    submitForm(e) {
-        e.preventDefault();
-        this.props.register(this.state.form);
-    };
-
-    changeHandler(name, event) {
-        this.changeFilter({
-            [name]: event.target.value,
-        });
-    };
-
-    changeFilter(data) {
-        if(!data) return;
-        this.setState((prevState) => ({
-                ...prevState,
-                form: {
-                    ...prevState.form,
-                    ...data,
-                }
-        }));
-    };
+    submit(model) {
+        this.props.register(model);
+    }
+    
+    disableButton() {
+        this.setState({ canSubmit: false });
+    }
+    
+    enableButton() {
+       this.setState({ canSubmit: true });
+    }
 
     handleCheckChange(){       
         this.setState((prevState) => ({
             ...prevState,
-            form: {
-                ...prevState.form,
-                confirm: !this.state.form.confirm,
-            }
+            confirm: !this.state.confirm,
         }));
     };
 
     render() {
         return (
-            <form>
+            <Formsy onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton }>            
                 <div className="row justify-content-center">
                     <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
                         <h1 className="enterText">
@@ -60,35 +49,34 @@ class RegisterForm extends React.Component {
                         </h1>
                     </div>
                 </div>
-                <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={this.state.username} onChange={this.changeHandler.bind(this, 'username')} type="text" label="Name" placeholder="Логин"/>
-                        </div>
-                </div>
-                <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={this.state.email} onChange={this.changeHandler.bind(this, 'email')} type="email" label="Email" placeholder="E-mail"/>
-                        </div>
-                </div>
-                <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                            <input className="form-control auth-input" value={this.state.password} onChange={this.changeHandler.bind(this, 'password')} type="password" label="Password" placeholder="Пароль"/>
-                        </div>
-                </div>
+
+                <Input className="form-control auth-input" name="username" type="text" 
+                        label="Name" placeholder="Логин" validations="isExisty"
+                        validationError="Введите верный логин" required/>
+
+                <Input className="form-control auth-input" name="email" type="email" 
+                        label="Email" placeholder="E-mail" validations="isEmail"
+                        validationError="Введите верный email" required/>
+
+                <Input className="form-control auth-input" name="password" type="password" 
+                        label="Password" placeholder="Пароль" validations="isExisty"
+                        validationError="Введите верный пароль" required/>
+
                 <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <p className="accept-rules">
-                                <input className="auth-input" onChange={this.handleCheckChange.bind(this)} type="checkbox" label="Confirm" id="checkbox-rules"/> 
+                                <input className="auth-input" onChange={ this.handleCheckChange } type="checkbox" label="Confirm" id="checkbox-rules"/> 
                                 <label htmlFor="checkbox-rules"><span className="checkbox-custom"></span>С правилами соглсен(а)</label>
                             </p>
                         </div>
-                    </div>
+                </div>
+
                 <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" onClick={this.submitForm} disabled={!this.state.form.confirm}>ПОДТВЕРДИТЬ</button>
+                            <button className="btn auth-btn" type="submit" disabled={ !this.state.confirm && !this.state.canSubmit }>ПОДТВЕРДИТЬ</button>
                         </div>
                     </div>
-            </form>
+            </Formsy>
         );
     }
 }
