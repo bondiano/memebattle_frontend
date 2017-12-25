@@ -88,16 +88,16 @@ h1.page-title{
     width: var(--toggler-size);
     height: var(--toggler-size);
     position: relative;
-    top: 10px;
     left: 10px;
+    top: 10px;
     cursor: pointer;
     z-index: 16;
-  }
+}
 
   
-  input[type="checkbox"].input-toggler{
-    display: none;
- }
+input[type="checkbox"].input-toggler{
+   display: none;
+}
 
 .menu-toggler__line {
     height: calc(var(--toggler-size) / 5);
@@ -127,26 +127,29 @@ h1.page-title{
 }
   
 .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(1) {
-   -webkit-transform: translateY(calc(var(--toggler-size) / 5 * 2)) rotate(45deg);
-   transform: translateY(calc(var(--toggler-size) / 5 * 2)) rotate(45deg);
+   -webkit-transform: translateY(calc(calc(var(--toggler-size) / 3) + var(--toggler-size) / 5 * 2)) rotate(45deg);
+   -ms-transform: translateY(calc(calc(var(--toggler-size) / 3) + var(--toggler-size) / 5 * 2)) rotate(45deg);
+   transform: translateY(calc(calc(var(--toggler-size) / 3) + var(--toggler-size) / 5 * 2)) rotate(45deg);
    position: fixed;
    width: var(--toggler-size);
-   left: 9px;
+   top: 0;
+   left: 10px;
 }
   
 .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(2) {
    opacity: 0; 
    position: fixed;
    width: var(--toggler-size);
-   left: 9px;   
+   left: 10px;   
 }
   
 .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(3) {
-    -webkit-transform: translateY(calc(calc(var(--toggler-size) / 3)  + var(--toggler-size) / 5 * -2)) rotate(-45deg);
+   -webkit-transform: translateY(calc(calc(var(--toggler-size) / 3)  + var(--toggler-size) / 5 * -2)) rotate(-45deg);
+   -ms-transform: translateY(calc(calc(var(--toggler-size) / 3) + var(--toggler-size) / 5 * -2)) rotate(-45deg);
    transform: translateY(calc(calc(var(--toggler-size) / 3) + var(--toggler-size) / 5 * -2)) rotate(-45deg);
    position: fixed;   
    width: var(--toggler-size);   
-   left: 9px;   
+   left: 10px;   
 }
 
 .input-toggler:checked > .menu-toggler-fixed {
@@ -232,7 +235,7 @@ h1.page-title{
     }
 
     .liders-username {
-        max-width: 12rem;        
+        max-width: 9rem;        
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -248,7 +251,7 @@ h1.page-title{
         max-width: 60%;
     }
     .liders-username {
-        max-width: 20rem;
+        max-width: 18rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

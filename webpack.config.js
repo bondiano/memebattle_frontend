@@ -35,7 +35,7 @@ const config = {
         }
     },
     devServer: {
-        port: 1488,
+        port: 1489,
         contentBase: publicFolder,
         historyApiFallback: true,
         hot: true,
