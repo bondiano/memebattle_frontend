@@ -12,7 +12,7 @@ function* logoutSaga(action) {
         yield localStorage('clear')();
         yield ym('hit', {
             title: 'Выход',
-            referer: 'https://mems.fun/logout'
+            url: '/logout'
          }); 
         yield put(push(routes.LOGIN));
     } catch (error) {

@@ -10,7 +10,7 @@ class Menu extends React.Component {
             <aside className="sidebar">
                 <div className="menu-content">
                     <div className="row justify-content-center">
-                        <div className="col-xs-1 col-sm-1 col-md-2 col-lg-3 text-center">
+                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-3 text-center">
                             <Logo />
                         </div>
                     </div>

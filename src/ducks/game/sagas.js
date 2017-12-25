@@ -11,7 +11,7 @@ function* getLidersSaga(action) {
         yield localStorage('set', 'memcoin')(data.userRating.coins);
         yield ym('hit', {
             title: 'Таблица лидеров',
-            referer: 'https://mems.fun/lidersboard'
+            url: '/lidersboard'
          });
         yield put(actions.getLidersSuccess(data));
     } catch (error) {
@@ -23,7 +23,7 @@ function* connectToGameSaga() {
     try {
         yield ym('hit', {
             title: 'Подключение к игре',
-            referer: 'https://mems.fun/mode/game-rush'
+            url: '/mode/game-rush'
          });
     } catch (error) {
         yield console.log(error);

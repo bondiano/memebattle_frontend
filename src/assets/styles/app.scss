@@ -43,7 +43,10 @@ h1 {
 .Logo {
     margin: 0.2rem;
     display: inline-block;
-    max-width: 100%;
+    @media (min-width: 576px) { max-width: 60%; }
+    @media (min-width: 768px) { max-width: 75%; }
+    @media (min-width: 992px) { max-width: 90%; }
+    @media (min-width: 1200px) { max-width: 100%; }
     height: auto;
 }
 
@@ -227,8 +230,10 @@ h1.page-title{
 }
 
 .menu-content .Logo {
-    display: inline-block;
-    max-width: 90%;
+    @media (min-width: 576px) { max-width: 60%; }
+    @media (min-width: 768px) { max-width: 70%; }
+    @media (min-width: 992px) { max-width: 80%; }
+    @media (min-width: 1200px) { max-width: 90%; }
     height: auto;
 }
 

@@ -31,7 +31,7 @@ function* registerSaga(action) {
         yield localStorage('clear')();          
         yield ym('hit', {
             title: 'Регистрация',
-            referer: 'https://mems.fun/register'
+            url: '/register'
          });      
         yield put(push(routes.LOGIN));
     } catch (error) {
@@ -48,7 +48,7 @@ function* loginSaga(action) {
         yield setupStorage(data);
         yield ym('hit', {
             title: 'Вход',
-            referer: 'https://mems.fun/login'
+            url: '/login'
          });     
         yield put(push(routes.HOME));
     } catch (error) {

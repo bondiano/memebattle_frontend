@@ -17,9 +17,10 @@ class MainLayoutComponent extends React.Component {
         const innerView = matchProps => (
             <div className="app">
                 <Favicon url={ favicon }/>
-                <YMInitializer accounts={[47133483]} options={{clickmap:true,
+                <YMInitializer accounts={[47133483]} options={{ clickmap:true,
                     trackLinks:true,
                     accurateTrackBounce:true,
+                    webvisor: true,
                     userParams: this.props.user ? ( this.props.user._id ? this.props.user._id : null ) : null
                 }} />
                 <div className="content">
