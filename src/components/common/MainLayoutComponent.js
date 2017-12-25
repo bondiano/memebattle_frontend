@@ -21,7 +21,7 @@ class MainLayoutComponent extends React.Component {
                     trackLinks:true,
                     accurateTrackBounce:true,
                     webvisor: true,
-                    userParams: this.props.user ? ( this.props.user._id ? this.props.user._id : null ) : null
+                    userParams: this.props.user ? this.props.user : {status: "unknown",}
                 }} />
                 <div className="content">
                     <InnerComponent { ...matchProps } { ...props } />

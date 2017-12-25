@@ -142,8 +142,8 @@ h1.page-title{
 }
   
 .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(3) {
-    -webkit-transform: translateY(calc(var(--toggler-size) / 3  + var(--toggler-size) / 5 * -2)) rotate(-45deg);
-   transform: translateY(calc(var(--toggler-size) / 3 + var(--toggler-size) / 5 * -2)) rotate(-45deg);
+    -webkit-transform: translateY(calc(calc(var(--toggler-size) / 3)  + var(--toggler-size) / 5 * -2)) rotate(-45deg);
+   transform: translateY(calc(calc(var(--toggler-size) / 3) + var(--toggler-size) / 5 * -2)) rotate(-45deg);
    position: fixed;   
    width: var(--toggler-size);   
    left: 9px;   
@@ -226,15 +226,36 @@ h1.page-title{
     height: auto;
 }
 
-@media screen and (min-width: 300px) {
+@media screen and (min-width: 200px) {
     .Logo {
-        max-width: 40%; 
+        max-width: 30%; 
+    }
+
+    .liders-username {
+        max-width: 12rem;        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .liders-username p{
+        text-overflow: ellipsis;
     }
 }    
 
 @media screen and (min-width: 500px) {
     .Logo {
-        max-width: 60%; 
+        max-width: 60%;
+    }
+    .liders-username {
+        max-width: 20rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .liders-username p{
+        text-overflow: ellipsis;
     }
 }
 
@@ -243,6 +264,7 @@ h1.page-title{
         max-width: 75%; 
     }
 }
+
 @media screen and (min-width: 900px) { 
     .Logo {
         max-width: 80%; 

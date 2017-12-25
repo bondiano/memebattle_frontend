@@ -27,7 +27,7 @@ class LiderboardComponent extends React.Component {
                     <div className="col-auto">
                         <p>{ 1 + +keys }</p>
                     </div>
-                    <div className="col-auto">
+                    <div className="col-auto liders-username">
                         <p>{ this.props.liderlist[keys].username }</p>
                     </div>
                     <div className="col-auto">
