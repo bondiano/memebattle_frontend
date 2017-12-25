@@ -5,10 +5,15 @@ import types from './types';
 import { routes } from '@/constants';
 import { push } from 'react-router-redux';
 import localStorage from '../../helpers/localstorage';
+import ym from 'react-yandex-metrika';
 
 function* logoutSaga(action) {
     try {
         yield localStorage('clear')();
+        yield ym('hit', {
+            title: 'Выход',
+            referer: 'https://mems.fun/logout'
+         }); 
         yield put(push(routes.LOGIN));
     } catch (error) {
         yield put(console.log(error));

@@ -4,7 +4,8 @@ import services from './services';
 import actions from './actions';
 import types from './types';
 import { routes } from '@/constants';
-import localStorage from '../../helpers/localstorage'
+import localStorage from '../../helpers/localstorage';
+import ym from 'react-yandex-metrika';
 
 /**
  * @param {Object} data
@@ -27,7 +28,11 @@ function* registerSaga(action) {
     try {
         const data = yield call(services.registerUser, action.userData);
         yield put(actions.registerSuccess(data));
-        yield localStorage('clear')();                
+        yield localStorage('clear')();          
+        yield ym('hit', {
+            title: 'Регистрация',
+            referer: 'https://mems.fun/register'
+         });      
         yield put(push(routes.LOGIN));
     } catch (error) {
         yield localStorage('clear')();                
@@ -41,6 +46,10 @@ function* loginSaga(action) {
         yield put(actions.loginSuccess(data));
         yield localStorage('clear')();        
         yield setupStorage(data);
+        yield ym('hit', {
+            title: 'Вход',
+            referer: 'https://mems.fun/login'
+         });     
         yield put(push(routes.HOME));
     } catch (error) {
         yield localStorage('clear')();                
