@@ -3,6 +3,7 @@ import Favicon from 'react-favicon';
 import { Route } from 'react-router-dom';
 import favicon from './../../assets/images/favicon.ico';
 import { routes } from '../../constants';
+import { YMInitializer } from 'react-yandex-metrika';
 
 class MainLayoutComponent extends React.Component {
     componentWillUpdate(nextProps, nextState) {
@@ -17,6 +18,7 @@ class MainLayoutComponent extends React.Component {
             <div className="app">
                 <Favicon url={ favicon }/>
                 <div className="content">
+                    <YMInitializer accounts={[47133483]} options={{defer: true, clickmap: true}} />
                     <InnerComponent { ...matchProps } { ...props } />
                 </div>
             </div>

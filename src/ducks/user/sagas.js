@@ -27,8 +27,10 @@ function* registerSaga(action) {
     try {
         const data = yield call(services.registerUser, action.userData);
         yield put(actions.registerSuccess(data));
+        yield localStorage('clear')();                
         yield put(push(routes.LOGIN));
     } catch (error) {
+        yield localStorage('clear')();                
         yield put(actions.registerError(error));
     }
 }
@@ -37,9 +39,11 @@ function* loginSaga(action) {
     try {
         const data = yield call(services.loginUser, action.userData);
         yield put(actions.loginSuccess(data));
+        yield localStorage('clear')();        
         yield setupStorage(data);
         yield put(push(routes.HOME));
     } catch (error) {
+        yield localStorage('clear')();                
         yield put(actions.loginError(error));
     }
 }

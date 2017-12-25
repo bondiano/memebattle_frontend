@@ -19,7 +19,6 @@ class AuthForm extends React.Component {
 
     submitForm(e) {
         e.preventDefault();
-        localstorage('clear')();
         this.props.login(this.state.form);
     };
 

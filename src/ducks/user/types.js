@@ -10,6 +10,7 @@ const types =  {
     LOGIN_ERROR: '@@user/LOGIN_ERROR',    
     LIDERLIST_SUCCESS: '@@game/LIDERLIST_SUCCESS',
     LOGOUT: '@@app/LOGOUT',
+    ADD_COIN: '@@ws/ADD_COIN',
 };
 
 export default types;
