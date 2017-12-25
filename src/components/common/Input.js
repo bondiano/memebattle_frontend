@@ -17,7 +17,7 @@ class Input extends React.Component {
     return (
         <div className="row justify-content-center">
             <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                <input className={ this.props.className }
+                <input className={ errorMessage ? this.props.className + ' input-error': this.props.className }
                 onChange={ this.changeValue }
                 type={ this.props.type }
                 label={ this.props.label }
