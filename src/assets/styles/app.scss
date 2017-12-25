@@ -40,16 +40,6 @@ h1 {
     height: 100%;    
 }
 
-.Logo {
-    margin: 0.2rem;
-    display: inline-block;
-    @media (min-width: 576px) { max-width: 60%; }
-    @media (min-width: 768px) { max-width: 75%; }
-    @media (min-width: 992px) { max-width: 90%; }
-    @media (min-width: 1200px) { max-width: 100%; }
-    height: auto;
-}
-
 img.Memcoins {
     height: 2rem;
     margin:0 auto;
@@ -229,12 +219,39 @@ h1.page-title{
     letter-spacing: 0rem;
 }
 
-.menu-content .Logo {
-    @media (min-width: 576px) { max-width: 60%; }
-    @media (min-width: 768px) { max-width: 70%; }
-    @media (min-width: 992px) { max-width: 80%; }
-    @media (min-width: 1200px) { max-width: 90%; }
+
+.Logo {
+    margin: 0.2rem;
+    display: inline-block;
     height: auto;
+}
+
+@media screen and (min-width: 300px) {
+    .Logo {
+        max-width: 40%; 
+    }
+}    
+
+@media screen and (min-width: 500px) {
+    .Logo {
+        max-width: 60%; 
+    }
+}
+
+@media screen and (min-width: 700px) { 
+    .Logo {
+        max-width: 75%; 
+    }
+}
+@media screen and (min-width: 900px) { 
+    .Logo {
+        max-width: 80%; 
+    }
+}
+@media screen and (min-width: 1200px) { 
+    .Logo {
+        max-width: 90%; 
+    }
 }
 
 .menu-content h1{
