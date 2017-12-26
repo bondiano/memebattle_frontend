@@ -69,7 +69,7 @@ class MemePair extends React.Component {
                 </div>
                 <div className="row justify-content-center meme-block">
                 { this.state.liked.likedRight ? 
-                        <img src={ likeImg } className="like-image img-fluid" alt="Meme" id="meme"/> : '' }
+                        <img src={ likeImg } className="like-image image-spin img-fluid" alt="Meme" id="meme"/> : '' }
                     { this.props.winner === -2 ? 
                         <Meme image={ this.props.memeRightImage }/> : 
                             (this.props.winner === -1 ? 

@@ -103,7 +103,7 @@ button.auth-btn{
     width: 16rem;
 }
 
-button.auth-btn:hover{
+button.auth-btn:hover, button.auth-btn:active, button.auth-btn:focus {
     color: $white;
     background: $color-blue;
 }
@@ -124,9 +124,9 @@ button.register-btn{
     width: 16rem;
 }
 
-button.register-btn:hover{
-    color: $color-blue;
-    background: none;
+button.register-btn:hover, button.register-btn:active, button.register-btn:focus, a:focus > button.register-btn {
+    color: $color-blue !important;
+    background: none !important;
 }
 
 .input-error-text {
