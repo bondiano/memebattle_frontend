@@ -4,13 +4,14 @@ import { routes } from '@/constants';
 import Formsy from 'formsy-react';
 import localstorage from '@/helpers/localstorage';
 import Input from '../common/Input';
+import errorHandler from '../../helpers/errorHandler';
 
 class AuthForm extends React.Component {
     constructor(props){
         super(props);
         this.disableButton = this.disableButton.bind(this);
         this.enableButton = this.enableButton.bind(this);
-        this.state = { canSubmit: false, };
+        this.state = { canSubmit: true, };
         this.submit = this.submit.bind(this);
     };
 
@@ -26,9 +27,21 @@ class AuthForm extends React.Component {
        this.setState({ canSubmit: true });
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        if (this.props.userError !== nextProps.userError) {
+            this.error = errorHandler(nextProps.userError);
+            if(this.error.NOTVALID || this.error.NOREQINPUT) {
+                this.refs.form.updateInputsWithError({
+                    username: 'Введите верный логин',
+                    password: 'Введите верный пароль',
+                });
+            }
+        }
+    }
+
     render() {
         return (
-                <Formsy onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton }>
+                <Formsy ref="form" onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton }>
                     <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
                             <h1 className="enterText">
@@ -36,7 +49,6 @@ class AuthForm extends React.Component {
                             </h1>
                         </div>
                     </div>
-
                     <Input className="form-control auth-input" name="username"
                         type="text" label="Name" 
                         placeholder="Логин" validations="isExisty" 

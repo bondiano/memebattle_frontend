@@ -65,6 +65,10 @@ select:-webkit-autofill:focus {
   background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);  
 }
 
+label {
+    margin-bottom: 0rem;
+}
+
 h1.page-title{
     margin: 1rem 0rem 0.5rem 0.2rem;
 }
@@ -326,7 +330,7 @@ ul.menu{
 }
 
 .meme-image{
-    max-height: 40vh;
+    max-height: 41vh;
     object-fit: cover;
 }
 
@@ -386,15 +390,4 @@ span.meme-likes {
     left: 50%;
     height: 50%;
     text-align: center;
-}
-
-.input-error-text {
-    font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;    
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    color: rgb(235, 61, 61);
-}
-
-input.input-error {
-    border-bottom: 0.1rem solid rgb(235, 61, 61) !important;
 }

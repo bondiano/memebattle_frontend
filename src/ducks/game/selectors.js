@@ -16,5 +16,8 @@ export default {
     },
     selectInGame(state) {
         return state.game.inGame;
-    }
+    },
+    getError(state) {   
+        return state.game.errors;
+    },
 };

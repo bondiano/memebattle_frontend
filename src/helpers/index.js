@@ -1,7 +1,9 @@
 import request from './request';
-import localstorage from './localstorage';
+import localStorage from './localstorage';
+import errorHandler from './errorHandler';
 
 export {
     request,
-    localstorage,
+    localStorage,
+    errorHandler,
 };

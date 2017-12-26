@@ -1,5 +1,5 @@
 export default {
     getError(state) {   
-        return state.app.error;
+        return state.app.errors;
     },
 };

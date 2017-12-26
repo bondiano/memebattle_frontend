@@ -5,7 +5,7 @@
  * @returns {functions} - GET calls with default argument, SET with value argument
  */
 
-const localstorage = (method, key) => {
+const localStorage = (method, key) => {
     this.key = key;
     switch(method){
         case 'get':
@@ -29,4 +29,4 @@ const setValue = (value) =>
 const clearStorage = () => 
     window.localStorage.clear();
 
-export default localstorage;
+export default localStorage;

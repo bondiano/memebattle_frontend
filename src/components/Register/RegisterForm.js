@@ -1,6 +1,8 @@
 import React from 'react';
 import Formsy from 'formsy-react';
 import Input from '../common/Input';
+import errorHandler from '../../helpers/errorHandler';
+import { errors } from '@/constants';
 
 const defaultState = {
     confirm: false,
@@ -14,6 +16,7 @@ class RegisterForm extends React.Component {
             ...defaultState,
             canSubmit: false,
         };
+        this.error = {};
         this.submit = this.submit.bind(this);
         this.handleCheckChange = this.handleCheckChange.bind(this);
         this.disableButton = this.disableButton.bind(this);
@@ -39,9 +42,25 @@ class RegisterForm extends React.Component {
         }));
     };
 
+    componentWillUpdate(nextProps, nextState) {
+        if (this.props.userError !== nextProps.userError) {
+            this.error = errorHandler(nextProps.userError);
+            if(this.error.EXTUSR) {
+                this.refs.form.updateInputsWithError({
+                    username: errors.EXTUSR,
+                });
+            }
+            if(this.error.EXTEMAIL) {
+                this.refs.form.updateInputsWithError({
+                    email: errors.EXTEMAIL,
+                });
+            }
+        }
+    }
+
     render() {
         return (
-            <Formsy onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton }>            
+            <Formsy ref="form" onValidSubmit={ this.submit } onValid={ this.enableButton } onInvalid={ this.disableButton }>
                 <div className="row justify-content-center">
                     <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
                         <h1 className="enterText">
@@ -73,7 +92,7 @@ class RegisterForm extends React.Component {
 
                 <div className="row justify-content-center">
                         <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" type="submit" disabled={ !this.state.confirm && !this.state.canSubmit }>ПОДТВЕРДИТЬ</button>
+                            <button className="btn auth-btn" type="submit" disabled={ !this.state.confirm || !this.state.canSubmit }>ПОДТВЕРДИТЬ</button>
                         </div>
                     </div>
             </Formsy>

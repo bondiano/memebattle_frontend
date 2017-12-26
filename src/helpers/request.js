@@ -22,7 +22,7 @@ function send(config) {
                     throw error.errors;
                 }
                 
-                const tokenRefresh = localStorage('get', 'token_refresh')();
+                const tokenRefresh = localStorage('get', 'token_refresh')(false);
 
                 if(!tokenRefresh){
                     const error = new Error();
@@ -71,7 +71,7 @@ function send(config) {
                 const responseErr = responseWithError.response.data.error;
                 const responseMes = responseWithError.response.data.message;
                 const responseName = responseWithError.response.data.name;
-                error.errors.push({ key: 'common', message: responseMes, error: responseErr });
+                error.errors.push({ key: 'common', name: responseName, message: responseMes, error: responseErr });
             } catch (err) {
                 error.errors.push({ key: 'common', name: '', message: 'Error' });
             }

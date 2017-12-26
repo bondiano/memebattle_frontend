@@ -24,34 +24,35 @@ class AppComponent extends React.Component {
     };
 
     render() {
-        if (this.props.wasLogin) {
-            return (
-                <Switch>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error ={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } exact path={ routes.HOME } component={ ModesContainer } />
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } path={ routes.MODES } component={ ModesContainer }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } path={ routes.LIDERBOARD } component={ LiderBoardContainer }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } path={ routes.GAME_RUSH } component={ GameRushContainer }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } path={ routes.GAME_TOURNAMENT } component={ GameTournamentContainer }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } path={ routes.ABOUT } component={ AboutComponent }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } path={ routes.RULES } component={ RulesComponent }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } user={ this.props.user } path={ routes.LOGOUT } component={ LogoutContainer }/>            
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } exact path={ routes.LOGIN } component={ AuthContainer }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } path={ routes.REGISTER } component={ RegisterContainer }/>
-                    <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } error={ this.props.error } inGame={ this.props.inGame } user={ this.props.user } component={ ModesContainer }/>
-                </Switch>
-            );
-        } else if (this.props.wasLogin === false) {
-            return (
-                <Switch>
-                    <MainLayoutComponent error={ this.props.error } exact path={ routes.HOME } component={ AuthContainer }/>
-                    <MainLayoutComponent error={ this.props.error } path={ routes.REGISTER } component={ RegisterContainer }/>                    
-                    <MainLayoutComponent error={ this.props.error } component={ AuthContainer }/>            
-                </Switch>
-            ); 
-        } else {
-            return (
-                <LoaderComponent/>
-            );
+        switch(this.props.wasLogin){
+            case null:
+                return (
+                    <LoaderComponent/>
+                );
+            case false:
+                return (
+                    <Switch>
+                        <MainLayoutComponent appError={ this.props.appError } exact path={ routes.HOME } component={ AuthContainer }/>
+                        <MainLayoutComponent appError={ this.props.appError } path={ routes.REGISTER } component={ RegisterContainer }/>                    
+                        <MainLayoutComponent appError={ this.props.appError } component={ AuthContainer }/>            
+                    </Switch>
+                ); 
+            case true:
+                return (
+                    <Switch>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError ={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } exact path={ routes.HOME } component={ ModesContainer } />
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } path={ routes.MODES } component={ ModesContainer }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } path={ routes.LIDERBOARD } component={ LiderBoardContainer }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } path={ routes.GAME_RUSH } component={ GameRushContainer }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } path={ routes.GAME_TOURNAMENT } component={ GameTournamentContainer }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } path={ routes.ABOUT } component={ AboutComponent }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } path={ routes.RULES } component={ RulesComponent }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } user={ this.props.user } path={ routes.LOGOUT } component={ LogoutContainer }/>            
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } exact path={ routes.LOGIN } component={ AuthContainer }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } path={ routes.REGISTER } component={ RegisterContainer }/>
+                        <MainLayoutComponent leaveFromGame={ this.props.leaveFromGame } appError={ this.props.appError } inGame={ this.props.inGame } user={ this.props.user } component={ ModesContainer }/>
+                    </Switch>
+                );
         }
     }
 }

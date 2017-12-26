@@ -64,6 +64,7 @@ function* checkLoginSaga(action) {
         }
         const data = yield call(services.checkLogin, action.userData);
         yield put(actions.checkLoginSuccess(data));
+        yield put(push(routes.HOME)); 
     } catch (error) {
         yield put(actions.checkLoginError(error));
     }

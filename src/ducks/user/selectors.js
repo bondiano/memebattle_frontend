@@ -6,6 +6,6 @@ export default {
         return state.user.login;
     },
     getError(state) {   
-        return state.user.error;
+        return state.user.errors;
     },
 };

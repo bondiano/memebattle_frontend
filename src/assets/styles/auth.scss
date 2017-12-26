@@ -40,6 +40,10 @@ p.accept-rules {
     letter-spacing: 0.2rem;
  }
 
+ input[type="text"]:focus.auth-input, input[type="password"]:focus.auth-input, input[type="email"]:focus.auth-input {
+    border-bottom: 0.1rem solid $color-blue;
+ }
+
  input[type="text"].auth-input::-webkit-input-placeholder {color:white;}
  input[type="text"].auth-input::-moz-placeholder          {color:white;}/* Firefox 19+ */
  input[type="text"].auth-input:-moz-placeholder           {color:white;}/* Firefox 18- */
@@ -123,4 +127,15 @@ button.register-btn{
 button.register-btn:hover{
     color: $color-blue;
     background: none;
+}
+
+.input-error-text {
+    font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;    
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    color: rgb(235, 61, 61);
+}
+
+input.input-error {
+    border-bottom: 0.1rem solid rgb(235, 61, 61) !important;
 }
