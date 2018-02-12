@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from '@/constants';
+import { routes } from 'constants';
 import Formsy from 'formsy-react';
-import localstorage from '@/helpers/localstorage';
+import localstorage from 'helpers/localstorage';
 import Input from '../common/Input';
 import errorHandler from '../../helpers/errorHandler';
 

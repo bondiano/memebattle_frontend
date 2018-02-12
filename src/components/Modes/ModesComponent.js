@@ -1,5 +1,5 @@
 import React from 'react';
-import { routes } from '@/constants';
+import { routes } from 'constants';
 import Navbar from '../common/Navbar';
 import Card from '../common/Card';
 import cardImg1 from '../../assets/images/bb.jpg';

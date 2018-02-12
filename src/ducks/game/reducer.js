@@ -7,16 +7,16 @@ const initialState = {
     leftMeme: {
         leftMemeId:'',
         leftMemeImg:'',
-        leftLikes:'',
+        leftLikes:''
     },
     rightMeme: {
         rightMemeId:'',
         rightMemeImg:'',
-        rightLikes:'',
+        rightLikes:''
     },
     lastGame: 0,
     winner:-2,
-    inGame: false,
+    inGame: false
 };
 
 export default (state = initialState, action) => {

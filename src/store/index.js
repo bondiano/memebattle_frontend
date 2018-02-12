@@ -30,7 +30,7 @@ const middleware = [
 const store = createStore(
     combineReducers({
         ...rootReducer,
-        routing: routerReducer,
+        routing: routerReducer
     }),
     initialState,
     composeWithDevTools(

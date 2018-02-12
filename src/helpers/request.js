@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { API_URL, JWT_KEY } from '../constants';
 import jwt from 'jsonwebtoken';
-import { fail } from 'assert';
 import localStorage from './localstorage';
 
 const secret = new Buffer(JWT_KEY, 'base64');
@@ -10,18 +9,17 @@ function send(config) {
     const url = `${API_URL}${config.url}`;
     let tokenAccess = localStorage('get', 'token_access')();
     let headers = {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
     };
 
     if(tokenAccess){
-        jwt.verify(tokenAccess, secret, function(err, decoded) {
+        jwt.verify(tokenAccess, secret, function(err) {
             if (err) {
                 if(err.name !== 'TokenExpiredError'){
-                    console.error('Faild to use token');
                     const error = new Error(err);
                     throw error.errors;
                 }
-                
+
                 const tokenRefresh = localStorage('get', 'token_refresh')(false);
 
                 if(!tokenRefresh){
@@ -35,11 +33,11 @@ function send(config) {
                     url: `${API_URL}/auth/refresh-token`,
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + tokenRefresh,
+                        'Authorization': 'Bearer ' + tokenRefresh
                     },
                     data: {
-                        token_refresh: tokenRefresh,
-                    },
+                        token_refresh: tokenRefresh
+                    }
                 })
                 .then(response =>{
                     localStorage('set', 'token_access')(response.data.token_access);
@@ -52,11 +50,11 @@ function send(config) {
                     throw error.errors;
                 });
             }
-        });  
+        });
 
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + tokenAccess,
+            'Authorization': 'Bearer ' + tokenAccess
         };
     }
 
@@ -91,7 +89,7 @@ const request = {
     },
     async delete(url) {
         return send({ url, method: 'DELETE' });
-    },
+    }
 };
 
 export default request;

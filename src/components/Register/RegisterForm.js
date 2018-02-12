@@ -2,7 +2,7 @@ import React from 'react';
 import Formsy from 'formsy-react';
 import Input from '../common/Input';
 import errorHandler from '../../helpers/errorHandler';
-import { errors } from '@/constants';
+import { errors } from 'constants';
 
 const defaultState = {
     confirm: false,

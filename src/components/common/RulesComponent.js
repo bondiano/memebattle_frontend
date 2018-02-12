@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from '@/constants';
+import { routes } from 'constants';
 import Navbar from './Navbar';
 
 class RulesComponent extends React.Component {

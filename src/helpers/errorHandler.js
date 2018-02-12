@@ -1,4 +1,4 @@
-import { errors } from '@/constants';
+import { errors } from 'constants';
 
 const errorHandler = (errorObj) => {
     const error = Object.keys(errorObj).map((keys) => {
@@ -6,6 +6,6 @@ const errorHandler = (errorObj) => {
         return {[name]: errors[name]};
     });
     return error[0];
-}
+};
 
 export default errorHandler;

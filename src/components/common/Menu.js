@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import memcoinIcon from '../../assets/images/coin_shadow_menu.png';
 import Logo from './Logo';
 import { Link } from 'react-router-dom';
-import { routes } from '@/constants';
+import { routes } from 'constants';
 
 class Menu extends React.Component {
     render() {

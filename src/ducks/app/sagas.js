@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects';
 import services from './services';
 import actions from './actions';
 import types from './types';
-import { routes } from '@/constants';
+import { routes } from 'constants';
 import { push } from 'react-router-redux';
 import localStorage from '../../helpers/localstorage';
 import ym from 'react-yandex-metrika';

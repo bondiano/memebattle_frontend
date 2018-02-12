@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import React from 'react';
 
-import AppComponent from '@/containers/AppContainer';
-import store, { history } from '@/store';
+import AppComponent from 'containers/AppContainer';
+import store, { history } from 'store';
 
 const appElement = document.getElementById('app');
 

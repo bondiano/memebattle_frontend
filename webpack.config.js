@@ -1,89 +1,137 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require("compression-webpack-plugin");
-const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
-const path = require('path');
+const
+    path = require('path'),
+    webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin'),
+    UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    autoprefixer = require('autoprefixer'),
+    Dotenv = require('dotenv-webpack');
 
-require('dotenv-extended').load();
-
-const publicFolder = path.resolve(__dirname, 'public');
-const srcFolder = path.resolve(__dirname, 'src');
-
-const isProduction = process.env.NODE_ENV === 'production';
+const
+    publicFolder = path.resolve(__dirname, 'public'),
+    srcFolder = path.resolve(__dirname, 'src');
 
 const config = {
-    devtool: isProduction ? false : 'source-map',
+    /**
+     * Source maps
+     */
+    devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : false,
+
+    /**
+     * Entry application point
+     */
     entry: [
         'react-hot-loader/patch',
-        'babel-polyfill',
-        path.resolve(srcFolder, 'import-common.scss'),
+        path.resolve(srcFolder, 'common.scss'),
         path.resolve(srcFolder, 'index.js')
     ],
+
+    /**
+     * Output options
+     */
     output: {
         publicPath: '/',
         path: publicFolder,
-        filename: isProduction ? '[hash].bundle.min.js' : '[hash].bundle.js'
+        filename: process.env.NODE_ENV !== 'production' ? '[hash].bundle.js' : '[hash].bundle.min.js'
     },
+
+    /**
+     * Options affecting the resolving of modules
+     */
     resolve: {
-        modules: ['src', 'node_modules'],
-        extensions: ['*', '.js', '.jsx', '.json'],
-        alias: {
-            '@': srcFolder,
-        }
+        modules: [srcFolder, 'node_modules'],
+        extensions: ['.js']
     },
+
+    /**
+     * Webpack dev server configuration
+     */
     devServer: {
-        port: 1488,
-        contentBase: publicFolder,
+        port: 1337,
+        contentBase: './public',
         historyApiFallback: true,
         hot: true,
-        disableHostCheck: true,
-        host: '0.0.0.0',
+        https: true
     },
 
     module: {
+        /**
+         * List of loaders
+         */
         rules: [
             {
+                enforce: 'pre',
                 test: /\.jsx?$/,
-                exclude: /(node_modules)/,
+                include: [srcFolder],
+                loader: 'eslint-loader',
+                options: {
+                    configFile: path.join(__dirname, '.eslintrc'),
+                    formatter: require('eslint-friendly-formatter'),
+                    quiet: true,
+                    failOnError: false,
+                    failOnWarning: false,
+                    emitError: false,
+                    emitWarning: true
+                }
+            },
+
+            {
+                test: /\.jsx?$/,
+                include: [srcFolder],
                 use: {
                     loader: 'babel-loader',
                     options: {
                         /**
                          * Use modules: false, otherwise hot-reloading will be broken
                          */
-                        presets: [['env', {modules: false}], 'react'],
-                        plugins: ['transform-runtime', 'react-hot-loader/babel', 'transform-object-rest-spread']
+                        presets: [['env', {
+                            targets: {
+                                browsers: ['last 2 versions']
+                            },
+                            modules: false
+                        }], 'react'],
+                        plugins: ['react-hot-loader/babel', 'transform-object-rest-spread', 'transform-class-properties']
                     }
                 }
             },
+
             {
                 test: /\.(ttf|eot|otf|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-                loader: 'file-loader?name=fonts/[name].[ext]'
+                loader: 'file-loader?name=fonts/[folder]/[name].[ext]'
             },
+
             {
-                test: /\.(png|jpeg|jpg|svg|ico)$/,
+                test: /\.(png|jpeg|jpg|svg|gif)$/,
                 loader: 'file-loader?name=images/[name].[ext]'
             },
+
             {
-                test: /\.s?css$/,
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+
+            {
+                test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
                         {
                             loader: 'css-loader',
                             options: {
-                                minimize: isProduction
+                                minimize: process.env.NODE_ENV === 'production'
                             }
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
+                                /**
+                                 * Postcss autoprefixer
+                                 * https://github.com/postcss/autoprefixer
+                                 */
                                 plugins: [
                                     autoprefixer({
-                                        browsers: ['last 2 versions']
+                                        browsers: ['Safari >= 9', 'last 2 versions']
                                     })
                                 ]
                             }
@@ -96,13 +144,10 @@ const config = {
     },
 
     /**
-     * Configure hot reloading
-     * https://webpack.js.org/plugins/hot-module-replacement-plugin
-     * https://webpack.js.org/plugins/named-modules-plugin
+     * List of plugins
      */
     plugins: [
         new HtmlWebpackPlugin({
-            // favicon: path.resolve(srcFolder, 'assets/img/favicon.png'),
             inject: true,
             template: path.resolve(srcFolder, 'index.html')
         }),
@@ -114,61 +159,40 @@ const config = {
 
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-                API_URL: JSON.stringify(process.env.API_URL),
-                JWT_KEY: JSON.stringify(process.env.JWT_KEY),
-                GOOGLE_API_WEB_LOCATOR_KEY: JSON.stringify(process.env.GOOGLE_API_WEB_LOCATOR_KEY),
-                GOOGLE_API_MAP_KEY: JSON.stringify(process.env.GOOGLE_API_MAP_KEY),
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
         }),
 
         new ExtractTextPlugin({
-            filename: isProduction ? '[hash].styles.min.css' : '[hash].style.css',
+            filename: process.env.NODE_ENV !== 'production' ? '[hash].styles.css' : '[hash].style.min.css',
             allChunks: true,
-            disable: !isProduction
+            disable: process.env.NODE_ENV === 'development'
         }),
+
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(fr|en)$/),
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /fr/),
+
+        new Dotenv()
     ]
 };
 
-if (isProduction) {
+if (process.env.NODE_ENV === 'production') {
     /**
      * UglifyJSPlugin: minify and optimize code
      * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
      */
-    config.plugins =[
-        ...config.plugins,
-        new UglifyJSPlugin({
-            beautify: false,
-            comments: false,
-            compress: {
-                sequences: true,
-                booleans: true,
-                loops: true,
-                unused: true,
-                warnings: false,
-                drop_console: true,
-                unsafe: true,
-                dead_code: true
-            }
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            children: true,
-            async: true,
-        }),
-        new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
-            test: /\.js$|\.html$/,
-            threshold: 10240,
-            minRatio: 0.8
-        }),
-    ];
+    config.plugins.push(new UglifyJSPlugin({
+        compress: {
+            warnings: false,
+            drop_console: true,
+            unused: true,
+            dead_code: true
+        },
+        output: {
+            comments: false
+        }
+    }));
 
     /**
      * Remove hot loader from production

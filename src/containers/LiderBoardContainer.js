@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LiderboardComponent from '@/components/Liderboard';
+import LiderboardComponent from 'components/Liderboard';
 import actions from '../ducks/game/actions';
 import selectors from '../ducks/game/selectors';
 
