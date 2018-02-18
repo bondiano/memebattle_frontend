@@ -13,8 +13,6 @@ import {
 } from '../constants';
 const { BASE_SOCKET_API_URL } = process.env;
 
-
-
 const socket = io(BASE_SOCKET_API_URL);
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
@@ -26,6 +24,14 @@ const reduxRouterMiddleware = routerMiddleware(history);
 
 const initialState = {};
 
+/**
+ * If action start with server prefix => dispatch this action.
+ * Else if action start with client prefix => emit action to server
+ *
+ * @param action
+ * @param emit
+ * @param next
+ */
 function optimisticExecute(action, emit, next) {
     /**
      * Return prefix (e.g. '@@notification/')
