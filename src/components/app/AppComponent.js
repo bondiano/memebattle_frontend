@@ -1,16 +1,18 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import { routes } from 'constants.js';
-import MainLayoutComponent from 'components/common/MainLayoutComponent';
+import MainLayoutComponent from 'components/shared/MainLayoutComponent';
 import RegisterContainer from 'containers/RegisterContainer';
 import AuthContainer from 'containers/AuthContainer';
 import LiderBoardContainer from 'containers/LiderBoardContainer';
 import ModesContainer from 'containers/ModesContainer';
-import GameRushContainer from 'containers/Games/GameRushContainer';
-import GameTournamentContainer from 'containers/Games/GameTournamentContainer';
-import AboutComponent from 'components/common/AboutComponent';
-import RulesComponent from 'components/common/RulesComponent';
-import LoaderComponent from 'components/common/Loader';
+import {
+    GameRushContainer,
+    GameToGameTournamentContainer
+} from 'containers/games';
+import AboutComponent from 'components/shared/AboutComponent';
+import RulesComponent from 'components/shared/RulesComponent';
+import LoaderComponent from 'components/shared/Loader';
 import LogoutContainer from 'containers/LogoutContainer';
 
 class AppComponent extends React.Component {

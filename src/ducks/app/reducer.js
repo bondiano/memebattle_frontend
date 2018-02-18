@@ -1,7 +1,7 @@
 import types from './types';
 
 const initialState = {
-    errors: '',
+    errors: ''
 };
 
 export default (state = initialState, action) => {

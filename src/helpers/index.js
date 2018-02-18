@@ -5,5 +5,5 @@ import errorHandler from './errorHandler';
 export {
     request,
     localStorage,
-    errorHandler,
+    errorHandler
 };

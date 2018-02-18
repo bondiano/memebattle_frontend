@@ -1,4 +1,4 @@
-import { errors } from 'constants';
+import { errors } from 'constants.js';
 
 const errorHandler = (errorObj) => {
     const error = Object.keys(errorObj).map((keys) => {

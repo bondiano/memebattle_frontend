@@ -11,7 +11,7 @@ const routes = {
     LIDERBOARD: '/lidersboard',
     GAME_RUSH: '/mode/game-rush',
     GAME_TOURNAMENT: '/mode/game-tournament',
-    LOGOUT: '/logout',
+    LOGOUT: '/logout'
 };
 
 const errors = { // errorName: message
@@ -22,12 +22,12 @@ const errors = { // errorName: message
     EXTUSR: 'Пользователь с таким именем уже существует',
     EXTEMAIL: 'Email уже занят',
     UNXPERR: 'Неожиданная ошибка, пожалуйста, сообщите нам детали',
-    GETRAITERR: 'Невозможно получить рейтинг',
-}
+    GETRAITERR: 'Невозможно получить рейтинг'
+};
 
 export {
     API_URL,
     JWT_KEY,
     routes,
-    errors,
+    errors
 };

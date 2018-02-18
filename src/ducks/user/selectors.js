@@ -2,10 +2,10 @@ export default {
     selectUser(state) {
         return state.user.user;
     },
-    checkLogin(state) {   
+    checkLogin(state) {
         return state.user.login;
     },
-    getError(state) {   
+    getError(state) {
         return state.user.errors;
-    },
+    }
 };

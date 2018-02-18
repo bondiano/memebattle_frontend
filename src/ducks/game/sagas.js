@@ -12,7 +12,7 @@ function* getLidersSaga(action) {
         yield ym('hit', {
             title: 'Таблица лидеров',
             url: '/lidersboard'
-         });
+        });
         yield put(actions.getLidersSuccess(data));
     } catch (error) {
         yield put(actions.getLidersError(error));
@@ -24,7 +24,7 @@ function* connectToGameSaga() {
         yield ym('hit', {
             title: 'Подключение к игре',
             url: '/mode/game-rush'
-         });
+        });
     } catch (error) {
         yield console.log(error);
     }
@@ -32,5 +32,5 @@ function* connectToGameSaga() {
 
 export default function* gameRootSaga() {
     yield takeEvery(types.LIDERLIST_REQUEST, getLidersSaga);
-    yield takeEvery(types.CONNECT_TO_GAME_SUCCESS, connectToGameSaga);    
-};
+    yield takeEvery(types.CONNECT_TO_GAME_SUCCESS, connectToGameSaga);
+}

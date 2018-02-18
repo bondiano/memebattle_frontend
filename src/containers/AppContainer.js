@@ -11,8 +11,8 @@ export default withRouter(connect(state => ({
     user: userSelectors.selectUser(state),
     wasLogin: userSelectors.checkLogin(state),
     appError: appSelectors.getError(state),
-    inGame: gameSelectors.selectInGame(state),
+    inGame: gameSelectors.selectInGame(state)
 }), {
     checkLogin: userActions.checkLoginRequest,
-    leaveFromGame: gameActions.leaveFromGame,
+    leaveFromGame: gameActions.leaveFromGame
 })(AppComponent));

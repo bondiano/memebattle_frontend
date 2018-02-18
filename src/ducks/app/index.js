@@ -3,5 +3,5 @@ import appRootSaga from './sagas';
 
 export {
     appReducer,
-    appRootSaga,
+    appRootSaga
 };

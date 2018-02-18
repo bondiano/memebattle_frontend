@@ -23,38 +23,38 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case types.LIDERLIST_REQUEST:
             return {
-                ...state,
+                ...state
             };
         case types.LIDERLIST_SUCCESS:
-            return { 
+            return {
                 ...state,
                 liderlist: {
                     ...state.liderlist,
-                    ...action.data.globalRating,
+                    ...action.data.globalRating
                 },
-                 user: {
-                     ...state.user,
-                     ...action.data.userRating,
-                 }
+                user: {
+                    ...state.user,
+                    ...action.data.userRating
+                }
             };
         case types.LIDERLIST_ERROR:
             return {
                 ...state,
-                errors: action.errors,
+                errors: action.errors
             };
         case types.PAIR_WINNER:
             return {
                 ...state,
                 leftMeme: {
                     ...state.leftMeme,
-                    leftLikes: action.data.leftLikes,
+                    leftLikes: action.data.leftLikes
                 },
                 rightMeme: {
                     ...state.rightMeme,
-                    rightLikes: action.data.rightLikes,
-                },  
-                winner: action.data.winner,
-            }
+                    rightLikes: action.data.rightLikes
+                },
+                winner: action.data.winner
+            };
         case types.NEW_PAIR:
             return {
                 ...state,
@@ -62,16 +62,16 @@ export default (state = initialState, action) => {
                     ...state.leftMeme,
                     leftMemeId: action.data.leftMemeId,
                     leftMemeImg: action.data.leftMemeImg,
-                    leftLikes: action.data.leftLikes,
-                }, 
+                    leftLikes: action.data.leftLikes
+                },
                 rightMeme: {
                     ...state.rightMeme,
                     rightMemeId: action.data.rightMemeId,
                     rightMemeImg: action.data.rightMemeImg,
-                    rightLikes: action.data.rightLikes,
+                    rightLikes: action.data.rightLikes
                 },
-                winner: -1,
-            }
+                winner: -1
+            };
         case types.GET_MEM_PAIR_SUCCESS:
             return {
                 ...state,
@@ -79,25 +79,25 @@ export default (state = initialState, action) => {
                     ...state.leftMeme,
                     leftMemeId: action.data.leftMemeId,
                     leftMemeImg: action.data.leftMemeImg,
-                    leftLikes: action.data.leftLikes,
-                }, 
+                    leftLikes: action.data.leftLikes
+                },
                 rightMeme: {
                     ...state.rightMeme,
                     rightMemeId: action.data.rightMemeId,
                     rightMemeImg: action.data.rightMemeImg,
-                    rightLikes: action.data.rightLikes,
-                },
-            }
-        case types.CONNECT_TO_GAME_SUCCESS:      
+                    rightLikes: action.data.rightLikes
+                }
+            };
+        case types.CONNECT_TO_GAME_SUCCESS:
             return {
                 ...state,
-                inGame: true,
-            }
+                inGame: true
+            };
         case types.LEAVE_FROM_GAME_SUCCESS:
             return {
                 ...state,
-                inGame: false,
-            }
+                inGame: false
+            };
         case types.CONNECT_TO_GAME_REQUEST:
         case types.LEAVE_FROM_GAME_REQUEST:
         default:

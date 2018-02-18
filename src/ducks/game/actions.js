@@ -4,51 +4,51 @@ const actions = {
     getLidersRequest(userData) {
         return {
             type: types.LIDERLIST_REQUEST,
-            userData,
+            userData
         };
     },
     getLidersSuccess(data) {
         return {
             type: types.LIDERLIST_SUCCESS,
-            data,
+            data
         };
     },
     getLidersError(error) {
         return {
             type: types.LIDERLIST_ERROR,
-            error,
+            error
         };
     },
     connectToGameClient(data) {
         return {
             type: types.CONNECT_TO_GAME_CLIENT,
-            ...data,
+            ...data
         };
     },
     connectToGame(data) {
         return {
             type: types.CONNECT_TO_GAME_REQUEST,
-            ...data,
+            ...data
         };
     },
     getMemesPair(data) {
         return {
             type: types.GET_MEM_PAIR_REQUEST,
-            ...data,
-        }
+            ...data
+        };
     },
     chooseMeme(data) {
         return {
             type: types.CHOOSE_MEM_REQUEST,
-            ...data,
-        }
+            ...data
+        };
     },
     leaveFromGame(data) {
         return {
             type: types.LEAVE_FROM_GAME_REQUEST,
-            ...data,
-        }
-    },
+            ...data
+        };
+    }
 };
 
 export default actions;

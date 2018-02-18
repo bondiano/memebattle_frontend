@@ -13,7 +13,7 @@ function* logoutSaga(action) {
         yield ym('hit', {
             title: 'Выход',
             url: '/logout'
-         }); 
+        });
         yield put(push(routes.LOGIN));
     } catch (error) {
         yield put(console.log(error));
@@ -22,4 +22,4 @@ function* logoutSaga(action) {
 
 export default function* appRootSaga() {
     yield takeEvery(types.LOGOUT, logoutSaga);
-};
+}

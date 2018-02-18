@@ -4,5 +4,5 @@ import gameRootSaga from './sagas';
 
 export {
     gameReducer,
-    gameRootSaga,
+    gameRootSaga
 };

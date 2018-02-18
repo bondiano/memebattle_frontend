@@ -11,7 +11,7 @@ const services = {
 
     checkLogin() {
         return request.get('/auth/secret');
-    },
+    }
 };
 
 export default services;

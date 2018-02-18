@@ -3,5 +3,5 @@ import userRootSaga from './sagas';
 
 export {
     userReducer,
-    userRootSaga,
+    userRootSaga
 };

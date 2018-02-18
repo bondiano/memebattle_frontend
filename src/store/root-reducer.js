@@ -5,5 +5,5 @@ import { gameReducer } from 'ducks/game';
 export default {
     app: appReducer,
     user: userReducer,
-    game: gameReducer,
+    game: gameReducer
 };

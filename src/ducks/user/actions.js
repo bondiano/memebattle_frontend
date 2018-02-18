@@ -4,57 +4,57 @@ const actions = {
     registerRequest(userData) {
         return {
             type: types.REGISTER_REQUEST,
-            userData,
+            userData
         };
     },
     registerSuccess(data) {
         return {
             type: types.REGISTER_SUCCESS,
-            data,
+            data
         };
     },
     registerError(errors) {
         return {
             type: types.REGISTER_ERROR,
-            errors,
+            errors
         };
     },
     loginRequest(userData) {
         return {
             type: types.LOGIN_REQUEST,
-            userData,
+            userData
         };
     },
     loginSuccess(data) {
         return {
             type: types.LOGIN_SUCCESS,
-            data,
+            data
         };
     },
     loginError(errors) {
         return {
             type: types.LOGIN_ERROR,
-            errors,
+            errors
         };
     },
     checkLoginRequest(userData) {
         return {
             type: types.LOGIN_CHECK_REQUEST,
-            userData,
+            userData
         };
     },
     checkLoginSuccess(data) {
         return {
             type: types.LOGIN_CHECK_SUCCESS,
-            data,
+            data
         };
     },
     checkLoginError(error) {
         return {
             type: types.LOGIN_CHECK_ERROR,
-            error,
+            error
         };
-    },
+    }
 };
 
 export default actions;
