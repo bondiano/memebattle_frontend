@@ -25,6 +25,11 @@ const errors = { // errorName: message
     GETRAITERR: 'Невозможно получить рейтинг'
 };
 
+
+export const ACTIONS_TO_SEND_PREFIX = '@@ws/';
+
+export const ACTIONS_FROM_SERVER_PREFIX = '@@server-ws/';
+
 export {
     API_URL,
     JWT_KEY,
