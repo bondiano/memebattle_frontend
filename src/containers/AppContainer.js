@@ -4,8 +4,8 @@ import AppComponent from '../components/app';
 import userSelectors from '../ducks/user/selectors';
 import userActions from '../ducks/user/actions';
 import appSelectors from '../ducks/app/selectors';
-import gameSelectors from '../ducks/game/selectors';
-import gameActions from '../ducks/game/actions';
+import gameSelectors from '../ducks/games/rush/selectors';
+import gameActions from '../ducks/games/rush/actions';
 
 export default withRouter(connect(state => ({
     user: userSelectors.selectUser(state),

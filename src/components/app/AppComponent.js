@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { routes } from 'constants.js';
+import { Routes } from 'constants.js';
 import MainLayoutComponent from 'components/shared/MainLayoutComponent';
 import RegisterContainer from 'containers/RegisterContainer';
 import AuthContainer from 'containers/AuthContainer';
@@ -29,51 +29,51 @@ class AppComponent extends React.Component {
             case false:
                 return (
                     <Switch>
-                        <MainLayoutComponent appError={ this.props.appError } exact path={ routes.HOME } component={ AuthContainer }/>
-                        <MainLayoutComponent appError={ this.props.appError } path={ routes.REGISTER } component={ RegisterContainer }/>
+                        <MainLayoutComponent appError={ this.props.appError } exact path={ Routes.HOME } component={ AuthContainer }/>
+                        <MainLayoutComponent appError={ this.props.appError } path={ Routes.REGISTER } component={ RegisterContainer }/>
                     </Switch>
                 );
             case true:
                 return (
                     <Switch>
                         <MainLayoutComponent
-                            path={ routes.HOME }
+                            path={ Routes.HOME }
                             exact component={ ModesContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.MODES }
+                            path={ Routes.MODES }
                             component={ ModesContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.LIDERBOARD }
+                            path={ Routes.LEADER_BOARD }
                             component={ LiderBoardContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.GAME_RUSH }
+                            path={ Routes.GAME_RUSH }
                             component={ GameRushContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.GAME_TOURNAMENT }
+                            path={ Routes.GAME_TOURNAMENT }
                             component={ GameTournamentContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.ABOUT }
+                            path={ Routes.ABOUT }
                             component={ AboutComponent }
                         />
                         <MainLayoutComponent
-                            path={ routes.RULES }
+                            path={ Routes.RULES }
                             component={ RulesComponent }
                         />
                         <MainLayoutComponent
-                            path={ routes.LOGOUT }
+                            path={ Routes.LOGOUT }
                             component={ LogoutContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.LOGIN }
+                            path={ Routes.LOGIN }
                             exact component={ AuthContainer }
                         />
                         <MainLayoutComponent
-                            path={ routes.REGISTER }
+                            path={ Routes.REGISTER }
                             component={ RegisterContainer }
                         />
                         {/*<MainLayoutComponent component={ ModesContainer }/>*/}

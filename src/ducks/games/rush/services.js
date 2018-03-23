@@ -1,7 +1,7 @@
-import request from '../../helpers/request';
+import request from 'helpers/request';
 
 const services = {
-    getLiders(userData) {
+    getLeaders(userData) {
         return request.post('/game/rating', userData);
     }
 };

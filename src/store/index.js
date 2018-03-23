@@ -4,7 +4,7 @@ import { API_URL } from '../constants';
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { routerMiddleware, routerReducer } from 'react-router-redux';
+import { routerMiddleware,  } from 'react-router-redux';
 
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';

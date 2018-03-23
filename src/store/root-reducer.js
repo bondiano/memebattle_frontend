@@ -1,9 +1,14 @@
+import {combineReducers} from 'redux';
 import { appReducer } from 'ducks/app';
 import { userReducer } from 'ducks/user';
-import { gameReducer } from 'ducks/game';
+import { rushReducer } from 'ducks/games/rush';
+import { routerReducer } from 'react-router-redux';
 
-export default {
+export default combineReducers({
     app: appReducer,
     user: userReducer,
-    game: gameReducer
-};
+    games: combineReducers({
+        rush: rushReducer
+    }),
+    routing: routerReducer
+});

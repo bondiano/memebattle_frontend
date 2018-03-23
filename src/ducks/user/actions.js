@@ -7,48 +7,56 @@ const actions = {
             userData
         };
     },
+
     registerSuccess(data) {
         return {
             type: types.REGISTER_SUCCESS,
             data
         };
     },
-    registerError(errors) {
+
+    registerError(error) {
         return {
             type: types.REGISTER_ERROR,
-            errors
+            error
         };
     },
+
     loginRequest(userData) {
         return {
             type: types.LOGIN_REQUEST,
             userData
         };
     },
+
     loginSuccess(data) {
         return {
             type: types.LOGIN_SUCCESS,
             data
         };
     },
-    loginError(errors) {
+
+    loginError(error) {
         return {
             type: types.LOGIN_ERROR,
-            errors
+            error
         };
     },
+
     checkLoginRequest(userData) {
         return {
             type: types.LOGIN_CHECK_REQUEST,
             userData
         };
     },
+
     checkLoginSuccess(data) {
         return {
             type: types.LOGIN_CHECK_SUCCESS,
             data
         };
     },
+
     checkLoginError(error) {
         return {
             type: types.LOGIN_CHECK_ERROR,

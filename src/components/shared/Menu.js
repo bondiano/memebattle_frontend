@@ -23,7 +23,7 @@ class Menu extends React.Component {
                     <Link className="menu-link" to={routes.HOME}>
                         На главную
                     </Link>
-                    <Link className="menu-link" to={routes.LIDERBOARD}>
+                    <Link className="menu-link" to={routes.LEADER_BOARD}>
                         Лидеры
                     </Link>
                     <Link className="menu-link" to={routes.LOGOUT}>

@@ -1,17 +1,10 @@
 import types from './types';
-import localstorage from '../../helpers/localstorage';
+import {fromJS} from 'immutable';
 
-const initialState = {
-    login: null,
-    user: {
-        _id: localstorage('get', 'id')(''),
-        username: localstorage('get', 'username')(''),
-        avatar: localstorage('get', 'avatar')(''),
-        memcoin: localstorage('get', 'memcoin')(0),
-        permissions: localstorage('get', 'permissions')('')
-    },
-    errors: ''
-};
+const initialState = fromJS({
+    user: null,
+    error: null
+});
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -20,14 +13,7 @@ export default (state = initialState, action) => {
             return {
                 ...state
             };
-        case types.REGISTER_ERROR:
-            return {
-                ...state,
-                errors: {
-                    ...state.errors,
-                    ...action.errors
-                }
-            };
+
         case types.LOGIN_REQUEST:
             return {
                 ...state
@@ -44,14 +30,11 @@ export default (state = initialState, action) => {
                     permissions: action.data.permissions
                 }
             };
+        case types.REGISTER_ERROR:
         case types.LOGIN_ERROR:
-            return {
-                ...state,
-                errors: {
-                    ...state.errors,
-                    ...action.errors
-                }
-            };
+        case types.LOGIN_CHECK_ERROR:
+            return state.set('error', fromJS(action.error));
+
         case types.LOGIN_CHECK_REQUEST:
             return {
                 ...state
@@ -61,15 +44,7 @@ export default (state = initialState, action) => {
                 ...state,
                 login: action.data.success
             };
-        case types.LOGIN_CHECK_ERROR:
-            return {
-                ...state,
-                login: false,
-                errors: {
-                    ...state.errors,
-                    ...action.error
-                }
-            };
+
         case types.LIDERLIST_SUCCESS:
             return {
                 ...state,
