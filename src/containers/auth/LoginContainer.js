@@ -1,9 +1,11 @@
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import LoginComponent from 'components/pages/auth';
-import {userActions, userSelectors} from 'ducks/user';
+import {LoginComponent} from 'components/pages/auth';
 
-export default connect(state => ({
-    userError: userSelectors.getError(state)
-}), {
-    login: userActions.loginRequest
-})(LoginComponent);
+class LoginContainer extends Component {
+    render() {
+        return <LoginComponent />;
+    }
+}
+
+export default connect()(LoginContainer);

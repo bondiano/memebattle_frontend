@@ -1,4 +1,4 @@
-import request from '../../helpers/request';
+import {request} from 'helpers';
 
 const services = {
     registerUser(userData) {
@@ -7,10 +7,6 @@ const services = {
 
     loginUser(userData) {
         return request.post('/auth/login', userData);
-    },
-
-    checkLogin() {
-        return request.get('/auth/secret');
     }
 };
 

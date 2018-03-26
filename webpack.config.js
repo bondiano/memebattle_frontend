@@ -1,15 +1,13 @@
 const
     path = require('path'),
     webpack = require('webpack'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin'),
-    UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+    HtmlWebPackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     autoprefixer = require('autoprefixer'),
     Dotenv = require('dotenv-webpack');
 
 const
-    publicFolder = path.resolve(__dirname, 'public'),
+    distFolder = path.resolve(__dirname, 'dist'),
     srcFolder = path.resolve(__dirname, 'src');
 
 const config = {
@@ -32,7 +30,7 @@ const config = {
      */
     output: {
         publicPath: '/',
-        path: publicFolder,
+        path: distFolder,
         filename: process.env.NODE_ENV !== 'production' ? '[hash].bundle.js' : '[hash].bundle.min.js'
     },
 
@@ -48,11 +46,9 @@ const config = {
      * Webpack dev server configuration
      */
     devServer: {
-        port: 1337,
-        contentBase: './public',
-        historyApiFallback: true,
-        hot: true,
-        https: true
+        port: 1488,
+        contentBase: distFolder,
+        hot: true
     },
 
     module: {
@@ -62,10 +58,10 @@ const config = {
         rules: [
             {
                 enforce: 'pre',
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 include: [srcFolder],
                 loader: 'eslint-loader',
-                options: {
+                query: {
                     configFile: path.join(__dirname, '.eslintrc'),
                     formatter: require('eslint-friendly-formatter'),
                     quiet: true,
@@ -77,20 +73,13 @@ const config = {
             },
 
             {
-                test: /\.jsx?$/,
-                include: [srcFolder],
+                test: /\.js$/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
+                    query: {
                         /**
                          * Use modules: false, otherwise hot-reloading will be broken
                          */
-                        presets: [['env', {
-                            targets: {
-                                browsers: ['last 2 versions']
-                            },
-                            modules: false
-                        }], 'react'],
                         plugins: ['react-hot-loader/babel', 'transform-object-rest-spread', 'transform-class-properties']
                     }
                 }
@@ -107,8 +96,13 @@ const config = {
             },
 
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        query: { minimize: true }
+                    }
+                ]
             },
 
             {
@@ -118,13 +112,13 @@ const config = {
                     use: [
                         {
                             loader: 'css-loader',
-                            options: {
+                            query: {
                                 minimize: process.env.NODE_ENV === 'production'
                             }
                         },
                         {
                             loader: 'postcss-loader',
-                            options: {
+                            query: {
                                 /**
                                  * Postcss autoprefixer
                                  * https://github.com/postcss/autoprefixer
@@ -147,15 +141,7 @@ const config = {
      * List of plugins
      */
     plugins: [
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: path.resolve(srcFolder, 'index.html')
-        }),
-
-        new CleanWebpackPlugin(publicFolder, {
-            root: __dirname,
-            verbose: true
-        }),
+        new HtmlWebPackPlugin(),
 
         new webpack.DefinePlugin({
             'process.env': {
@@ -170,34 +156,9 @@ const config = {
         }),
 
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /fr/),
 
         new Dotenv()
     ]
 };
-
-if (process.env.NODE_ENV === 'production') {
-    /**
-     * UglifyJSPlugin: minify and optimize code
-     * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
-     */
-    config.plugins.push(new UglifyJSPlugin({
-        compress: {
-            warnings: false,
-            drop_console: true,
-            unused: true,
-            dead_code: true
-        },
-        output: {
-            comments: false
-        }
-    }));
-
-    /**
-     * Remove hot loader from production
-     */
-    config.entry.shift();
-}
 
 module.exports = config;

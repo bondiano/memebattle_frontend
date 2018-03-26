@@ -1,4 +1,3 @@
-import types from './types';
 import {fromJS} from 'immutable';
 
 const initialState = fromJS({
@@ -7,7 +6,6 @@ const initialState = fromJS({
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case types.LOGOUT:
         default:
             return state;
     }

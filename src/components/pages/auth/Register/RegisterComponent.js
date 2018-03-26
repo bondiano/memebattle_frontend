@@ -1,5 +1,4 @@
 import React from 'react';
-import RegisterForm from './RegisterForm';
 import Logo from '../../../shared/Logo';
 
 class RegisterComponent extends React.Component {
@@ -11,7 +10,50 @@ class RegisterComponent extends React.Component {
                         <Logo />
                     </div>
                 </div>
-                <RegisterForm {...this.props}/>
+                <form>
+                    <div className="row justify-content-center">
+                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
+                            <h1 className="enterText">
+                                Регистрация
+                            </h1>
+                        </div>
+                    </div>
+
+                    <input
+                        className="form-control auth-input"
+                        name="username"
+                        type="text"
+                        label="Name"
+                        placeholder="Логин"
+                        required
+                    />
+
+                    <input
+                        className="form-control auth-input"
+                        name="username"
+                        type="text"
+                        label="Name"
+                        placeholder="Логин"
+                        required
+                    />
+
+                    <input
+                        className="form-control auth-input"
+                        name="username"
+                        type="text"
+                        label="Name"
+                        placeholder="Логин"
+                        required
+                    />
+
+                    <div className="row justify-content-center">
+                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
+                            <button className="btn auth-btn" type="submit">
+                                ПОДТВЕРДИТЬ
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </section>
         );
     }

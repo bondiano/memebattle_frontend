@@ -1,18 +1,15 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import AppComponent from '../components/app';
-import userSelectors from '../ducks/user/selectors';
-import userActions from '../ducks/user/actions';
-import appSelectors from '../ducks/app/selectors';
-import gameSelectors from '../ducks/games/rush/selectors';
-import gameActions from '../ducks/games/rush/actions';
+import AppComponent from 'components/app/AppComponent';
 
-export default withRouter(connect(state => ({
-    user: userSelectors.selectUser(state),
-    wasLogin: userSelectors.checkLogin(state),
-    appError: appSelectors.getError(state),
-    inGame: gameSelectors.selectInGame(state)
-}), {
-    checkLogin: userActions.checkLoginRequest,
-    leaveFromGame: gameActions.leaveFromGame
-})(AppComponent));
+
+class AppContainer extends Component {
+    render() {
+        return <AppComponent />;
+    }
+}
+
+export default withRouter(
+    connect()(AppContainer)
+);

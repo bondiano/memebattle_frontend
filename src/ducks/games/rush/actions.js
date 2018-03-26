@@ -1,52 +1,15 @@
 import types from './types';
 
 const actions = {
-    getLidersRequest(userData) {
+    chooseMeme() {
         return {
-            type: types.LIDERLIST_REQUEST,
-            userData
+            type: types.CHOOSE_MEM_REQUEST
         };
     },
-    getLidersSuccess(data) {
+
+    leaveFromGame() {
         return {
-            type: types.LIDERLIST_SUCCESS,
-            data
-        };
-    },
-    getLidersError(error) {
-        return {
-            type: types.LIDERLIST_ERROR,
-            error
-        };
-    },
-    connectToGameClient(data) {
-        return {
-            type: types.CONNECT_TO_GAME_CLIENT,
-            ...data
-        };
-    },
-    connectToGame(data) {
-        return {
-            type: types.CONNECT_TO_GAME_REQUEST,
-            ...data
-        };
-    },
-    getMemesPair(data) {
-        return {
-            type: types.GET_MEM_PAIR_REQUEST,
-            ...data
-        };
-    },
-    chooseMeme(data) {
-        return {
-            type: types.CHOOSE_MEM_REQUEST,
-            ...data
-        };
-    },
-    leaveFromGame(data) {
-        return {
-            type: types.LEAVE_FROM_GAME_REQUEST,
-            ...data
+            type: types.LEAVE_FROM_GAME_REQUEST
         };
     }
 };

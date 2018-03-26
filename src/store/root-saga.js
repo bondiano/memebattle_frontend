@@ -1,9 +1,7 @@
 import { fork, all } from 'redux-saga/effects';
-
 import { appRootSaga } from 'ducks/app';
-import { userRootSaga } from 'ducks/user';
+import { userRootSaga } from 'ducks/auth';
 import { rushRootSaga } from 'ducks/games/rush';
-
 
 export default function* rootSaga() {
     yield all([

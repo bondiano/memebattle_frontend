@@ -1,5 +1,3 @@
-import queryString from 'query-string';
-
 export default {
     /**
      * Select location object
@@ -22,31 +20,6 @@ export default {
     selectPathname(state) {
         return {
             pathname: state.getIn(['routing', 'locationBeforeTransitions', 'pathname'])
-        };
-    },
-
-    /**
-     * Select query object
-     *
-     * @param {Immutable.Map} state
-     * @return {Object}
-     */
-    selectQuery(state) {
-        const query = state.getIn(['routing', 'locationBeforeTransitions', 'search']);
-        return {
-            query: queryString.parse(query)
-        };
-    },
-
-    /**
-     * Select router initialized status
-     *
-     * @param {Immutable.Map} state
-     * @returns {Object}
-     */
-    selectRouterStatus(state) {
-        return {
-            isInitialized: state.getIn(['routing', 'isInitialized'])
         };
     }
 };

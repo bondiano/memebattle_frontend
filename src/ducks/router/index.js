@@ -1,7 +1,7 @@
-import userReducer from './reducer';
-import userRootSaga from './sagas';
+import routerReducer from './reducer';
+import routerRootSaga from './sagas';
 
 export {
-    userReducer,
-    userRootSaga
+    routerReducer,
+    routerRootSaga
 };

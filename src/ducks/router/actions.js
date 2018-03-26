@@ -1,9 +1,10 @@
 import types from './types';
 
 const actions = {
-    changeRoute() {
+    changeRoute(path) {
         return {
-            type: types.CHANGE_ROUTE
+            type: types.CHANGE_ROUTE,
+            path
         };
     }
 };

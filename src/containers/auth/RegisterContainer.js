@@ -1,9 +1,11 @@
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import RegisterComponent from 'components/pages/auth';
-import {userActions, userSelectors} from 'ducks/user';
+import {RegisterComponent} from 'components/pages/auth';
 
-export default connect(state => ({
-    userError: userSelectors.getError(state)
-}), {
-    register: userActions.registerRequest
-})(RegisterComponent);
+class RegisterContainer extends Component {
+    render() {
+        return <RegisterComponent />;
+    }
+}
+
+export default connect()(RegisterContainer);
