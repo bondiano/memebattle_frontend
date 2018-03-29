@@ -29,10 +29,12 @@ const actions = {
         };
     },
 
-    loginSuccess(data) {
+    loginSuccess(userData) {
         return {
             type: types.LOGIN_SUCCESS,
-            data
+            user: {
+                userData: userData
+            }
         };
     },
 
