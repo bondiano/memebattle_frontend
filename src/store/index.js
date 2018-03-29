@@ -1,6 +1,7 @@
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import { createStore, applyMiddleware } from 'redux';
+import { Map } from 'immutable';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from './root-reducer';
@@ -15,7 +16,7 @@ const middleware = [
     sagaMiddleware
 ];
 
-const initialState = {};
+const initialState = Map();
 
 const store = createStore(
     rootReducer,
@@ -27,6 +28,6 @@ const store = createStore(
     )
 );
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga, store.dispatch);
 
 export default store;

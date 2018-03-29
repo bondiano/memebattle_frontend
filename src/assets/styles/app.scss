@@ -1,8 +1,6 @@
 @import url('./assets/fonts/NautilusPompilius/NautilusPompilius.scss');
 @import url('./assets/fonts/OpenGostTypeATT-Regular/OpenGostTypeATT-Regular.scss');
 
-$color-blue: #0c7177;
-$color-yellow: #fce063;
 
 :root {  
     --sidebar-width: 100vw;
@@ -287,10 +285,7 @@ input[type="checkbox"].input-toggler{
     color: white;
     border: none;
     border-bottom: 0.1rem solid white;
-    border-radius: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px; 
-    -khtml-border-radius: 0px; 
+    border-radius: 0;
 }
 
 .menu-link {

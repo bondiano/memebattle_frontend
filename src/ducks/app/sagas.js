@@ -1,2 +1,1 @@
-export default function* appRootSaga() {
-}
+export default function* appRootSaga() {}

@@ -48,7 +48,8 @@ const config = {
     devServer: {
         port: 1488,
         contentBase: distFolder,
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
 
     module: {
@@ -61,7 +62,7 @@ const config = {
                 test: /\.js$/,
                 include: [srcFolder],
                 loader: 'eslint-loader',
-                query: {
+                options: {
                     configFile: path.join(__dirname, '.eslintrc'),
                     formatter: require('eslint-friendly-formatter'),
                     quiet: true,
@@ -76,10 +77,13 @@ const config = {
                 test: /\.js$/,
                 use: {
                     loader: 'babel-loader',
-                    query: {
-                        /**
-                         * Use modules: false, otherwise hot-reloading will be broken
-                         */
+                    options: {
+                        presets: [['env', {
+                            targets: {
+                                browsers: ['last 2 versions']
+                            },
+                            modules: false
+                        }], 'react'],
                         plugins: ['react-hot-loader/babel', 'transform-object-rest-spread', 'transform-class-properties']
                     }
                 }
@@ -141,7 +145,10 @@ const config = {
      * List of plugins
      */
     plugins: [
-        new HtmlWebPackPlugin(),
+        new HtmlWebPackPlugin({
+            inject: true,
+            template: path.resolve(srcFolder, 'index.html')
+        }),
 
         new webpack.DefinePlugin({
             'process.env': {

@@ -1,17 +1,17 @@
 /**
 * Base styles
 */
-@import './assets/styles/normalize';
+@import './assets/styles/normalize.scss';
 
 /**
- * Side Libraries
+ * Variables
  */
-@import './node_modules/bootstrap/scss/bootstrap.scss';
+@import './assets/styles/variables.scss';
 
 /**
  * app styles
  */
-@import './assets/styles/app';
+@import './assets/styles/app.scss';
 @import './assets/styles/auth.scss';
 @import './assets/styles/modes.scss';
 @import './assets/styles/liderboard.scss';

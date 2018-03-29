@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
-class MainLayoutComponent extends React.Component {
+class MainLayoutComponent extends Component {
     static propTypes = {
-        component: PropTypes.node.isRequired,
+        component: PropTypes.func.isRequired,
         path: PropTypes.string.isRequired,
         exact: PropTypes.bool
     };
@@ -17,17 +17,16 @@ class MainLayoutComponent extends React.Component {
             ...props
         } = this.props;
         const innerView = matchProps => (
-            <div className="app">
-                <div className="content">
-                    <InnerComponent { ...matchProps } { ...props } />
-                </div>
-            </div>
+            <section className="main-layout">
+                <InnerComponent { ...matchProps } { ...props } />
+            </section>
         );
+
         return <Route
             path={path}
             exact={exact}
-            render={ innerView }
-            { ...props }
+            render={innerView}
+            {...props}
         />;
     }
 }

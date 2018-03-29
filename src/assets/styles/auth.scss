@@ -1,20 +1,15 @@
 .Auth{
-    background-image: url('./assets/images/background.jpg'); 
-    background-color: $color-yellow;
-    background-attachment: scroll;
-    background-position: center center;  
-    background-repeat: repeat;
-    background-size: cover;
-    min-height: 100vh;
-    max-height: 100%;
-    max-width: 100%;
+  background: $color-yellow url('./assets/images/background.jpg') repeat scroll center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 :focus {
     outline-style: none;
     outline-width: 0px !important;
     outline-color: none !important;
-    -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
@@ -29,10 +24,7 @@ p.accept-rules {
     border: none;
     border-bottom: 0.1rem solid white;
     border-radius: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px; 
-    -khtml-border-radius: 0px; 
-    background: none !important; 
+    background: none !important;
     outline: none; 
     color: white;
     font-size: 2rem; 
@@ -44,21 +36,10 @@ p.accept-rules {
     border-bottom: 0.1rem solid $color-blue;
  }
 
- input[type="text"].auth-input::-webkit-input-placeholder {color:white;}
- input[type="text"].auth-input::-moz-placeholder          {color:white;}/* Firefox 19+ */
- input[type="text"].auth-input:-moz-placeholder           {color:white;}/* Firefox 18- */
- input[type="text"].auth-input:-ms-input-placeholder      {color:white;}
+ input[type="text"].auth-input::placeholder {color:white;}
 
- input[type="password"].auth-input::-webkit-input-placeholder {color:white;}
- input[type="password"].auth-input::-moz-placeholder          {color:white;}/* Firefox 19+ */
- input[type="password"].auth-input:-moz-placeholder           {color:white;}/* Firefox 18- */
- input[type="password"].auth-input:-ms-input-placeholder      {color:white;}
 
- input[type="email"].auth-input::-webkit-input-placeholder {color:white;}
- input[type="email"].auth-input::-moz-placeholder          {color:white;}/* Firefox 19+ */
- input[type="email"].auth-input:-moz-placeholder           {color:white;}/* Firefox 18- */
- input[type="email"].auth-input:-ms-input-placeholder      {color:white;}
-
+ input[type="email"].auth-input::placeholder {color:white;}
  input[type="checkbox"].auth-input{
     display: none;
  }
@@ -66,9 +47,6 @@ p.accept-rules {
 input[type="checkbox"].auth-input + label::before {
     border: 0.1rem solid;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px; 
-    -khtml-border-radius: 3px; 
     display:inline-block;
     width:1.6rem;
     height:1.6rem;
@@ -87,9 +65,6 @@ input[type="checkbox"].auth-input:checked + label::before {
 button.auth-btn{
     border: 0.1rem solid $color-blue;
     border-radius: 10rem;
-    -webkit-border-radius: 10rem;
-    -moz-border-radius: 10rem; 
-    -khtml-border-radius: 10rem; 
     color: $color-blue;
     text-decoration: none;
     user-select: none;
@@ -104,16 +79,13 @@ button.auth-btn{
 }
 
 button.auth-btn:hover, button.auth-btn:active, button.auth-btn:focus {
-    color: $white;
+    color: $color-white;
     background: $color-blue;
 }
 
 button.register-btn{
     border: 0.1rem solid $color-blue;
     border-radius: 10rem;
-    -webkit-border-radius: 10rem;
-    -moz-border-radius: 10rem; 
-    -khtml-border-radius: 10rem; 
     color: white;
     text-decoration: none;
     user-select: none;
