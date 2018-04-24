@@ -59,7 +59,7 @@
         "babel-polyfill": "^6.26.0",
         "classnames": "^2.2.5",
         "create-react-class": "^15.6.3",
-        "formsy-react": "^1.1.2",
+        "formsy-react": "^1.1.4",
         "history": "^4.7.2",
         "immutable": "^3.8.2",
         "prop-types": "^15.6.1",
