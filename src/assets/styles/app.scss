@@ -291,17 +291,12 @@ input[type="checkbox"].input-toggler{
 .menu-link {
     color: white;
     text-decoration: none;
-    -webkit-transition: all .25s ease-out;
     font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;
     font-size: 2rem;
     text-shadow: 0.01rem 0.01rem 1rem black;
     transition: all .25s ease-out;
     letter-spacing: 0.2rem;
   }
-
-ul.menu{
-    -webkit-padding-start: 0;
-}
 
 .menu-link:hover, .menu-link:focus, .menu-link:active { 
       color: $color-blue; 
