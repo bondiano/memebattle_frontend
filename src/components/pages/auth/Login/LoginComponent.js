@@ -1,59 +1,66 @@
 import React, { Component } from 'react';
-import Logo from 'components/shared/Logo';
+import PropTypes from 'prop-types';
+import Formsy from 'formsy-react';
+
+import { Link } from 'react-router-dom';
+import { Routes } from 'constants.js';
+import {FormsyInputComponent} from 'components/controls';
+
+import telegramIcon from 'assets/images/social/telegram.svg';
+import vkIcon from 'assets/images/social/vk.svg';
+import twitterIcon from 'assets/images/social/twitter.svg';
 
 class LoginComponent extends Component {
+    propTypes = {
+        onSubmit: PropTypes.func.isRequired,
+        onValid: PropTypes.func.isRequired,
+        onInvalid: PropTypes.func.isRequired
+    };
+
     render() {
         return (
-            <section className="Auth container-fluid">
-                <div className="row justify-content-center">
-                    <div className="col col-xs-12 col-sm-8 col-md-6 col-lg-3 text-center">
-                        <Logo />
-                    </div>
+            <section>
+                <div>
+                    <h1>
+                        Вход
+                    </h1>
                 </div>
-                <form>
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <h1 className="enterText">
-                                Вход
-                            </h1>
-                        </div>
-                    </div>
-                    <input
-                        className="form-control auth-input"
-                        name="username"
-                        type="text" label="Name"
-                        placeholder="Логин"
-                        required
-                    />
 
-                    <input
-                        className="form-control auth-input"
-                        name="username"
-                        type="text" label="Name"
-                        placeholder="Логин"
-                        required
-                    />
+                <Formsy onSubmit={this.props.onSubmit} onValid={this.props.onValid} onInvalid={this.props.onInvalid}>
+                    <FormsyInputComponent name="username"/>
+                    <FormsyInputComponent name="password"/>
 
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button type="submit" className="btn auth-btn">
-                                ВХОД
-                            </button>
-                        </div>
+                    <div>
+                        <button>
+                            <img src={twitterIcon}/>
+                            Facebook
+                        </button>
+                        <button>
+                            <img src={twitterIcon}/>
+                            Twitter
+                        </button>
+                        <button>
+                            <img src={vkIcon}/>
+                            Vkontakte
+                        </button>
+                        <button>
+                            <img src={telegramIcon}/>
+                            Telegram
+                        </button>
                     </div>
 
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn register-btn" >
-                                РЕГИСТРАЦИЯ
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                    <button type="submit">
+                        ВХОД
+                    </button>
+                </Formsy>
+
+                <div>
+                    <p>Нет аккаунта?</p>
+                    <Link to={Routes.REGISTER}>Зарегистрироваться</Link>
+                </div>
             </section>
         );
     }
 }
-
 
 export default LoginComponent;

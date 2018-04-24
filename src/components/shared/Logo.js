@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo_circlel.png';
+import logo from 'assets/images/logo_circlel.png';
 
 /**
  * @param {"small" || "medium" || "big"} size
  */
 const getWidth = (size) => ({
-    'small': '200px',
-    'medium': '400px',
-    'big': '600px'
+    'small': '100px',
+    'medium': '300px',
+    'big': '500px'
 })[size];
 
 function Logo({size}) {
