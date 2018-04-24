@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HOC} from 'formsy-react';
+import {withFormsy} from 'formsy-react';
 import SelectComponent from './SelectComponent';
 
 function FormsySelectComponent (props){
@@ -40,4 +40,4 @@ FormsySelectComponent.propTypes = {
     onChange: PropTypes.func
 };
 
-export default HOC(FormsySelectComponent);
+export default withFormsy(FormsySelectComponent);

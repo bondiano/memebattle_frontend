@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HOC} from 'formsy-react';
+import {withFormsy} from 'formsy-react';
 import TextComponent from './TextComponent';
 
 class FormsyTextComponent extends React.Component {
@@ -62,4 +62,4 @@ FormsyTextComponent.propTypes = {
     placeholder: PropTypes.string
 };
 
-export default HOC(FormsyTextComponent);
+export default withFormsy(FormsyTextComponent);

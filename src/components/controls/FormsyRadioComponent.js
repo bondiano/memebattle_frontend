@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HOC} from 'formsy-react';
+import {withFormsy} from 'formsy-react';
 import RadioComponent from './RadioComponent';
 
 class FormsyRadioComponent extends React.Component {
@@ -45,4 +45,4 @@ FormsyRadioComponent.propTypes = {
     value: PropTypes.string.isRequired
 };
 
-export default HOC(FormsyRadioComponent);
+export default withFormsy(FormsyRadioComponent);
