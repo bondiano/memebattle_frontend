@@ -7,7 +7,7 @@ const Routes = {
     RULES: '/rules',
     ABOUT: '/about',
     MODES: '/modes',
-    LEADER_BOARD: '/lidersboard',
+    LEADERBOARD: '/lidersboard',
     GAME_RUSH: '/mode/game-rush',
     GAME_TOURNAMENT: '/mode/game-tournament',
     LOGOUT: '/logout'
