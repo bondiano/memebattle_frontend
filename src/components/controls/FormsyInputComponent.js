@@ -39,6 +39,8 @@ class FormsyInputComponent extends React.Component {
                 size={this.props.size}
                 type={this.props.type}
                 readOnly={this.props.readOnly}
+                labelClasses={this.props.labelClasses}
+                inputClasses={this.props.inputClasses}
             />
         );
     }
@@ -57,6 +59,8 @@ FormsyInputComponent.propTypes = {
     isFormSubmitted: PropTypes.func.isRequired,
     isRequired: PropTypes.func.isRequired,
     hasError: PropTypes.bool.isRequired,
+    labelClasses: PropTypes.string.isRequired,
+    inputClasses: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     readOnly: PropTypes.bool,
     type: PropTypes.string,

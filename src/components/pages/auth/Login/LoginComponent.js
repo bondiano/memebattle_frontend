@@ -1,66 +1,60 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Formsy from 'formsy-react';
 
 import { Link } from 'react-router-dom';
-import { Routes } from 'constants.js';
+import { Routes, socialNetwork } from 'constants.js';
 import {FormsyInputComponent} from 'components/controls';
+import SocialNetworkButton from './SocialNetworkButton';
 
-import telegramIcon from 'assets/images/social/telegram.svg';
-import vkIcon from 'assets/images/social/vk.svg';
-import twitterIcon from 'assets/images/social/twitter.svg';
+function LoginComponent({onSubmit, onValid, onInvalid}) {
+    return (
+        <section>
+            <div>
+                <h1>
+                    Вход
+                </h1>
+            </div>
 
-class LoginComponent extends Component {
-    propTypes = {
-        onSubmit: PropTypes.func.isRequired,
-        onValid: PropTypes.func.isRequired,
-        onInvalid: PropTypes.func.isRequired
-    };
-
-    render() {
-        return (
-            <section>
-                <div>
-                    <h1>
-                        Вход
-                    </h1>
+            <Formsy onSubmit={onSubmit} onValid={onValid} onInvalid={onInvalid}>
+                <div className="input-block">
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
+                        name="username"
+                        placeholder="Логин или e-mail"
+                        type="text"/>
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
+                        name="password"
+                        placeholder="Пароль"
+                        type="password"/>
                 </div>
 
-                <Formsy onSubmit={this.props.onSubmit} onValid={this.props.onValid} onInvalid={this.props.onInvalid}>
-                    <FormsyInputComponent name="username"/>
-                    <FormsyInputComponent name="password"/>
-
-                    <div>
-                        <button>
-                            <img src={twitterIcon}/>
-                            Facebook
-                        </button>
-                        <button>
-                            <img src={twitterIcon}/>
-                            Twitter
-                        </button>
-                        <button>
-                            <img src={vkIcon}/>
-                            Vkontakte
-                        </button>
-                        <button>
-                            <img src={telegramIcon}/>
-                            Telegram
-                        </button>
-                    </div>
-
-                    <button type="submit">
-                        ВХОД
-                    </button>
-                </Formsy>
-
-                <div>
-                    <p>Нет аккаунта?</p>
-                    <Link to={Routes.REGISTER}>Зарегистрироваться</Link>
+                <p>или войти с помощью</p>
+                <div className="social-buttons-block">
+                    <SocialNetworkButton socialNetwork={socialNetwork.vk}/>
+                    <SocialNetworkButton socialNetwork={socialNetwork.twitter}/>
+                    <SocialNetworkButton socialNetwork={socialNetwork.telegram}/>
+                    <SocialNetworkButton socialNetwork={socialNetwork.facebook}/>
                 </div>
-            </section>
-        );
-    }
+
+                <button type="submit" className="auth-btn">
+                    ВХОД
+                </button>
+            </Formsy>
+
+            <div>
+                <p>Нет аккаунта?</p>
+                <Link to={Routes.REGISTER}>Зарегистрироваться</Link>
+            </div>
+        </section>
+    );
 }
+
+LoginComponent.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    onValid: PropTypes.func.isRequired,
+    onInvalid: PropTypes.func.isRequired
+};
 
 export default LoginComponent;

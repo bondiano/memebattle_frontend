@@ -381,3 +381,10 @@ span.meme-likes {
     height: 50%;
     text-align: center;
 }
+
+:focus {
+    outline-style: none;
+    outline-width: 0px !important;
+    outline-color: none !important;
+    box-shadow: none !important;
+}
