@@ -2,6 +2,7 @@
     $input-bottom-underline-size: 2px;
     $small-letter-spacing: 0.1rem;
     $medium-letter-spacing: 0.2rem;
+    $big-letter-spacing: 0.4rem;
     $subtext-margin: 24px;
 
     background: $color-yellow url('./assets/images/background.jpg') repeat scroll center center;
@@ -169,14 +170,13 @@
     }
     
     input[type="checkbox"].auth-input + label::before {
-        border: 0.1rem solid;
+        border: 0.2rem solid;
         border-radius: 3px;
         display: inline-block;
         width: 1.6rem;
         height: 1.6rem;
-        margin: 0 10px 5px -0.1rem;
+        margin: 0 10px 5px 0;
         vertical-align: middle;
-        //background:url('./assets/images/draw-check-mark.png') left top no-repeat;
         cursor: pointer;
         content: "";
     }
@@ -187,9 +187,17 @@
     }
     
     .accept-rules {
-        padding-top: 3px;
-        padding-left: 10px; 
+        margin: 8px 8px;
         color:white;
-        letter-spacing: 0.2rem;
+        p {
+            margin: 0;
+            color:white;
+            display: inline;
+            cursor: pointer;
+            letter-spacing: $big-letter-spacing;
+        }
+    }
+    .checkbox-custom {
+        padding-right: 10px;
     }
 }

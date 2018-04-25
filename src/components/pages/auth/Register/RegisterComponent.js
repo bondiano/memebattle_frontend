@@ -1,59 +1,54 @@
 import React from 'react';
-import Logo from '../../../shared/Logo';
+import Formsy from 'formsy-react';
+
+import {FormsyInputComponent} from 'components/controls';
 
 class RegisterComponent extends React.Component {
     render() {
         return (
-            <section className="Auth container-fluid">
-                <div className="row justify-content-center">
-                    <div className="col col-xs-12 col-sm-8 col-md-6 col-lg-3 text-center">
-                        <Logo />
-                    </div>
+            <section>
+                <div>
+                    <h1 className="enterText">
+                        Регистрация
+                    </h1>
                 </div>
-                <form>
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <h1 className="enterText">
-                                Регистрация
-                            </h1>
-                        </div>
-                    </div>
-
-                    <input
-                        className="form-control auth-input"
-                        name="username"
+                <Formsy>
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
+                        name="email"
                         type="text"
-                        label="Name"
-                        placeholder="Логин"
+                        placeholder="E-mail"
                         required
                     />
 
-                    <input
-                        className="form-control auth-input"
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
                         name="username"
                         type="text"
-                        label="Name"
-                        placeholder="Логин"
+                        placeholder="Имя пользователя"
                         required
                     />
 
-                    <input
-                        className="form-control auth-input"
-                        name="username"
-                        type="text"
-                        label="Name"
-                        placeholder="Логин"
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
+                        name="password"
+                        type="password"
+                        placeholder="Пароль"
                         required
                     />
 
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn auth-btn" type="submit">
-                                ПОДТВЕРДИТЬ
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                    <p className="accept-rules">
+                        <input className="auth-input" type="checkbox" label="Confirm" id="checkbox-rules"/>
+                        <label htmlFor="checkbox-rules">
+                            <span className="checkbox-custom"/>
+                            <p>С правилами ознакомлен</p>
+                        </label>
+                    </p>
+
+                    <button className="auth-btn" type="submit">
+                        РЕГИСТРАЦИЯ
+                    </button>
+                </Formsy>
             </section>
         );
     }
