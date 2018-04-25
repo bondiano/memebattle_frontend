@@ -3,19 +3,16 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import logo from 'assets/images/logo_circlel-512x512.png';
 
-/**
- * @param {"small" || "medium" || "big"} size
- */
-const getWidth = (size) => ({
+const widthBySize = {
     'small': '100px',
     'medium': '300px',
     'big': '500px'
-})[size];
+};
 
 function Logo({size}) {
     return(
         <Link to="/">
-            <img src={ logo } title="На главную" alt="Logo" id="logo" width={getWidth(size)}/>
+            <img src={ logo } title="На главную" alt="Logo" id="logo" width={widthBySize[size]}/>
         </Link>
     );
 }
