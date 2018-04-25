@@ -4,24 +4,18 @@ import {withFormsy} from 'formsy-react';
 import InputComponent from './InputComponent';
 
 class FormsyInputComponent extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this._onChange = this._onChange.bind(this);
-    }
-
     /**
      * Handle input change
      *
      * @param {Event} e
      * @private
      */
-    _onChange(e) {
+    _onChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(e);
         }
         this.props.setValue(e.target.value);
-    }
+    };
 
     render() {
         return (
