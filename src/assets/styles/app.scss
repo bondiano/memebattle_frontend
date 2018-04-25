@@ -18,11 +18,12 @@ body {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    //overflow-x: hidden;    
+    font-family: "OpenGostTypeATT-Regular", Tahoma;    
+    //overflow-x: hidden;
 }
 
 p {
-    font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;
+    font-family: "OpenGostTypeATT-Regular", Tahoma;
     font-size: 2rem;
     letter-spacing: 0.2rem;
     color: $color-blue;
@@ -31,6 +32,7 @@ p {
 h1 {
     font-family: "NautilusPompilius", Courier, sans-serif;
     font-size: 3.5rem;
+    font-weight: 400;    
     color: $color-blue;
 }
 
@@ -226,16 +228,11 @@ input[type="checkbox"].input-toggler{
 
 
 .Logo {
-    margin: 0.2rem;
     display: inline-block;
     height: auto;
 }
 
 @media screen and (min-width: 200px) {
-    .Logo {
-        max-width: 30%; 
-    }
-
     .liders-username {
         max-width: 9rem;        
         white-space: nowrap;
@@ -249,9 +246,6 @@ input[type="checkbox"].input-toggler{
 }    
 
 @media screen and (min-width: 500px) {
-    .Logo {
-        max-width: 60%;
-    }
     .liders-username {
         max-width: 18rem;
         white-space: nowrap;
@@ -261,23 +255,6 @@ input[type="checkbox"].input-toggler{
 
     .liders-username p{
         text-overflow: ellipsis;
-    }
-}
-
-@media screen and (min-width: 700px) { 
-    .Logo {
-        max-width: 75%; 
-    }
-}
-
-@media screen and (min-width: 900px) { 
-    .Logo {
-        max-width: 80%; 
-    }
-}
-@media screen and (min-width: 1200px) { 
-    .Logo {
-        max-width: 90%; 
     }
 }
 

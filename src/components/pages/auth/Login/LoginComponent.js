@@ -43,7 +43,7 @@ function LoginComponent({onSubmit, onValid, onInvalid}) {
                 </button>
             </Formsy>
 
-            <div>
+            <div className="sub-block">
                 <p>Нет аккаунта?</p>
                 <Link to={Routes.REGISTER}>Зарегистрироваться</Link>
             </div>
