@@ -72,19 +72,19 @@ const config = {
                     emitWarning: true
                 }
             },
-
             {
                 test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [['env', {
+                        presets: [['@babel/preset-env', {
                             targets: {
                                 browsers: ['last 2 versions']
                             },
                             modules: false
-                        }], 'react'],
-                        plugins: ['react-hot-loader/babel', 'transform-object-rest-spread', 'transform-class-properties']
+                        }], '@babel/preset-react'],
+                        plugins: ['react-hot-loader/babel', '@babel/plugin-proposal-object-rest-spread', '@babel/plugin-proposal-class-properties']
                     }
                 }
             },

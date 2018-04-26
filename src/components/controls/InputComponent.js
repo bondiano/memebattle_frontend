@@ -5,16 +5,18 @@ import classNames from 'classnames';
 function InputComponent(props) {
     const {label, componentRef, showError, hasError, labelClasses, inputClasses, ...restProps} = props;
 
-    return ([
-        label && <label key='label' className={labelClasses} htmlFor={restProps.name} dangerouslySetInnerHTML={{__html: label}}/>,
-        <input
-            key='input'
-            ref={componentRef}
-            id={restProps.name}
-            {...restProps}
-            className={classNames(inputClasses, {invalid: showError || hasError})}
-        />
-    ]);
+    return (
+        <>
+            {label && <label key="label" className={labelClasses} htmlFor={restProps.name} dangerouslySetInnerHTML={{__html: label}}/>}
+            <input
+                key="input"
+                ref={componentRef}
+                id={restProps.name}
+                {...restProps}
+                className={classNames(inputClasses, {invalid: showError || hasError})}
+            />
+        </>
+    );
 }
 
 InputComponent.defaultProps = {

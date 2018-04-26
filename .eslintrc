@@ -12,6 +12,11 @@
         "beforeEach": true
     },
     "rules": {
+        "babel/quotes": [
+            2,
+            "single"
+        ],
+        "babel/no-unused-expressions": 1,  
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react/no-did-mount-set-state": "error",
@@ -21,16 +26,13 @@
         "react/prop-types": "error",
         "react/self-closing-comp": "error",
         "react/no-find-dom-node": "off",
+        "react/jsx-no-undef": ["warn", { "allowGlobals": true }],
         "indent": [
             "error",
             4,
             {
                 "SwitchCase": 1
             }
-        ],
-        "quotes": [
-            2,
-            "single"
         ],
         "semi": [
             2,
@@ -185,6 +187,7 @@
     },
     "plugins": [
         "react",
-        "class-property"
+        "class-property",
+        "babel"
     ]
 }
