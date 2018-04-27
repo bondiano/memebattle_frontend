@@ -1,4 +1,4 @@
-import request from './request';
+import request from './xhr-provider';
 import localStorage from './localstorage';
 import socket from './socket-provider';
 
