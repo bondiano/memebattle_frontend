@@ -1,3 +1,3 @@
-# memebattle_frontend
+# Memebattle frontend
 
 Frontend repository for Membattle project
