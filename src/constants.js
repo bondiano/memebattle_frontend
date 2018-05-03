@@ -4,6 +4,7 @@ import twitterIcon from 'assets/images/silhouette-icons/twitter.svg';
 import facebookIcon from 'assets/images/silhouette-icons/facebook.svg';
 
 const API_URL = process.env.API_URL;
+const AUTH_TOKEN_KEY = 'token';
 
 const Routes = {
     HOME: '/',
@@ -39,6 +40,7 @@ const socialNetwork = {
 
 export {
     API_URL,
+    AUTH_TOKEN_KEY,
     Routes,
     socialNetwork
 };
