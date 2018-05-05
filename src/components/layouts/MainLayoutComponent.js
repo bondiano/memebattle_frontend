@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import ModalManagerContainer from '@/containers/ModalManagerContainer'
 
 class MainLayoutComponent extends Component {
     static propTypes = {
@@ -19,6 +20,7 @@ class MainLayoutComponent extends Component {
         const innerView = matchProps => (
             <section className="main-layout">
                 <InnerComponent { ...matchProps } { ...props } />
+                <ModalManagerContainer />
             </section>
         );
 

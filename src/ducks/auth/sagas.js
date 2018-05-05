@@ -1,4 +1,4 @@
-import { put, all, takeEvery } from 'redux-saga/effects';
+import { put, all, takeEvery, takeLatest } from 'redux-saga/effects';
 import actions from './actions';
 import types from './types';
 import localStorage from '../../helpers/localstorage';
@@ -20,9 +20,18 @@ function* loginSaga() {
     }
 }
 
+function* vkAuthInitSaga() {
+    try {
+        console.log('VkAuthInitSaga');
+    } catch (e) {
+        console.error(e);
+    }
+}
+
 export default function* userRootSaga() {
     yield all([
         takeEvery(types.REGISTER_REQUEST, registerSaga),
-        takeEvery(types.LOGIN_REQUEST, loginSaga)
+        takeEvery(types.LOGIN_REQUEST, loginSaga),
+        takeLatest(types.VK_AUTH_INIT, vkAuthInitSaga)
     ]);
 }

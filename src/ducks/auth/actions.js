@@ -43,6 +43,12 @@ const actions = {
             type: types.LOGIN_ERROR,
             error
         };
+    },
+
+    vkAuthInit() {
+        return {
+            type: types.VK_AUTH_INIT,
+        }
     }
 };
 
