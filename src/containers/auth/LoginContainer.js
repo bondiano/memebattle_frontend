@@ -7,7 +7,7 @@ import {appActions, modalTypes} from '@/ducks/app';
 class LoginContainer extends Component {
 
     showModal = () => {
-        return this.props.vkAuth(modalTypes.BASE_MODAL, {})
+        return this.props.vkAuth(modalTypes.SIMPLE_MODAL, {})
     };
     render() {
         return <LoginComponent vkAuth={this.showModal} />;

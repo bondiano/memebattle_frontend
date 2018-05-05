@@ -1,5 +1,5 @@
-import VkAuthModal from './VkAuthModal';
+import SimpleModal from './SimpleModal';
 
 export {
-    VkAuthModal,
+    SimpleModal,
 }

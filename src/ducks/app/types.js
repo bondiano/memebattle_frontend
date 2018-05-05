@@ -5,7 +5,7 @@ const types = {
 };
 
 const modalTypes = {
-    BASE_MODAL: 'BASE_MODAL',
+    SIMPLE_MODAL: 'SIMPLE_MODAL',
 };
 
 export {modalTypes};

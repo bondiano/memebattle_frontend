@@ -6,7 +6,7 @@ import {appActions, appSelectors, modalTypes} from '@/ducks/app'
 import * as modals from '@/components/modals'
 
 const MODAL_COMPONENTS = {
-    [modalTypes.BASE_MODAL]: modals.VkAuthModal,
+    [modalTypes.SIMPLE_MODAL]: modals.SimpleModal,
 };
 
 class ModalManagerContainer extends React.Component {
