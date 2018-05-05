@@ -9,19 +9,15 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.SHOW_MODAL:
-            console.log('SHOW MODAL', action, '\n\n ', state.setIn(['modals', state.get('modals').push({
-                modalType: action.modalType,
-                modalProps: action.modalProps,
-            })]));
             return state.set('modals', state.get('modals').push({
                 modalType: action.modalType,
                 modalProps: action.modalProps,
             }));
 
         case types.POP_MODAL:
-            return state.modals.pop();
+            return state.set('modals', state.get('modals').pop());
         case types.HIDE_MODAL:
-            return state.modals.clear();
+            return state.set('modals', state.get('modals').clear());
 
         default:
             return state;
