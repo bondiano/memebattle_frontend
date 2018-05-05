@@ -39,7 +39,10 @@ const config = {
      */
     resolve: {
         modules: [srcFolder, 'node_modules'],
-        extensions: ['.js']
+        extensions: ['.js'],
+        alias: {
+            '@': srcFolder,
+        },
     },
 
     /**
@@ -104,7 +107,7 @@ const config = {
                 use: [
                     {
                         loader: 'html-loader',
-                        query: { minimize: true }
+                        query: {minimize: true}
                     }
                 ]
             },

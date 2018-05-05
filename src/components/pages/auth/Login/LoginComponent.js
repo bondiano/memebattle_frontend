@@ -50,6 +50,9 @@ class LoginComponent extends Component {
                         </div>
                     </div>
                 </form>
+                <button onClick={this.props.vkAuth}>
+                    VK
+                </button>
             </section>
         );
     }

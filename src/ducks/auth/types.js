@@ -7,7 +7,9 @@ const types = {
     LOGIN_SUCCESS: '@@user/LOGIN_SUCCESS',
     LOGIN_ERROR: '@@user/LOGIN_ERROR',
 
-    LOGOUT: '@@user/LOGOUT'
+    LOGOUT: '@@user/LOGOUT',
+
+    VK_AUTH_INIT: '@@user/VK_AUTH_INIT'
 };
 
 export default types;

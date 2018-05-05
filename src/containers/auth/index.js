@@ -3,5 +3,5 @@ import RegisterContainer from './RegisterContainer';
 
 export {
     LoginContainer,
-    RegisterContainer
+    RegisterContainer,
 };
