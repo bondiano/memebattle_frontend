@@ -1,7 +1,7 @@
 import { put, all, takeEvery } from 'redux-saga/effects';
 import actions from './actions';
 import types from './types';
-import localStorage from '../../helpers/localstorage';
+import localStorage from '@/helpers/localstorage';
 
 function* registerSaga() {
     try {

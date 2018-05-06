@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import memcoinIcon from '../../assets/images/coin_shadow_menu.png';
+import memcoinIcon from '@/assets/images/coin_shadow_menu.png';
 import Logo from './Logo';
 import { Link } from 'react-router-dom';
 import { routes } from 'constants';
@@ -17,7 +17,7 @@ class Menu extends React.Component {
                     </div>
                     <p>{ this.props.username ? this.props.username : 'username' }</p>
                     <span><img src={ memcoinIcon } className="Memcoins" alt="memcoin" id="memcoin"/>
-                    <p>{ this.props.coins ? this.props.coins : 'coins' }</p>
+                        <p>{ this.props.coins ? this.props.coins : 'coins' }</p>
                     </span>
                     <h1>Меню</h1>
                     <Link className="menu-link" to={routes.HOME}>

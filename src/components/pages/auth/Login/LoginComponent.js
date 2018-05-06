@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from 'components/shared/Logo';
+import Logo from '@/components/shared/Logo';
 
 class LoginComponent extends Component {
     render() {

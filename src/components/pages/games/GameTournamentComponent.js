@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from 'components/shared/Navbar';
-import MemePair from 'components/shared/MemPair';
-import Timer from 'components/shared/Timer';
-import WinnerTable from 'components/shared/WinnerTable';
+import Navbar from '@/components/shared/Navbar';
+import MemePair from '@/components/shared/MemPair';
+import Timer from '@/components/shared/Timer';
+import WinnerTable from '@/components/shared/WinnerTable';
 
 /*
     stage = 1 - at game,
@@ -35,14 +35,14 @@ class GameTournamentComponent extends React.Component {
     render() {
         return (
             <section className="GameRush">
-            <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
-            <div className="container">
-                <Timer end='10'/>
-                {this.state.game.stage ?
-                <MemePair memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>:
-                <WinnerTable winners= { this.state.winners }/>
-                }
-            </div>
+                <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
+                <div className="container">
+                    <Timer end='10'/>
+                    {this.state.game.stage ?
+                        <MemePair memeLeftImage={ this.state.game.memeLeftImage } memeRightImage={ this.state.game.memeRightImage }/>:
+                        <WinnerTable winners= { this.state.winners }/>
+                    }
+                </div>
             </section>
         );
     }

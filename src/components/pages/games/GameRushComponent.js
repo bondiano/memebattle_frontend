@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navbar from 'components/shared/Navbar';
-import MemePair from 'components/shared/MemPair';
-import Timer from 'components/shared/Timer';
+import Navbar from '@/components/shared/Navbar';
+import MemePair from '@/components/shared/MemPair';
+import Timer from '@/components/shared/Timer';
 
 class GameRushComponent extends React.Component {
     render() {

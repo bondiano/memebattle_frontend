@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../../shared/Logo';
+import Logo from '@/components/shared/Logo';
 
 class RegisterComponent extends React.Component {
     render() {

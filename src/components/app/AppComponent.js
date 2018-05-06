@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Routes } from 'constants.js';
-import { MainLayout } from 'components/layouts';
-import { RegisterContainer, LoginContainer } from 'containers/auth';
+import { Routes } from '@/constants';
+import { MainLayout } from '@/components/layouts';
+import { RegisterContainer, LoginContainer } from '@/containers/auth';
 
 class AppComponent extends Component {
     render() {
