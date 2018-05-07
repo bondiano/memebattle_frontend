@@ -1,8 +1,8 @@
 import React from 'react';
 import { routes } from 'constants';
-import Navbar from '../../shared/Navbar';
-import Card from '../../shared/Card';
-import cardImg1 from '../../../assets/images/bb.jpg';
+import Navbar from '@/components/shared/Navbar';
+import Card from '@/components/shared/Card';
+import cardImg1 from '@/assets/images/bb.jpg';
 
 class ModesComponent extends React.Component {
 

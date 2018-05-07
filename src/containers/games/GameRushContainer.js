@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {GameRushComponent} from 'components/page/games';
-import {gameActions, gameSelectors} from 'ducks/games/rush/index';
+import {GameRushComponent} from '@/components/page/games';
+import {gameActions, gameSelectors} from '@/ducks/games/rush/index';
 
 
 class GameRushContainer extends React.Component {

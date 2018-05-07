@@ -1,5 +1,5 @@
 import React from 'react';
-import LoaderSVG from '../../assets/images/Pacman.svg';
+import LoaderSVG from '@/assets/images/Pacman.svg';
 
 class LoaderComponent extends React.PureComponent {
 

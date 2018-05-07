@@ -5,8 +5,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import AppComponent from 'containers/AppContainer';
-import store, { history } from 'store';
+import AppComponent from './containers/AppContainer';
+import store, { history } from './store';
 
 const appElement = document.getElementById('app');
 

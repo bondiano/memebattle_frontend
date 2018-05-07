@@ -2,7 +2,7 @@ import { put, all, takeEvery } from 'redux-saga/effects';
 import actions from './actions';
 import types from './types';
 import services from './services';
-import {localStorage} from 'helpers';
+import {localStorage} from '@/helpers';
 
 
 function* registerSaga({userData}) {

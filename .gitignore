@@ -1,9 +1,14 @@
-.DS_Store
-dist
-node_modules
+# IDE
+.vscode
 .idea
+*.code-workspace
+
+# NodeJS
+node_modules
 *.log
+
+# Project
+dist
 .env
 .cache-loader
-package-lock.json
-*.code-workspace
+.DS_Store

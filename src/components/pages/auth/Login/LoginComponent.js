@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Formsy from 'formsy-react';
 
 import { Link } from 'react-router-dom';
-import { Routes, socialNetwork } from 'constants.js';
-import {FormsyInputComponent} from 'components/controls';
+import { Routes, socialNetwork } from '@/constants';
+import {FormsyInputComponent} from '@/components/controls';
 import SocialNetworkButton from './SocialNetworkButton';
 
 function LoginComponent({onSubmit, onValid, onInvalid}) {

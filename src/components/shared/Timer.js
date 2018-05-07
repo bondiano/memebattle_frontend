@@ -1,6 +1,6 @@
 import React from 'react';
 import Meme from './Meme';
-import Hourglass from '../../assets/images/hourglass.svg';
+import Hourglass from '@/assets/images/hourglass.svg';
 
 class Menu extends React.Component {
 

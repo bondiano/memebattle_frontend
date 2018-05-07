@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import logo from 'assets/images/logo_circlel-512x512.png';
+import logo from '@/assets/images/logo_circlel-512x512.png';
 
 const widthBySize = {
     'small': '100px',

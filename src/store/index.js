@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
-import { socket } from 'helpers';
+import { socket } from '@/helpers';
 
 export const history = createHistory();
 const reduxRouterMiddleware = routerMiddleware(history);

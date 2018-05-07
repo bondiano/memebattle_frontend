@@ -38,8 +38,11 @@ const config = {
      * Options affecting the resolving of modules
      */
     resolve: {
-        modules: [srcFolder, 'node_modules'],
-        extensions: ['.js']
+        modules: ['node_modules'],
+        extensions: ['.js'],
+        alias: {
+            '@': srcFolder
+        }
     },
 
     /**

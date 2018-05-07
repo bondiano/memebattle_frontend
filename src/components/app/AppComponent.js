@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Routes } from 'constants.js';
-import { AuthLayout } from 'components/layouts';
-import { RegisterContainer, LoginContainer } from 'containers/auth';
+import { Routes } from '@/constants';
+import { AuthLayout } from '@/components/layouts';
+import { RegisterContainer, LoginContainer } from '@/containers/auth';
 
 function AppComponent() {
     return (
