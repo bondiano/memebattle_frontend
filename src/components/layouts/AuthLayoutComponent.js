@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
-import Logo from 'components/shared/Logo';
+import Logo from '@/components/shared/Logo';
 
 function AuthLayoutComponent() {
 

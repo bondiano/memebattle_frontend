@@ -1,4 +1,4 @@
-import {request} from 'helpers';
+import {request} from '@/helpers';
 
 const services = {
     registerUser(userData) {

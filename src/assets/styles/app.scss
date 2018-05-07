@@ -175,7 +175,7 @@ input[type="checkbox"].input-toggler{
     height: 100vh;
     -webkit-transform: translateX(calc(var(--sidebar-width) * -1));
     transform: translateX(calc(var(--sidebar-width) * -1));
-    background-image: url('./assets/images/background.jpg'); 
+    background-image: url($background-image); 
     background-color: $color-yellow;
     background-attachment: scroll;
     background-position: center center;  

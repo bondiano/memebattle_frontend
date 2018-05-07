@@ -5,7 +5,7 @@
     $big-letter-spacing: 0.4rem;
     $subtext-margin: 24px;
 
-    background: $color-yellow url('./assets/images/background.jpg') repeat scroll center center;
+    background: $color-yellow url($background-image) repeat scroll center center;
     background-size: cover;
     min-height: 100%;
     min-width: 100%;
@@ -182,7 +182,7 @@
     }
     
     input[type="checkbox"].auth-input:checked + label::before {
-        background: url('./assets/images/draw-check-mark.png');
+        background: url('./assets/images/icons/draw-check-mark.png');
         background-size: contain;
     }
     

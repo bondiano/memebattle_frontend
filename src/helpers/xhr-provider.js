@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {localStorage} from './';
-import {API_URL, AUTH_TOKEN_KEY} from 'constants.js';
+import {API_URL, AUTH_TOKEN_KEY} from '@/constants';
 
 const request = axios.create({
     baseURL: API_URL

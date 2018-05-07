@@ -1,7 +1,7 @@
-import telegramIcon from 'assets/images/silhouette-icons/telegram.svg';
-import vkIcon from 'assets/images/silhouette-icons/vk.svg';
-import twitterIcon from 'assets/images/silhouette-icons/twitter.svg';
-import facebookIcon from 'assets/images/silhouette-icons/facebook.svg';
+import telegramIcon from '@/assets/images/social-icons/silhouette-icons/telegram.svg';
+import vkIcon from '@/assets/images/social-icons/silhouette-icons/vk.svg';
+import twitterIcon from '@/assets/images/social-icons/silhouette-icons/twitter.svg';
+import facebookIcon from '@/assets/images/social-icons/silhouette-icons/facebook.svg';
 
 const API_URL = process.env.API_URL;
 const AUTH_TOKEN_KEY = 'token';

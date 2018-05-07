@@ -1,7 +1,7 @@
 import React from 'react';
 import Formsy from 'formsy-react';
 
-import {FormsyInputComponent} from 'components/controls';
+import {FormsyInputComponent} from '@/components/controls';
 
 function RegisterComponent() {
     return (
