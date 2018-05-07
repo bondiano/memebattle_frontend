@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Meme from './Meme';
 import likeImg from '@/assets/images/onimagelike.png';
 
@@ -9,6 +11,16 @@ const defaultState = {
 };
 
 class MemePair extends React.Component {
+    propTypes = {
+        chooseMeme: PropTypes.func.isRequired,
+        userId: PropTypes.number.isRequired,
+        memeLeftImage: PropTypes.string.isRequired,
+        memeRightImage: PropTypes.string.isRequired,
+        leftMemeLikes: PropTypes.number.isRequired,
+        rightMemeLikes: PropTypes.number.isRequired,
+        winner: PropTypes.number.isRequired
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -29,7 +41,7 @@ class MemePair extends React.Component {
         this.setLike({likedRight: 1, liked: 1});
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    componentWillUpdate(nextProps) {
         if (this.props.memeLeftImage !== nextProps.memeLeftImage) {
             this.setLike({likedLeft: 0, liked: 0});
         }
@@ -57,7 +69,8 @@ class MemePair extends React.Component {
                     { this.props.winner === -2 ?
                         <Meme image={ this.props.memeLeftImage }/> :
                         (this.props.winner === -1 ?
-                            <a className={ this.state.liked.liked ? '' : 'chooseMeme' } onClick={ this.state.liked.liked ? (() => {}) : this.chooseLeftMeme }>
+                            <a className={ this.state.liked.liked ? '' : 'chooseMeme' }
+                                onClick={ this.state.liked.liked ? (() => {}) : this.chooseLeftMeme }>
                                 <Meme winner={ this.props.winner } likes={ this.props.leftMemeLikes }
                                     image={ this.props.memeLeftImage }/>
                             </a> :
@@ -73,7 +86,8 @@ class MemePair extends React.Component {
                     { this.props.winner === -2 ?
                         <Meme image={ this.props.memeRightImage }/> :
                         (this.props.winner === -1 ?
-                            <a className={ this.state.liked.liked ? '' : 'chooseMeme' } onClick={ this.state.liked.liked ? (() => {}) : this.chooseRightMeme}>
+                            <a className={ this.state.liked.liked ? '' : 'chooseMeme' }
+                                onClick={ this.state.liked.liked ? (() => {}) : this.chooseRightMeme}>
                                 <Meme winner={ this.props.winner } likes={ this.props.rightMemeLikes }
                                     image={ this.props.memeRightImage }/>
                             </a> :

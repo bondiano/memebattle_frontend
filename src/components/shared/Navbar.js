@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import memcoinIcon from '@/assets/images/coin.png';
 import Menu from './Menu';
 
 class Navbar extends React.Component {
+    propTypes = {
+        username: PropTypes.string.isRequired,
+        coins: PropTypes.number.isRequired
+    };
+
     render() {
         return (
             <nav className="navbar navbar-meme">

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Navbar from '@/components/shared/Navbar';
 import MemePair from '@/components/shared/MemPair';
 import Timer from '@/components/shared/Timer';
@@ -24,6 +26,13 @@ const winnerState = {
 };
 
 class GameTournamentComponent extends React.Component {
+    propTypes = {
+        user: PropTypes.shape({
+            username: PropTypes.string.isRequired,
+            memcoin: PropTypes.number.isRequired
+        }).isRequired
+    };
+
     constructor(props) {
         super(props);
         this.state = {
