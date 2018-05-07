@@ -1,113 +1,203 @@
-.Auth{
-  background: $color-yellow url('./assets/images/background.jpg') repeat scroll center center;
-  background-size: cover;
-  min-height: 100vh;
-  max-height: 100%;
-  max-width: 100%;
-}
+.auth-layout {
+    $input-bottom-underline-size: 2px;
+    $small-letter-spacing: 0.1rem;
+    $medium-letter-spacing: 0.2rem;
+    $big-letter-spacing: 0.4rem;
+    $subtext-margin: 24px;
 
-:focus {
-    outline-style: none;
-    outline-width: 0px !important;
-    outline-color: none !important;
-    box-shadow: none !important;
-}
+    background: $color-yellow url($background-image) repeat scroll center center;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-p.accept-rules {
-    padding-top: 3px;
-    padding-left: 10px; 
-    color:white;
-    letter-spacing: 0.2rem;
-}
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 
- input[type="password"].auth-input, input[type="email"].auth-input, input[type="text"].auth-input{
-    border: none;
-    border-bottom: 0.1rem solid white;
-    border-radius: 0px;
-    background: none !important;
-    outline: none; 
-    color: white;
-    font-size: 2rem; 
-    font-family: "OpenGostTypeATT-Regular", Tahoma;
-    letter-spacing: 0.2rem;
- }
+    p {
+        margin: $subtext-margin;
+        letter-spacing: $small-letter-spacing;
+        font-size: 1.8rem;
+    }
 
- input[type="text"]:focus.auth-input, input[type="password"]:focus.auth-input, input[type="email"]:focus.auth-input {
-    border-bottom: 0.1rem solid $color-blue;
- }
+    .input-block {
+        display: flex;
+        flex-direction: column;
+    
+        :last-child {
+            margin-bottom: 0px !important;
+        }
+    }
+    
+    .social-buttons-block {
+        max-width: 500px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
 
- input[type="text"].auth-input::placeholder {color:white;}
+        .login-social-button {
+            border: 0;
+            width: 200px;            
+            margin: 0 8px 8px 8px;
+            outline: none; 
+            background: none;
+            display: flex;
+            align-items: center;
+            img {
+                max-width: 46px;
+            }
 
+            span {
+                color: $color-blue;                
+                letter-spacing: $medium-letter-spacing;
+                font-size: $medium-font-size;
+                padding-left: 26px;
+            }
+        }
 
- input[type="email"].auth-input::placeholder {color:white;}
- input[type="checkbox"].auth-input{
-    display: none;
- }
+        @media screen and (max-width: 450px) {
+            width: 100%;
+            .login-social-button {
+                width: auto;
+                margin: 0;
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
 
-input[type="checkbox"].auth-input + label::before {
-    border: 0.1rem solid;
-    border-radius: 3px;
-    display:inline-block;
-    width:1.6rem;
-    height:1.6rem;
-    margin: 0 10px 5px -0.1rem;
-    vertical-align:middle;
-    //background:url('./assets/images/draw-check-mark.png') left top no-repeat;
-    cursor:pointer;
-    content:"";
-}
+    .sub-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
 
-input[type="checkbox"].auth-input:checked + label::before {
-    background:url('./assets/images/draw-check-mark.png');
-    background-size: contain;
-}
+        p, a {
+            letter-spacing: $medium-letter-spacing;
+            font-size: $small-font-size;
+            color: $color-dark-grey;
+        }
+        p {
+            margin: 0px;
+        }
 
-button.auth-btn{
-    border: 0.1rem solid $color-blue;
-    border-radius: 10rem;
-    color: $color-blue;
-    text-decoration: none;
-    user-select: none;
-    background: none;
-    //padding: 0 4rem 0 4rem;
-    outline: none;
-    font-family: "OpenGostTypeATT-Regular", Tahoma;
-    font-size: 2rem; 
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 16rem;
-}
+        a:hover {
+            color: $color-blue;
+        }
+    }
 
-button.auth-btn:hover, button.auth-btn:active, button.auth-btn:focus {
-    color: $color-white;
-    background: $color-blue;
-}
-
-button.register-btn{
-    border: 0.1rem solid $color-blue;
-    border-radius: 10rem;
-    color: white;
-    text-decoration: none;
-    user-select: none;
-    background: $color-blue;
-    outline: none;
-    font-family: "OpenGostTypeATT-Regular", Tahoma;
-    font-size: 2rem; 
-    width: 16rem;
-}
-
-button.register-btn:hover, button.register-btn:active, button.register-btn:focus, a:focus > button.register-btn {
-    color: $color-blue !important;
-    background: none !important;
-}
-
-.input-error-text {
-    font-family: "OpenGostTypeATT-Regular", Arial, sans-serif;    
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    color: rgb(235, 61, 61);
-}
-
-input.input-error {
-    border-bottom: 0.1rem solid rgb(235, 61, 61) !important;
+    input[type="password"].auth-input, input[type="email"].auth-input, input[type="text"].auth-input{
+        border: 0;
+        width: 100%;
+        border-bottom: $input-bottom-underline-size solid rgba($color: white, $alpha: 0.8);
+        border-radius: 0px;
+        background: none !important;
+        outline: none; 
+        color: white;
+        font-size: $medium-font-size;
+        letter-spacing: 0.3rem;
+        padding-left: 12px;
+        margin-bottom: 20px;
+    }
+    
+    input[type="text"]:focus.auth-input, input[type="password"]:focus.auth-input, input[type="email"]:focus.auth-input {
+        border-bottom: $input-bottom-underline-size solid $color-blue;
+        color: $color-blue;
+    }
+    
+    input[type="text"].auth-input::placeholder, input[type="password"].auth-input::placeholder {
+        color:white;
+    }
+    
+    .auth-btn{
+        border: 2px solid $color-blue;
+        border-radius: 10rem;
+        color: white;
+        text-decoration: none;
+        user-select: none;
+        background: $color-blue;
+        padding: 5px;
+        outline: none;
+        font-size: $big-font-size; 
+        margin-bottom: 16px;
+        margin-top: 16px;
+        width: 16rem;
+    }
+    
+    .auth-btn:hover, .auth-btn:focus {
+        background: $color-blue-active;
+        border: 2px solid $color-blue-active;
+    }
+    
+    .auth-btn:active {
+        color: $color-blue;
+        background: none;
+        border: 2px solid $color-blue;
+    }
+    
+    .auth-btn:disabled {
+        background: $color-grey;
+    }
+    
+    .input-error-text {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+        color: $color-red;
+    }
+    
+    input.input-error {
+        border-bottom: $input-bottom-underline-size solid $color-red !important;
+    }
+    
+    input[type="checkbox"].auth-input {
+        display: none;
+    }
+    
+    input[type="checkbox"].auth-input + label::before {
+        border: 0.2rem solid;
+        border-radius: 3px;
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin: 0 10px 5px 0;
+        vertical-align: middle;
+        cursor: pointer;
+        content: "";
+    }
+    
+    input[type="checkbox"].auth-input:checked + label::before {
+        background: url('./assets/images/icons/draw-check-mark.png');
+        background-size: contain;
+    }
+    
+    .accept-rules {
+        margin: 8px 8px;
+        color:white;
+        p {
+            margin: 0;
+            color:white;
+            display: inline;
+            cursor: pointer;
+            letter-spacing: $big-letter-spacing;
+        }
+    }
+    .checkbox-custom {
+        padding-right: 10px;
+    }
 }

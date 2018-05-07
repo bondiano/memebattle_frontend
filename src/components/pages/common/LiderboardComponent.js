@@ -1,15 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Navbar from '@/components/shared/Navbar';
 import memcoinIcon from '@/assets/images/coin.png';
 
 class LiderboardComponent extends React.Component {
+    propTypes = {
+        user: PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            username: PropTypes.string.isRequired,
+            memcoin: PropTypes.number.isRequired
+        }).isRequired,
+        userRating: PropTypes.number.isRequired,
+        liderlist: PropTypes.array.isRequired,
+        getLidersBoard: PropTypes.func.isRequired
+    };
 
     constructor(props) {
         super(props);
     }
 
     componentDidMount(){
-        this.props.getLidersBoard({id: this.props.user._id});
+        this.props.getLidersBoard({id: this.props.user.id});
     }
 
     render() {
@@ -22,7 +34,7 @@ class LiderboardComponent extends React.Component {
                             <h1 className="page-title">Лидеры</h1>
                         </div>
                     </div>
-                    { Object.keys(this.props.liderlist).map((keys, index) =>
+                    { Object.keys(this.props.liderlist).map((keys) =>
                         <div key={keys.toString()} className="row align-items-center liders-item">
                             <div className="col-auto">
                                 <p>{ 1 + +keys }</p>

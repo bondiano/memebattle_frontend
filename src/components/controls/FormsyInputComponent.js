@@ -1,27 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HOC} from 'formsy-react';
+import {withFormsy} from 'formsy-react';
 import InputComponent from './InputComponent';
 
 class FormsyInputComponent extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this._onChange = this._onChange.bind(this);
-    }
-
     /**
      * Handle input change
      *
      * @param {Event} e
      * @private
      */
-    _onChange(e) {
+    _onChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(e);
         }
         this.props.setValue(e.target.value);
-    }
+    };
 
     render() {
         return (
@@ -39,6 +33,8 @@ class FormsyInputComponent extends React.Component {
                 size={this.props.size}
                 type={this.props.type}
                 readOnly={this.props.readOnly}
+                labelClasses={this.props.labelClasses}
+                inputClasses={this.props.inputClasses}
             />
         );
     }
@@ -57,6 +53,8 @@ FormsyInputComponent.propTypes = {
     isFormSubmitted: PropTypes.func.isRequired,
     isRequired: PropTypes.func.isRequired,
     hasError: PropTypes.bool.isRequired,
+    labelClasses: PropTypes.string.isRequired,
+    inputClasses: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     readOnly: PropTypes.bool,
     type: PropTypes.string,
@@ -67,4 +65,4 @@ FormsyInputComponent.propTypes = {
     placeholder: PropTypes.string
 };
 
-export default HOC(FormsyInputComponent);
+export default withFormsy(FormsyInputComponent);

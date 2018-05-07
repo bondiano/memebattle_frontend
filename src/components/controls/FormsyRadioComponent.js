@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HOC} from 'formsy-react';
+import {withFormsy} from 'formsy-react';
 import RadioComponent from './RadioComponent';
 
 class FormsyRadioComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this._changeValue = this._changeValue.bind(this);
-    }
-
     componentDidMount() {
         const value = this.props.value || '';
 
@@ -20,9 +15,9 @@ class FormsyRadioComponent extends React.Component {
      *
      * @param {string} value
      */
-    _changeValue(value) {
+    _changeValue = (value) => {
         this.props.setValue(value);
-    }
+    };
 
     render() {
         return (
@@ -45,4 +40,4 @@ FormsyRadioComponent.propTypes = {
     value: PropTypes.string.isRequired
 };
 
-export default HOC(FormsyRadioComponent);
+export default withFormsy(FormsyRadioComponent);

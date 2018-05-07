@@ -5,17 +5,19 @@ import classNames from 'classnames';
 function TextComponent(props) {
     const {label, componentRef, showError, hasError, ...restProps} = props;
 
-    return ([
-        label && <label key='label' htmlFor={restProps.name} dangerouslySetInnerHTML={{__html: label}}/>,
-        <textarea
-            rows={restProps.rows}
-            ref={componentRef}
-            id={restProps.name}
-            key='textArea'
-            {...restProps}
-            className={classNames({invalid: showError || hasError})}
-        />
-    ]);
+    return (
+        <>
+            {label && <label key='label' htmlFor={restProps.name} dangerouslySetInnerHTML={{__html: label}}/>}
+            <textarea
+                rows={restProps.rows}
+                ref={componentRef}
+                id={restProps.name}
+                key='textArea'
+                {...restProps}
+                className={classNames({invalid: showError || hasError})}
+            />
+        </>
+    );
 }
 
 TextComponent.defaultProps = {

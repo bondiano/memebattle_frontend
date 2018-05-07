@@ -8,12 +8,13 @@ import {gameActions, gameSelectors} from '@/ducks/games/rush/index';
 class GameRushContainer extends React.Component {
     static propTypes = {
         connect: PropTypes.func.isRequired,
-        chooseMeme: PropTypes.func.isRequired
+        chooseMeme: PropTypes.func.isRequired,
+        getMemesPair: PropTypes.func.isRequired
     };
 
     componentDidMount() {
-        this.props.connect({user_id: user_id, game_id: 0});
-        this.props.getMemesPair({user_id: user_id, game_id: 0});
+        this.props.connect({/* user_id: user_id, */ game_id: 0});
+        this.props.getMemesPair({/* user_id: user_id, */ game_id: 0});
     }
 
     render() {

@@ -1,59 +1,60 @@
-import React, { Component } from 'react';
-import Logo from '@/components/shared/Logo';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Formsy from 'formsy-react';
 
-class LoginComponent extends Component {
-    render() {
-        return (
-            <section className="Auth container-fluid">
-                <div className="row justify-content-center">
-                    <div className="col col-xs-12 col-sm-8 col-md-6 col-lg-3 text-center">
-                        <Logo />
-                    </div>
+import { Link } from 'react-router-dom';
+import { Routes, socialNetwork } from '@/constants';
+import {FormsyInputComponent} from '@/components/controls';
+import SocialNetworkButton from './SocialNetworkButton';
+
+function LoginComponent({onSubmit, onValid, onInvalid}) {
+    return (
+        <section>
+            <div>
+                <h1>
+                    Вход
+                </h1>
+            </div>
+
+            <Formsy onSubmit={onSubmit} onValid={onValid} onInvalid={onInvalid}>
+                <div className="input-block">
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
+                        name="username"
+                        placeholder="Логин или e-mail"
+                        type="text"/>
+                    <FormsyInputComponent
+                        inputClasses="auth-input"
+                        name="password"
+                        placeholder="Пароль"
+                        type="password"/>
                 </div>
-                <form>
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <h1 className="enterText">
-                                Вход
-                            </h1>
-                        </div>
-                    </div>
-                    <input
-                        className="form-control auth-input"
-                        name="username"
-                        type="text" label="Name"
-                        placeholder="Логин"
-                        required
-                    />
 
-                    <input
-                        className="form-control auth-input"
-                        name="username"
-                        type="text" label="Name"
-                        placeholder="Логин"
-                        required
-                    />
+                <p>или войти с помощью</p>
+                <div className="social-buttons-block">
+                    <SocialNetworkButton socialNetwork={socialNetwork.vk}/>
+                    <SocialNetworkButton socialNetwork={socialNetwork.twitter}/>
+                    <SocialNetworkButton socialNetwork={socialNetwork.telegram}/>
+                    <SocialNetworkButton socialNetwork={socialNetwork.facebook}/>
+                </div>
 
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button type="submit" className="btn auth-btn">
-                                ВХОД
-                            </button>
-                        </div>
-                    </div>
+                <button type="submit" className="auth-btn">
+                    ВХОД
+                </button>
+            </Formsy>
 
-                    <div className="row justify-content-center">
-                        <div className="col col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
-                            <button className="btn register-btn" >
-                                РЕГИСТРАЦИЯ
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </section>
-        );
-    }
+            <div className="sub-block">
+                <p>Нет аккаунта?</p>
+                <Link to={Routes.REGISTER}>Зарегистрироваться</Link>
+            </div>
+        </section>
+    );
 }
 
+LoginComponent.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    onValid: PropTypes.func.isRequired,
+    onInvalid: PropTypes.func.isRequired
+};
 
 export default LoginComponent;

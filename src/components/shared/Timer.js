@@ -1,8 +1,12 @@
 import React from 'react';
-import Meme from './Meme';
+import PropTypes from 'prop-types';
+
 import Hourglass from '@/assets/images/hourglass.svg';
 
 class Menu extends React.Component {
+    propTypes = {
+        end: PropTypes.number.isRequired
+    };
 
     constructor(props) {
         super(props);
@@ -25,9 +29,9 @@ class Menu extends React.Component {
         this.mounted = false;
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    componentWillUpdate(nextProps) {
         if (this.props.end !== nextProps.end) {
-            this.state.time = nextProps.end;
+            this.setState({...this.state, time: nextProps.end});
             this.startTimer();
         }
     }
@@ -44,7 +48,7 @@ class Menu extends React.Component {
 
         this.setState((prevState) => ({
             ...prevState,
-            time: --this.state.time
+            time: this.state.time - 1
         }));
 
         if(this.state.time <= 0){

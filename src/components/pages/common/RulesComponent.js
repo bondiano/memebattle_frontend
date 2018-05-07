@@ -1,13 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { routes } from 'constants';
 import Navbar from '@/components/shared/Navbar';
 
 class RulesComponent extends React.Component {
+    propTypes = {
+        user: PropTypes.shape({
+            username: PropTypes.string.isRequired,
+            memcoin: PropTypes.number.isRequired
+        }).isRequired
+    };
+
     render() {
+        const {user} = this.props;
         return (
             <section className="Rules">
-                <Navbar username={ this.props.user.username } coins={ this.props.user.memcoin }/>
+                <Navbar username={ user.username } coins={ user.memcoin }/>
                 <div className="container">
                     <div className="row">
                         <div className="col">
@@ -20,11 +29,13 @@ class RulesComponent extends React.Component {
                         Если понравившася картинка набрала больше лайков от других игроков - вы победили и получаете целый мемкоин!</p>
 
                             <p><i>В чем же смысл?</i> Во-первых, Вы смотрите мемы, разве не круто?)
-                        Во-вторых, Вы помогаете всем выбирать лучшие. Ну а еще мемкоины можно будет обменять на что-то интересное, ждите обновлений:)</p>
+                        Во-вторых, Вы помогаете всем выбирать лучшие. Ну а еще мемкоины можно будет обменять на что-то интересное,
+                        ждите обновлений:)</p>
 
-                            <p>Посмотреть свое текущее положение можно во вкладке "<Link to={ routes.LEADER_BOARD }>Лидеры</Link>". </p>
+                            <p>Посмотреть свое текущее положение можно во вкладке <Link to={ routes.LEADER_BOARD }>Лидеры</Link>. </p>
 
-                            <p>С предложениями обращаться кому-нибудь из контактов в нашей группе <a href="https://vk.com/memsbattle" target='_blank'>Вконтакте</a>. </p>
+                            <p>С предложениями обращаться кому-нибудь из контактов в нашей
+                            группе <a href="https://vk.com/memsbattle" target="_blank" rel="noopener noreferrer">Вконтакте</a>. </p>
 
                             <p style={{textAlign: 'right'}}><i>С уважением, команда MemBattle.</i></p>
                         </div>

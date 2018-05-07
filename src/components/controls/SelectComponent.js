@@ -36,23 +36,25 @@ export default class SelectComponent extends Component {
             {name, options, label} = this.props,
             {value} = this.state;
 
-        return ([
-            label && <label htmlFor={name} key='label' dangerouslySetInnerHTML={{__html: label}}/>,
-            <select
-                name={name}
-                id={name}
-                value={value}
-                onChange={this._changeValue}
-                key='select'
-            >
-                {
-                    options.map((option, i) => (
-                        <option key={`${option.get('name')}_${i}`} value={option.get('value')}>
-                            {option.get('name')}
-                        </option>
-                    ))
-                }
-            </select>
-        ]);
+        return (
+            <>
+                {label && <label htmlFor={name} key='label' dangerouslySetInnerHTML={{__html: label}}/>}
+                <select
+                    name={name}
+                    id={name}
+                    value={value}
+                    onChange={this._changeValue}
+                    key='select'
+                >
+                    {
+                        options.map((option, i) => (
+                            <option key={`${option.get('name')}_${i}`} value={option.get('value')}>
+                                {option.get('name')}
+                            </option>
+                        ))
+                    }
+                </select>
+            </>
+        );
     }
 }

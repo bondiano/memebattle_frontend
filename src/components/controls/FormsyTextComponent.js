@@ -1,24 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HOC} from 'formsy-react';
+import {withFormsy} from 'formsy-react';
 import TextComponent from './TextComponent';
 
 class FormsyTextComponent extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this._onChange = this._onChange.bind(this);
-    }
-
     /**
      * Handle input change
      *
      * @param {Event} e
      * @private
      */
-    _onChange(e) {
+    _onChange = (e) => {
         this.props.setValue(e.target.value);
-    }
+    };
 
     render() {
         return (
@@ -62,4 +56,4 @@ FormsyTextComponent.propTypes = {
     placeholder: PropTypes.string
 };
 
-export default HOC(FormsyTextComponent);
+export default withFormsy(FormsyTextComponent);

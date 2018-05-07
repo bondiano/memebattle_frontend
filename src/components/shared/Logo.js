@@ -1,16 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/images/logo_circlel.png';
+import logo from '@/assets/images/design/logo/logo_circlel-512x512.png';
 
-class Logo extends React.PureComponent {
-    render() {
-        return (
-            <Link className="menu-link" to="/">
-                <img src={ logo } className="Logo" title="На главную" alt="Logo" id="logo"/>
-            </Link>
-        );
-    }
+const widthBySize = {
+    'small': '100px',
+    'medium': '250px',
+    'big': '500px'
+};
+
+function Logo({size}) {
+    return(
+        <Link to="/">
+            <img src={logo} title="На главную" alt="Logo" id="logo" className="Logo" width={widthBySize[size]}/>
+        </Link>
+    );
 }
 
+Logo.defaultProps = {
+    size: 'medium'
+};
+
+Logo.propTypes = {
+    size: PropTypes.oneOf(['small', 'medium', 'big'])
+};
 
 export default Logo;
