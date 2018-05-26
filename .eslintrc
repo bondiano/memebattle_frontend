@@ -93,6 +93,7 @@
                 "ignoreRestSiblings": true
             }
         ],
+        "no-console": "warn",
         "no-dupe-args": "error",
         "no-dupe-keys": "error",
         "no-duplicate-case": "error",
