@@ -17,11 +17,15 @@ deploy:
   - skip_cleanup: true
   # deploy develop to the staging environment
   - provider: script
-    script: yarn deploy-stage
+    script:
+      - yarn
+      - yarn deploy-stage
     on:
       branch: deploy
   # deploy master to production
   - provider: script
-    script: yarn deploy-prod
+    script:
+      - yarn
+      - yarn deploy-prod
     on:
       branch: master
