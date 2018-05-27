@@ -2,11 +2,18 @@ language: node_js
 
 os:
   - linux
-  - osx
+
+install:
+  - echo themezv.ru $ASERVER_TRAVIS_PUB >> $HOME/.ssh/known_hosts
 
 node_js:
 - '8'
 
-script:
-  - npm install
-  - npm run lint
+jobs:
+  include:
+    - stage: install
+      script: yarn
+    - stage: eslint
+      script: yarn lint
+    - stage: deploy
+      script: yarn deploy-stage
