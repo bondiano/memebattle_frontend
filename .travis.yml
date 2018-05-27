@@ -2,11 +2,24 @@ language: node_js
 
 os:
   - linux
-  - osx
 
 node_js:
-- '8'
+- '8.9.4'
+
+cache: yarn
 
 script:
-  - npm install
-  - npm run lint
+  - yarn
+  - yarn lint
+
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script: yarn deploy-stage
+    on:
+      branch: develop
+  # deploy master to production
+  - provider: script
+    script: yarn deploy-prod
+    on:
+      branch: master

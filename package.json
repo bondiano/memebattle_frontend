@@ -6,7 +6,9 @@
         "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config.js --mode development --progress",
         "prod": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --mode production --progress",
         "build": "cross-env NODE_ENV=development webpack --config ./webpack.config.js --mode development --progress",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "deploy-stage": "cross-env NODE_ENV=development webpack --config ./webpack.config.js --mode development --progress; node ./scripts/deploy.js",
+        "deploy-prod": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --mode production --progress; node ./scripts/deploy.js"
     },
     "engines": {
         "node": "^8.9.4",
