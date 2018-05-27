@@ -21,13 +21,13 @@ script:
 
 jobs:
   include:
-    - if: branch = master
+    if: branch = master
     script:
       - yarn deploy-stage
 
 jobs:
   include:
-    - if: branch = develop
+    if: branch = develop
     script:
       - yarn deploy-stage
 
