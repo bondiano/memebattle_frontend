@@ -8,11 +8,18 @@ node_js:
 
 cache: yarn
 
-jobs:
-  include:
-    - stage: install
-      script:
-      - ls $HOME/.ssh/
-      - yarn
-      - yarn lint
-      - yarn deploy-stage
+script:
+  - yarn
+  - yarn lint
+
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script: yarn deploy-stage
+    on:
+      branch: develop
+  # deploy master to production
+  - provider: script
+    script: yarn deploy-prod
+    on:
+      branch: master
