@@ -10,27 +10,13 @@ cache: yarn
 
 branches:
   only:
-  - master
   - develop
   - deploy
-  - /^(?i:release)-.*$/
 
 script:
   - yarn
   - yarn lint
-
-jobs:
-  include:
-    if: branch = deploy
-    script:
-      - yarn deploy-stage
-
-jobs:
-  include:
-    if: branch = develop
-    script:
-      - yarn deploy-stage
-
+  - yarn deploy-demo
 
 git:
   depth: false
