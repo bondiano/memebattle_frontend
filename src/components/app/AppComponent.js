@@ -9,7 +9,7 @@ function AppComponent() {
         <Switch>
             <AuthLayout exact path={Routes.LOGIN} component={LoginContainer}/>
             <AuthLayout exact path={Routes.REGISTER} component={RegisterContainer}/>
-            <Route render={() => <p>Not ready</p>}/>
+            <Route render={() => <p>Not ready t10</p>}/>
         </Switch>
     );
 }
