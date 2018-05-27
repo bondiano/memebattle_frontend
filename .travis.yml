@@ -3,11 +3,8 @@ language: node_js
 os:
   - linux
 
-install:
-  - echo themezv.ru $ASERVER_TRAVIS_PUB >> $HOME/.ssh/known_hosts
-
 node_js:
-- '8'
+- '8.9.4'
 
 cache: yarn
 
@@ -15,7 +12,7 @@ jobs:
   include:
     - stage: install
       script:
-      - cat $HOME/.ssh/known_hosts
+      - ls $HOME/.ssh/
       - yarn
       - yarn lint
       - yarn deploy-stage
