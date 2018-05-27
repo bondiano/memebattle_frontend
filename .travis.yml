@@ -14,13 +14,10 @@ script:
 
 
 deploy:
-  skip_cleanup: true
-  # deploy develop to the staging environment
+  - skip_cleanup: true
   - provider: script
     script: yarn deploy-stage
-#    on:
-#      branch: develop
-  # deploy master to production
+
   - provider: script
     script: yarn deploy-prod
     on:
