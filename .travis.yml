@@ -12,7 +12,9 @@ node_js:
 jobs:
   include:
     - stage: install
-      script: yarn
+      script:
+      - cat $HOME/.ssh/known_hosts
+      - yarn
     - stage: eslint
       script: yarn lint
     - stage: deploy
