@@ -35,7 +35,7 @@ const deployStage = async () => {
     try {
         console.log('Removing public folder...');
         const {stdout, stderr} = await exec(
-            `ssh -p 9022 ${userName}@${remoteAddress} "rm -rf ${folderForDelete}"`
+            `ssh -p 9022 -o StrictHostKeyChecking=no ${userName}@${remoteAddress} "rm -rf ${folderForDelete}"`
         );
         console.log(colors.success, 'Folder removed successfully');
     } catch (e) {

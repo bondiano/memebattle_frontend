@@ -4,21 +4,18 @@ os:
   - linux
 
 node_js:
-- '8.9.4'
+  - '8.9.4'
 
 cache: yarn
+
+branches:
+  only:
+  - develop
 
 script:
   - yarn
   - yarn lint
+  - yarn deploy-stage
 
-
-deploy:
-  - skip_cleanup: true
-  - provider: script
-    script: yarn deploy-stage
-
-  - provider: script
-    script: yarn deploy-prod
-    on:
-      branch: master
+git:
+  depth: false
