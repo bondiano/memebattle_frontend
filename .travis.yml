@@ -19,26 +19,18 @@ script:
   - yarn
   - yarn lint
 
-
-
-deploy:
-  - skip_cleanup: true
-  # deploy develop to the staging environment
-    provider: script
+jobs:
+  include:
+    - if: branch = master
     script:
-      - ls
-      - echo $type
-      - yarn
       - yarn deploy-stage
-    on:
-      branch: deploy
-  # deploy master to production
-  - provider: script
+
+jobs:
+  include:
+    - if: branch = develop
     script:
-      - yarn
-      - yarn deploy-prod
-    on:
-      branch: master
+      - yarn deploy-stage
+
 
 git:
   depth: false
