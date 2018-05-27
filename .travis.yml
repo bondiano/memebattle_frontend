@@ -20,10 +20,11 @@ script:
   - yarn lint
 
 
+
 deploy:
   - skip_cleanup: true
   # deploy develop to the staging environment
-  - provider: script
+    provider: script
     script:
       - ls
       - echo $type
