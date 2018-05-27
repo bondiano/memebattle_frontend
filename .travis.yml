@@ -16,7 +16,7 @@ branches:
 script:
   - yarn
   - yarn lint
-  - yarn deploy-demo
+  - yarn deploy-stage
 
 git:
   depth: false
